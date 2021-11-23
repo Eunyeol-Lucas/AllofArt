@@ -13,7 +13,8 @@
 ```
 
 ## How to use
+### Docker
 ```
-docker build -t allOfArt .
-docker run -d -p 80:80 --name api allOfArt:latest
+docker build -t api .
+docker run -d -p 8000:5000 --name backend api:latest
 ```
