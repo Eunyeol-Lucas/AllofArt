@@ -1,12 +1,9 @@
-#from sqlalchemy.orm import relationship
-
-from app.database import Base
-
-from . import Column, Integer, String  # , Boolean, ForeignKey
+from . import Base, Boolean, Column, ForeignKey, Integer, String, relationship
 
 
 class User(Base):
     __tablename__ = "user"
+
     id = Column(Integer, primary_key=True)
     email = Column(String(256), nullable=False, unique=True)
     pw = Column(String(256), nullable=False, unique=True)
