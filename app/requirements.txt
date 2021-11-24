@@ -7,3 +7,4 @@ uvicorn[standard]
 pillow
 python-multipart
 tensorflow==2.3.0
+alembic

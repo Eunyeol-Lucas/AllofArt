@@ -1,7 +1,7 @@
 ## 디렉토리 구조
 ```
 ├─ai
-│  └─style_alt : 화풍 바꿔주는 모델(style-transfer)
+│  └─style_trs : 화풍 바꿔주는 모델(style-transfer)
 │  └─style_cls : 화풍 분류 모델(style classifier)
 │  
 ├─crud : CRUD 로직
