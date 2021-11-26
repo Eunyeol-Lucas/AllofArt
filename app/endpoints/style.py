@@ -33,9 +33,20 @@ async def classify_uploaded_painting(file: UploadFile = File(...)):  # key == fi
         return "Image must be jpg or png format!"
 
     image = read_imagefile(await file.read())
-    result = classify_style(image, extension=extension)
+    result = classify_style(image, extension=extension)  # -> dict
 
-    return result
+    # 소수점 제거
+    result = {k: round(v, 2) for k, v in result.items()}
+
+    # top 5만 추출
+    top_5 = sorted(result.items(), key=lambda x: -x[1])[:5]
+
+    # top_5 변수를 style db에 저장하는 로직 추가
+
+    # 언더바 제거
+    top_5_return = {k.replace("_", " "): v for (k, v) in top_5}  # api리턴을 위한 데이터
+
+    return top_5_return
 
 
 # async def classify_uploaded_painting(files:List[UploadFile] = File(...)):
