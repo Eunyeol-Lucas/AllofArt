@@ -32,7 +32,8 @@ def classify_style(image: Image, extension: str) -> dict:
     data[0] = normalized_image_array
 
     # run the inference
-    probabilities = model.predict(data)[0].tolist()
+
+    probabilities = (model.predict(data)[0] * 100).tolist()
 
     result = {painter: prob for painter, prob in zip(label_list, probabilities)}
     return result

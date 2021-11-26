@@ -52,3 +52,4 @@ label_dict = {
 }
 
 label_list = [v for k, v in label_dict.items()]
+label_list_whitespace = [v.replace("_", " ") for k, v in label_dict.items()]
