@@ -42,7 +42,7 @@ async def classify_uploaded_painting(file: UploadFile = File(...)):  # key == fi
     top_5 = sorted(style_result.items(), key=lambda x: -x[1])[:5]
 
     # top_5 변수를 style db에 저장하는 로직 추가
-    #
+    # crud
 
     # 언더바 제거
     style_result = {k.replace("_", " "): v for (k, v) in top_5}  # api리턴을 위한 데이터
