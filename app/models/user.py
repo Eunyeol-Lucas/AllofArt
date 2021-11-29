@@ -1,6 +1,6 @@
-from . import Base, Boolean, Column, ForeignKey, Integer, String, relationship
-
-
+from . import Base,db
+from. import Boolean, Column, ForeignKey, Integer, String, relationship
+from sqlalchemy.sql.sqltypes import DATETIME
 class User(Base):
     __tablename__ = "user"
 
