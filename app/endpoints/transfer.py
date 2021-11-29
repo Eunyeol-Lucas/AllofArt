@@ -30,7 +30,7 @@ async def trs_style(
     content_file: UploadFile = File(...), style_file: UploadFile = File(...)
 ):
 
-    USER_IMAGE_DIR = "/static/user"
+    USER_IMAGE_DIR = "/static/images/user"
 
     PAINTING_ID = "test"
 
