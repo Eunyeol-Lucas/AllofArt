@@ -3,6 +3,9 @@ from fastapi.responses import HTMLResponse
 
 from app.ai.style_trs.main import transfer_style
 
+import os
+import pathlib
+
 router = APIRouter()
 
 
