@@ -33,7 +33,24 @@ async def classify_uploaded_painting(file: UploadFile = File(...)):  # key == fi
         return "Image must be jpg or png format!"
 
     image = read_imagefile(await file.read())
-    result = classify_style(image, extension=extension)
+    style_result = classify_style(image, extension=extension)
+
+    # 소수점 제거
+    style_result = {k: round(v, 2) for k, v in style_result.items()}
+
+    # top 5만 추출
+    top_5 = sorted(style_result.items(), key=lambda x: -x[1])[:5]
+
+    # top_5 변수를 style db에 저장하는 로직 추가
+    # crud
+
+    # 언더바 제거
+    style_result = {k.replace("_", " "): v for (k, v) in top_5}  # api리턴을 위한 데이터
+
+    result = {
+        "style_result": style_result,
+        "imgae_url": r"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg/800px-Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
+    }
 
     return result
 

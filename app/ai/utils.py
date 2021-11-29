@@ -1,5 +1,6 @@
 from io import BytesIO
 
+import tensorflow as tf
 from PIL import Image
 
 
@@ -8,10 +9,6 @@ def read_imagefile(file) -> Image.Image:
     return image
 
 
-def preprocess_for_style_transfer(image_path):
-    img = tf.io.decode_image(tf.io.read_file(image_path), channels=3, dtype=tf.float32)[
-        tf.newaxis, ...
-    ]
-
-    img = tf.image.resize(img, image_size, preserve_aspect_ratio=True)
+def tf_read(image: str):
+    img = tf.io.decode_image(image, channels=3, dtype=tf.float32)[tf.newaxis, ...]
     return img

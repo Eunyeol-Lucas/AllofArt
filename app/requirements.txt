@@ -9,3 +9,4 @@ python-multipart
 tensorflow==2.7.0
 tensorflow_hub
 matplotlib
+opencv-python

@@ -1,27 +1,28 @@
-import matplotlib.pyplot as plt
-import numpy as np
+# from cv2 import imread, imencode
+from io import BytesIO
+
 import tensorflow as tf
 import tensorflow_hub as hub
 
 
-def load_image
+def tf_read(image: str):
+    img = tf.io.decode_image(image, channels=3, dtype=tf.float32)[tf.newaxis, ...]
+    return img
 
-def transfer_style(content_image_path: str, style_image_path:str) -> None:
-    
-    
-    
-    content_image = plt.imread(content_image_path)
-    style_image = plt.imread(style_image_path)
-    content_image = content_image.astype(np.float32)[np.newaxis, ...] / 255.
-    style_image = style_image.astype(np.float32)[np.newaxis, ...] / 255.
-    style_image = tf.image.resize(style_image, (256, 256))
 
-    # Load image stylization module.
-    hub_module = hub.load('https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2')
+def transfer_style(content_image: str, style_image: str, save_path: str) -> BytesIO:
 
-    # Stylize image.
+    # hub_module = hub.load('style_transfer')
+    hub_handle = "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
+    hub_module = hub.load(hub_handle)
+
     outputs = hub_module(tf.constant(content_image), tf.constant(style_image))
-    stylized_image = outputs[0]
-    stylized_image.save('./test.png')
+    outputs = outputs[0][0].numpy()
 
-transfer_style("C:\Git\server_image\썸네일.png", "C:\Git\server_image\캡처.png")
+    tf.keras.utils.save_img("test.jpg", outputs)
+
+    # cv2img = imread('test.jpg')
+    # res, im_jpg = imencode(".jpg", cv2img)
+    # encoded_image = BytesIO(im_jpg.tobytes())
+
+    # return encoded_image
