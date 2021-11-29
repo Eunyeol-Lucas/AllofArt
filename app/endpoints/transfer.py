@@ -3,9 +3,6 @@ from fastapi.responses import HTMLResponse
 
 from app.ai.style_trs.main import transfer_style
 
-import os
-import pathlib
-
 router = APIRouter()
 
 
@@ -34,7 +31,6 @@ async def trs_style(
 ):
 
     USER_IMAGE_DIR = "/static/images/user"
-
     PAINTING_ID = "test"
 
     # 확장자 check
