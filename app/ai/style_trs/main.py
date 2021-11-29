@@ -31,9 +31,11 @@ def transfer_style(
         tf.keras.utils.save_img(save_path, outputs)
         return {
             "status": "successed",
-            "transfer_image_path": save_path,
-            "content_image_path": content_image_path,
-            "style_image_path": style_image_path,
+            "image_path": {
+                "transfer_image_path": save_path,
+                "content_image_path": content_image_path,
+                "style_image_path": style_image_path,
+            },
         }
 
     except:
