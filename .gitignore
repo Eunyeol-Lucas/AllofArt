@@ -2,4 +2,8 @@
 venv
 venv*
 __pycache__
+<<<<<<< HEAD
+=======
+alembic/*
+>>>>>>> feat/#4
 alembic*

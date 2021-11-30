@@ -1,10 +1,9 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from config import SQLALCHEMY_DATABASE_URL
 
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-
+SQLALCHEMY_DATABASE_URL = "mysql://root:1234@localhost:3306/imagetest"
 # 다른 곳에서 쓰일 엔진
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
