@@ -3,6 +3,9 @@ from fastapi.responses import HTMLResponse
 
 from app.ai.style_trs.main import transfer_style
 
+# import os
+# import shutil
+
 router = APIRouter()
 
 
@@ -30,7 +33,7 @@ async def trs_style(
     content_file: UploadFile = File(...), style_file: UploadFile = File(...)
 ):
 
-    USER_IMAGE_DIR = "/static/images/user"
+    USER_IMAGE_DIR = "/code/app/static/images/user"
     PAINTING_ID = "test"
 
     # 확장자 check
@@ -57,4 +60,15 @@ async def trs_style(
     if result["status"] == "failed":
         return "error!"
 
-    return result["image_path"]
+    result = result["image_path"]
+
+    # 임시 더미 데이터
+    return {
+        "transfer_image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png",
+        "content_image_path": "https://e7.pngegg.com/pngimages/1012/998/png-clipart-white-number-2-social-media-logo-computer-icons-number-2-infographic-blue.png",
+        "style_image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Eo_circle_blue_white_number-3.svg/1200px-Eo_circle_blue_white_number-3.svg.png",
+    }
+
+    # 컨테이너와 VM 상의 경로가 달라서 전처리
+    # result = {k:v.replace('/code/app','') for k, v in result.items()}
+    # return result
