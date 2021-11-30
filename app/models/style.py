@@ -1,4 +1,6 @@
-from . import Base,db
+from ..database import Base
+
+
 from. import Boolean, Column, ForeignKey, Integer, String, relationship,Float
 from sqlalchemy.sql.sqltypes import DATETIME
 class Style(Base):
