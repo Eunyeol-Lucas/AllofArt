@@ -33,4 +33,4 @@ def get_all_transfer_image():
 @router.get("/download/{painting_id}")  # 다운로드 받기
 def download_image(painting_id):
 
-    return FileResponse("/code/app/static/images/user/test_0.jpg")
+    return FileResponse("/code/app/static/images/user/test_2.jpg")
