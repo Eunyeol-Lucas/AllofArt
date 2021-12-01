@@ -26,7 +26,7 @@ def get_dummy(n: int) -> dict:
     return dummy
 
 
-@router.get("/", response_model=List[artist.Artist])  # 모든 사진 가져오기
+@router.get("/")  # 모든 사진 가져오기
 def get_all_transfer_image(page: int = 1):
     # 원래는 db transfer, painting 테이블 참조하여 모든 이미지 정보 불러옴
     LIMIT = 9
