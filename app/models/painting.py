@@ -6,8 +6,8 @@ class Painting(Base):
     __tablename__ = "painting"
 
 id = Column(Integer, primary_key=True,autoincrement=True)
-name = Column(String(256), nullable=False, unique=True)
 img_url = Column(String(256),nullable=False)
+painting_type = Column(Integer, nullable=False)
 created_at = Column(DATETIME, nullable= False)
 
 def __init__(self, image_name, img_url,created_at):
