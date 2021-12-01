@@ -7,22 +7,21 @@ from app.ai.utils import read_imagefile
 router = APIRouter()
 
 
-@router.get("/", response_class=HTMLResponse)
-async def submit_form():
-    return """
-<html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <form action="http://localhost/api/style" method="post" enctype="multipart/form-data">
-            <input type="file" name="profile">
-            <input type="submit">
-        </form>
-    </body>
-</html>
+# @router.get("/")
+# async def submit_form(id:int = None):
 
-"""
+#     return {
+#         "style_result": {
+#                             "Andy Warhol": 94.77,
+#                             "Rene Magritte": 5.16,
+#                             "Henri Matisse": 0.07,
+#                             "Albrecht Du rer": 0.0,
+#                             "Alfred Sisley": 0.0
+#                         },
+#         ""
+
+
+#     }
 
 
 @router.post("/")
@@ -45,9 +44,10 @@ async def classify_uploaded_painting(file: UploadFile = File(...)):  # key == fi
     # crud
 
     # 언더바 제거
-    style_result = {k.replace("_", " "): v for (k, v) in top_5}  # api리턴을 위한 데이터
+    style_result = {k.replace("_", " "): v for (k, v) in top_5}
 
     result = {
+        "painting_id": 23,
         "style_result": style_result,
         "image_url": r"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg/800px-Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
     }
