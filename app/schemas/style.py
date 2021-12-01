@@ -3,10 +3,6 @@ from typing import Dict
 from pydantic import BaseModel
 
 
-class StylePostRequest(BaseModel):
-    file: bytes
-
-
 class StyleBase(BaseModel):
     painting_id: int = 3
 
@@ -30,6 +26,10 @@ class Style(StyleCreate):
 
     class Config:
         orm_mode = True
+
+
+class StylePostRequest(BaseModel):
+    file: bytes
 
 
 class StylePostResponse(StyleBase):
