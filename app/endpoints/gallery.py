@@ -1,5 +1,9 @@
+from typing import List
+
 from fastapi import APIRouter
 from fastapi.responses import FileResponse
+
+from app.schemas import artist
 
 # from ..database import SessionLocal
 # from ..models import artist
@@ -22,7 +26,7 @@ def get_dummy(n: int) -> dict:
     return dummy
 
 
-@router.get("/")  # 모든 사진 가져오기
+@router.get("/", response_model=List[artist.Artist])  # 모든 사진 가져오기
 def get_all_transfer_image(page: int = 1):
     # 원래는 db transfer, painting 테이블 참조하여 모든 이미지 정보 불러옴
     LIMIT = 9
@@ -37,7 +41,7 @@ def get_all_transfer_image(page: int = 1):
     return result
 
 
-@router.get("/download/{painting_id}")  # 다운로드 받기
-def download_image(painting_id):
+@router.get("/download/{painting_id}", response_model=bytes)  # 다운로드 받기
+def download_image(painting_id: int):
 
     return FileResponse("/code/app/static/images/user/test_2.jpg")

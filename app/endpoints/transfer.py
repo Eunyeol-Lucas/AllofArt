@@ -1,7 +1,7 @@
-from fastapi import APIRouter, File, UploadFile
-from fastapi.responses import HTMLResponse
+from fastapi import APIRouter, File
 
-from app.ai.style_trs.main import transfer_style
+from app.ai.style_trs.main import save_transfer_image
+from app.schemas import transfer
 
 # import os
 # import shutil
@@ -9,7 +9,7 @@ from app.ai.style_trs.main import transfer_style
 router = APIRouter()
 
 
-@router.get("/", response_class=HTMLResponse)
+@router.get("/")
 async def trs_test():
     return """
 <html>
@@ -28,9 +28,10 @@ async def trs_test():
 """
 
 
-@router.post("/")
-async def trs_style(
-    content_file: UploadFile = File(...), style_file: UploadFile = File(...)
+@router.post("/", response_model=transfer.TransferPostResponse)
+async def transfer_style(
+    content_file: transfer.TransferPostRequest = File(...),
+    style_file: transfer.TransferPostRequest = File(...),
 ):
 
     USER_IMAGE_DIR = "/code/app/static/images/user"
@@ -55,7 +56,7 @@ async def trs_style(
     with open(style_file_path, "wb+") as file_object:
         file_object.write(style_file.file.read())
 
-    result = transfer_style(content_file_path, style_file_path, save_file_path)
+    result = save_transfer_image(content_file_path, style_file_path, save_file_path)
 
     if result["status"] == "failed":
         return "error!"
@@ -83,7 +84,7 @@ async def get_style_image(limit: int = 8, page: int = 1):
 
 
 @router.get("/content")
-async def get_style_image(limit: int = 8, page: int = 1):
+async def get_content_image(limit: int = 8, page: int = 1):
 
     url = r"http://thumbnail.egloos.net/600x0/http://pds20.egloos.com/pds/201008/17/02/a0007402_4c6a1097c7b37.jpg"
 
