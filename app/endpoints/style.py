@@ -48,13 +48,11 @@ async def classify_uploaded_painting(
     # 언더바 제거
     style_result = {k.replace("_", " "): v for (k, v) in top_5}
 
-    result = {
+    return {
         "painting_id": 23,
         "style_result": style_result,
         "image_url": r"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg/800px-Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
     }
-
-    return result
 
 
 # async def classify_uploaded_painting(files:List[UploadFile] = File(...)):
