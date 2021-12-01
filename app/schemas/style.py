@@ -1,5 +1,3 @@
-from typing import Dict
-
 from pydantic import AnyUrl, BaseModel
 
 
@@ -32,12 +30,17 @@ class StylePostRequest(BaseModel):
     file: bytes
 
 
-class StylePostResponse(StyleBase):
-    style_result: Dict = {
-        "Andy Warhol": 94.77,
-        "Rene Magritte": 5.16,
-        "Henri Matisse": 0.07,
-        "Albrecht Du rer": 0.0,
-        "Alfred Sisley": 0.0,
-    }
+classify_result_example = {
+    "Andy Warhol": 94.77,
+    "Rene Magritte": 5.16,
+    "Henri Matisse": 0.07,
+    "Albrecht Du rer": 0.0,
+    "Alfred Sisley": 0.0,
+}
+
+
+class StylePostResponse(BaseModel):
+
+    painting_id: int = 3
+    style_result: dict = classify_result_example
     image_url: AnyUrl = "/static/images/1.jpg"
