@@ -3,11 +3,12 @@ from fastapi.responses import HTMLResponse
 
 from ..database import SessionLocal
 from ..models import artist
+
 router = APIRouter()
 
 
 @router.get("/")
-async def submit_form(response_class=HTMLResponse):
+async def submit_form(response_class: HTMLResponse):
     return """
 <html>
     <head>
@@ -23,6 +24,7 @@ async def submit_form(response_class=HTMLResponse):
 
 """
 
+
 @router.get("/dbtest")
 def dbtest():
     db = SessionLocal()
@@ -30,6 +32,7 @@ def dbtest():
     add_arttist = artist.Artist(name="Picasso",genre="abstraction",year="1880",nation="Spain",description="genius")
     # artists = db.query(artist.Artist).filter_by(name="picasso").all()
     db.add(add_arttist)
+
 
     # for ar in artists:
         # print(ar)

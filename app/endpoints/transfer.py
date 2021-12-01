@@ -72,3 +72,19 @@ async def trs_style(
     # 컨테이너와 VM 상의 경로가 달라서 전처리
     # result = {k:v.replace('/code/app','') for k, v in result.items()}
     # return result
+
+
+@router.get("/style")
+async def get_style_image(limit: int = 8, page: int = 1):
+
+    url = r"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Cat_paw_%28cloudzilla%29.jpg/200px-Cat_paw_%28cloudzilla%29.jpg"
+
+    return [url for i in range(limit)]
+
+
+@router.get("/content")
+async def get_style_image(limit: int = 8, page: int = 1):
+
+    url = r"http://thumbnail.egloos.net/600x0/http://pds20.egloos.com/pds/201008/17/02/a0007402_4c6a1097c7b37.jpg"
+
+    return [url for i in range(limit)]
