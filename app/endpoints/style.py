@@ -26,7 +26,7 @@ router = APIRouter()
 
 @router.post("/", response_model=style.StylePostResponse)
 async def classify_uploaded_painting(
-    file: UploadFile = File(...),
+    file: style.StylePostRequest = File(...),
 ):  # key == file
 
     extension = file.filename.split(".")[-1].lower()
