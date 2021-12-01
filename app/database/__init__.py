@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-SQLALCHEMY_DATABASE_URL = "mysql://root:1234@localhost:3306/imagetest"
+SQLALCHEMY_DATABASE_URL = "mysql://root:1234@localhost:3306/image"
 # 다른 곳에서 쓰일 엔진
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
