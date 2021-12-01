@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File
+from fastapi import APIRouter, File, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
 from app.schemas import transfer
@@ -30,8 +30,8 @@ async def trs_test():
 
 @router.post("/", response_model=transfer.TransferPostResponse)
 async def transfer_style(
-    content_file: transfer.TransferPostRequest = File(...),
-    style_file: transfer.TransferPostRequest = File(...),
+    content_file: UploadFile = File(...),
+    style_file: UploadFile = File(...),
 ):
 
     USER_IMAGE_DIR = "/code/app/static/images/user"
