@@ -5,8 +5,9 @@ from fastapi.responses import FileResponse
 # from ..models import artist
 router = APIRouter()
 
-
+# dummydata 생성을 위한 함수
 def get_dummy(n: int) -> dict:
+
     from datetime import datetime
     from random import randint
 
@@ -22,10 +23,16 @@ def get_dummy(n: int) -> dict:
 
 
 @router.get("/")  # 모든 사진 가져오기
-def get_all_transfer_image():
+def get_all_transfer_image(page: int = 1):
     # 원래는 db transfer, painting 테이블 참조하여 모든 이미지 정보 불러옴
+    LIMIT = 9
 
-    result = [get_dummy(i) for i in range(10)]
+    # 더미로 transfer이미지가 총 100개 있다고 가정
+    total = [get_dummy(i) for i in range(100)]
+
+    start = (page - 1) * LIMIT
+    end = (page) * LIMIT
+    result = total[start:end]
 
     return result
 
