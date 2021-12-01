@@ -68,6 +68,5 @@ tensorflow_hub
 matplotlib
 opencv-python
 python-multipart
-tensorflow==2.3.0
 alembic
 mysqlclient
