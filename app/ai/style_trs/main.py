@@ -12,7 +12,7 @@ def tf_read(image_path: str):
     return img
 
 
-def transfer_style(
+def save_transfer_image(
     content_image_path: str, style_image_path: str, save_path: str
 ) -> BytesIO:
     try:
