@@ -6,12 +6,17 @@ from app.models.painting import Painting
 from ..database import Base
 from . import Boolean, Column, ForeignKey, Integer, String, relationship
 from sqlalchemy.sql.sqltypes import DATETIME, Float
+from .painting import Painting
 
-class TransferPainting(Base):
-    __tablename__ = "transfer_painting"
+class Transfer(Base):
+    __tablename__ = "transfer"
 
     id = Column(Integer,primary_key=True,nullable=False,autoincrement=True)
-    painting_id = Column(Integer,nullable=False,ForeignKey(Painting.id))
-    artist_id = Column(Integer, nullable=False,ForeignKey(Artist.id))
+    style = Column(String(255), nullable=False)
+    content = Column(String(255), nullable=False)
+    result = Column(String(255), nullable=False)
 
-    
+    def __init__(self, style, content,result):
+        self.style= style
+        self.conten = content
+        self.result = result

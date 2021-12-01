@@ -29,14 +29,13 @@ async def submit_form(response_class: HTMLResponse):
 def dbtest():
     db = SessionLocal()
     print("db connection!!")
-    arrr = artist.Artist(
-        artist_name="kiwon", genre="1", year="1", nation="korea", description="backend"
-    )
-    artists = db.query(artist.Artist).filter_by(artist_name="picasso").all()
-    db.add(arrr)
+    add_arttist = artist.Artist(name="Picasso",genre="abstraction",year="1880",nation="Spain",description="genius")
+    # artists = db.query(artist.Artist).filter_by(name="picasso").all()
+    db.add(add_arttist)
 
-    for ar in artists:
-        print(ar)
+
+    # for ar in artists:
+        # print(ar)
 
     db.commit()
     db.close()
