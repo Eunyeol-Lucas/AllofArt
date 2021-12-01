@@ -26,6 +26,7 @@ libclang==12.0.0
 Mako==1.1.6
 Markdown==3.3.6
 MarkupSafe==2.0.1
+mysqlclient==2.1.0
 numpy==1.21.4
 oauthlib==3.1.1
 opt-einsum==3.3.0
@@ -48,6 +49,7 @@ tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.0
 tensorflow==2.7.0
 tensorflow-estimator==2.7.0
+tensorflow-hub==0.12.0
 tensorflow-io-gcs-filesystem==0.22.0
 termcolor==1.1.0
 typing_extensions==4.0.0

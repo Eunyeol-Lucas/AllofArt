@@ -6,13 +6,10 @@ pymysql
 uvicorn[standard]
 pillow
 python-multipart
-<<<<<<< HEAD
 tensorflow==2.7.0
 tensorflow_hub
 matplotlib
 opencv-python
 python-multipart
-=======
 tensorflow==2.3.0
 alembic
->>>>>>> feat/#4

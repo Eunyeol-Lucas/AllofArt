@@ -6,7 +6,7 @@ class Painting(Base):
     __tablename__ = "painting"
 
 id = Column(Integer, primary_key=True,autoincrement=True)
-image_name = Column(String(256), nullable=False, unique=True)
+name = Column(String(256), nullable=False, unique=True)
 img_url = Column(String(256),nullable=False)
 created_at = Column(DATETIME, nullable= False)
 

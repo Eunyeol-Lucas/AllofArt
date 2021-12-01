@@ -11,7 +11,7 @@ class TransferPainting(Base):
     __tablename__ = "transfer_painting"
 
     id = Column(Integer,primary_key=True,nullable=False,autoincrement=True)
-    painting_id = Column(Integer,nullable=False,ForeignKey(Painting.id))
-    artist_id = Column(Integer, nullable=False,ForeignKey(Artist.id))
+    painting_id = Column(Integer,nullable=False, ForeignKey(Painting.id))
+    artist_id = Column(Integer, nullable=False, ForeignKey(Artist.id))
 
     
