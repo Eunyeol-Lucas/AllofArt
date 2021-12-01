@@ -1,6 +1,6 @@
 from typing import Dict
 
-from pydantic import BaseModel
+from pydantic import AnyUrl, BaseModel
 
 
 class StyleBase(BaseModel):
@@ -40,4 +40,4 @@ class StylePostResponse(StyleBase):
         "Albrecht Du rer": 0.0,
         "Alfred Sisley": 0.0,
     }
-    image_url: str = "/static/images/1.jpg"
+    image_url: AnyUrl = "/static/images/1.jpg"

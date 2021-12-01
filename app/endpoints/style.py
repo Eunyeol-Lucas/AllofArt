@@ -1,8 +1,8 @@
 from fastapi import APIRouter, File, UploadFile
-from fastapi.responses import HTMLResponse
 
 from app.ai.style_cls.main import classify_style
 from app.ai.utils import read_imagefile
+from app.schemas import style
 
 router = APIRouter()
 
@@ -24,8 +24,10 @@ router = APIRouter()
 #     }
 
 
-@router.post("/")
-async def classify_uploaded_painting(file: UploadFile = File(...)):  # key == file
+@router.post("/", response_model=style.StylePostResponse)
+async def classify_uploaded_painting(
+    file: UploadFile = File(...),
+):  # key == file
 
     extension = file.filename.split(".")[-1].lower()
     if extension not in ("jpg", "jpeg", "png"):
