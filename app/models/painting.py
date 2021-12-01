@@ -8,9 +8,9 @@ class Painting(Base):
 id = Column(Integer, primary_key=True,autoincrement=True)
 img_url = Column(String(256),nullable=False)
 painting_type = Column(Integer, nullable=False)
-created_at = Column(DATETIME, nullable= False)
+down_cnt = Column(Integer, nullable= False)
 
-def __init__(self, image_name, img_url,created_at):
-    self.image_name = image_name
+def __init__(self, img_url,painting_type, down_cnt):
     self.img_url = img_url
-    self.created_at = created_at
+    self.painting_type = painting_type
+    self.down_cnt = down_cnt
