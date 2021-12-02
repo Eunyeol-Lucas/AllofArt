@@ -1,9 +1,6 @@
-from typing import List
-
 from fastapi import APIRouter
-from fastapi.responses import FileResponse
 
-from app.schemas import artist
+from app.schemas import gallery
 
 # from ..database import SessionLocal
 # from ..models import artist
@@ -41,7 +38,9 @@ def get_all_transfer_image(page: int = 1):
     return result
 
 
-@router.get("/download/{painting_id}", response_model=bytes)  # 다운로드 받기
+@router.get(
+    "/download/{painting_id}", response_model=gallery.GalleryDownloadResponse
+)  # 다운로드 받기
 def download_image(painting_id: int):
 
-    return FileResponse("/code/app/static/images/user/test_2.jpg")
+    return {"image_url": "/static/images/user/test_2.jpg", "download": 999}
