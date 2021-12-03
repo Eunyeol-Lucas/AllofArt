@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.endpoints import gallery, register, style, transfer, users
+from app.endpoints import artist, gallery, register, style, transfer, users
 
 tags_metadata = [
     {
@@ -17,8 +17,8 @@ tags_metadata = [
         "description": "갤러리 페이지 API ",
     },
     {
-        "name": "painter info",
-        "description": "페인터 인포 페이지 API(개발 예정)",
+        "name": "artist",
+        "description": "artist 인포 페이지 API(개발 예정)",
     },
     {
         "name": "users",
@@ -51,8 +51,14 @@ app.add_middleware(
 )
 
 
+@app.get("/check")
+def api_check():
+    return "check"
+
+
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(style.router, prefix="/api/style", tags=["style"])
 app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
 app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
+app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
