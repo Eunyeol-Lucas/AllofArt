@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 from app.endpoints import gallery, register, style, transfer, users, check
@@ -30,10 +31,21 @@ tags_metadata = [
     },
 ]
 
+middleware = [
+    Middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+]
+
 app = FastAPI(
     title="All of Art",
     description="All of Art팀의 API docs입니다.",
     openapi_tags=tags_metadata,
+    middleware=middleware,
 )
 
 # origins = [
@@ -41,14 +53,14 @@ app = FastAPI(
 #     "https://localhost",
 # ]
 
-app.add_middleware(
-    CORSMiddleware,
-    # allow_origins=origins,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     # allow_origins=origins,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
 
 
 app.include_router(users.router, prefix="/api/users", tags=["users"])
