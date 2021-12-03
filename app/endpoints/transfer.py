@@ -89,3 +89,8 @@ async def get_content_image(limit: int = 8, page: int = 1):
     url = r"http://thumbnail.egloos.net/600x0/http://pds20.egloos.com/pds/201008/17/02/a0007402_4c6a1097c7b37.jpg"
 
     return [url for i in range(limit)]
+
+@router.post("/create")
+def create_result_image():
+    return "create"
+
