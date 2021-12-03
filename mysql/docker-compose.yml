@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  db:
+    image: mysql
+    volumes:
+      - /var/local/mysql:/var/lib/mysql
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./scripts:/home/scripts
+    ports:
+      - 21:3306
+    restart: always
+    env_file: .env
