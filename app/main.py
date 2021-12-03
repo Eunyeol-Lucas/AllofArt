@@ -53,18 +53,17 @@ app = FastAPI(
 #     "https://localhost",
 # ]
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     # allow_origins=origins,
-#     allow_origins=["*"],
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
-
 
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(style.router, prefix="/api/style", tags=["style"])
 app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
 app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
