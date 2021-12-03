@@ -6,16 +6,43 @@ from app.schemas import gallery
 # from ..models import artist
 router = APIRouter()
 
-# dummydata 생성을 위한 함수
-def get_dummy(n: int) -> dict:
+# 정렬 함수
+def gallery_sort(total, duration: str = "all", sort_by: str = "download"):
+    from datetime import datetime, timedelta
 
-    from datetime import datetime
+    today = datetime.now().date()
+    if duration == "month":
+        axis = today - timedelta(days=30)
+        total = [r for r in total if r["created_at"] > axis]
+    elif duration == "week":
+        axis = today - timedelta(days=7)
+        total = [r for r in total if r["created_at"] > axis]
+    elif duration == "day":
+        axis = today - timedelta(days=1)
+        total = [r for r in total if r["created_at"] > axis]
+    else:
+        pass
+
+    if sort_by == "download":
+        total = sorted(total, key=lambda x: -x["download"])
+    elif sort_by == "date":
+        total = sorted(total, key=lambda x: x["created_at"], reverse=True)
+
+    for r in total:
+        r["created_at"] = r["created_at"].isoformat()
+    return total
+
+
+# dummydata 생성을 위한 함수
+def get_dummy(n: int, days: int) -> dict:
+
+    from datetime import datetime, timedelta
     from random import randint
 
     dummy = {
         "painting_id": n,
         "download": randint(1, 100),
-        "created_at": datetime.now().isoformat(),
+        "created_at": (datetime.now() - timedelta(days=days)),
         "result": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png",
         "style": "https://e7.pngegg.com/pngimages/1012/998/png-clipart-white-number-2-social-media-logo-computer-icons-number-2-infographic-blue.png",
         "content": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Eo_circle_blue_white_number-3.svg/1200px-Eo_circle_blue_white_number-3.svg.png",
@@ -24,12 +51,19 @@ def get_dummy(n: int) -> dict:
 
 
 @router.get("/")  # 모든 사진 가져오기
-def get_all_transfer_image(page: int = 1):
+def get_all_transfer_image(
+    duration: str = "all",
+    sort_by: str = "download",
+    page: int = 1,
+):
     # 원래는 db transfer, painting 테이블 참조하여 모든 이미지 정보 불러옴
     LIMIT = 9
 
     # 더미로 transfer이미지가 총 100개 있다고 가정
-    total = [get_dummy(i) for i in range(100)]
+    total = [get_dummy(i, i) for i in range(100)]
+
+    # 정렬
+    total = gallery_sort(total, duration, sort_by)
 
     start = (page - 1) * LIMIT
     end = (page) * LIMIT
@@ -44,4 +78,6 @@ def get_all_transfer_image(page: int = 1):
 def download_image(painting_id: int):
 
     return {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png", "download": 999}
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png",
+        "download": 999,
+    }
