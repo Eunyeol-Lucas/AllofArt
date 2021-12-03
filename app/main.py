@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware.cors import CORSMiddleware
 
 from app.endpoints import gallery, register, style, transfer, users
 
