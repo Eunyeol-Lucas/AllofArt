@@ -44,4 +44,6 @@ def get_all_transfer_image(page: int = 1):
 def download_image(painting_id: int):
 
     return {
-        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png", "download": 999}
+        "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png", "download": 999
+        }
+
