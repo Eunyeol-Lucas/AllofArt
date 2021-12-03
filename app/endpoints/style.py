@@ -1,4 +1,4 @@
-from fastapi import APIRouter, File, UploadFile
+from fastapi import APIRouter, File, HTTPException, UploadFile
 
 from app.ai.style_cls.main import classify_style
 from app.ai.utils import read_imagefile
@@ -7,27 +7,27 @@ from app.schemas import style
 router = APIRouter()
 
 
-# @router.get("/")
-# async def submit_form(id:int = None):
+@router.get("/{painting_id}", summary="공유하기 기능(개발예정)")
+async def trs_test(painting_id: int = None):
+    query_result = None
+    if not query_result:
+        raise HTTPException(status_code=404, detail="요청하신 리소스가 없습니다!")
 
-#     return {
-#         "style_result": {
-#                             "Andy Warhol": 94.77,
-#                             "Rene Magritte": 5.16,
-#                             "Henri Matisse": 0.07,
-#                             "Albrecht Du rer": 0.0,
-#                             "Alfred Sisley": 0.0
-#                         },
-#         ""
+    return painting_id
 
 
-#     }
-
-
-@router.post("/", response_model=style.StylePostResponse)
+@router.post(
+    "/", response_model=style.StylePostResponse, summary="Post image and get result"
+)
 async def classify_uploaded_painting(
     file: UploadFile = File(...),
 ):  # key == file
+    """
+    form-data에서 file를 key로 이미지파일을 POST하면,
+    저장된 이미지의 id, 분석결과, 저장된 이미지 url을 return합니다.
+
+    - **file**: 이미지 파일
+    """
 
     extension = file.filename.split(".")[-1].lower()
     if extension not in ("jpg", "jpeg", "png"):

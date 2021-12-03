@@ -50,12 +50,20 @@ def get_dummy(n: int, days: int) -> dict:
     return dummy
 
 
-@router.get("/")  # 모든 사진 가져오기
+@router.get("/", summary="Get transfer, style, content images")
+# 모든 사진 가져오기
 def get_all_transfer_image(
     duration: str = "all",
     sort_by: str = "download",
     page: int = 1,
 ):
+    """
+    요청일 기준으로 duration동안 sort_by에 따라 정렬한 transfer image item을 return해줍니다.
+    ### query parameters
+    - **duration** : all, month, week, day
+    - **sort_by** : download, date
+    - **page**: N(>=1)
+    """
     # 원래는 db transfer, painting 테이블 참조하여 모든 이미지 정보 불러옴
     LIMIT = 9
 
@@ -73,9 +81,16 @@ def get_all_transfer_image(
 
 
 @router.get(
-    "/download/{painting_id}", response_model=gallery.GalleryDownloadResponse
+    "/download/{painting_id}",
+    response_model=gallery.GalleryDownloadResponse,
+    summary="Get image url",
 )  # 다운로드 받기
 def download_image(painting_id: int):
+    """
+    painting_id에 해당하는 그림의 url과 Get 요청 후의 download 수를 return해 줍니다.
+    ### query parameters
+    - **painting_id** : 1, 2, ...
+    """
 
     return {
         "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png",
