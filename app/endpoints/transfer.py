@@ -3,24 +3,36 @@ from fastapi import APIRouter, File, UploadFile
 from app.ai.style_trs.main import save_transfer_image
 from app.schemas import transfer
 
+# import os
+# import shutil
+
 router = APIRouter()
 
 
-@router.post(
-    "/",
-    response_model=transfer.TransferPostResponse,
-    summary="Post content, style, transfer image",
-)
+@router.get("/")
+async def trs_test():
+    return """
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <form action="http://localhost:8000/api/style" method="post" enctype="multipart/form-data">
+            <input type="file" name="content_file">
+            <input type="file" name="style_file">
+            <input type="submit">
+        </form>
+    </body>
+</html>
+
+"""
+
+
+@router.post("/", response_model=transfer.TransferPostResponse)
 async def transfer_style(
     content_file: UploadFile = File(...),
     style_file: UploadFile = File(...),
 ):
-    """
-    form-data로 content_file, style_file 이미지를 전송하면 transfer한 이미지와 함께 저장됨.
-
-    - **content_file**: 이미지 파일
-    - **style_file**: 이미지 파일
-    """
 
     USER_IMAGE_DIR = "/code/app/static/images/user"
     PAINTING_ID = "test"
@@ -78,7 +90,7 @@ async def get_content_image(limit: int = 8, page: int = 1):
 
     return [url for i in range(limit)]
 
-
 @router.post("/create")
 def create_result_image():
     return "create"
+
