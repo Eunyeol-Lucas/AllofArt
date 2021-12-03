@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from app.endpoints import gallery, register, style, transfer, users
+from app.endpoints import gallery, register, style, transfer, users, check
 
 tags_metadata = [
     {
