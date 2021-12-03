@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
-from app.endpoints import gallery, register, style, transfer, users
+from app.endpoints import check, gallery, register, style, transfer, users
 
 tags_metadata = [
     {
@@ -59,6 +59,7 @@ app.include_router(style.router, prefix="/api/style", tags=["style"])
 app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
 app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
+app.include_router(check.router, prefix="/api/check")
 
 app.add_middleware(
     CORSMiddleware,
