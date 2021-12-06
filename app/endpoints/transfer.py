@@ -1,10 +1,10 @@
+import os
+from random import choice
+
 from fastapi import APIRouter, File, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
 from app.schemas import transfer
-
-import os
-from random import choice
 
 router = APIRouter()
 
@@ -73,8 +73,7 @@ async def get_random_style_image():
     random_image = choice(images)
     url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    return url.replace("/code/app", '')
-    
+    return url.replace("/code/app", "")
 
 
 @router.get("/content")
@@ -85,8 +84,9 @@ async def get_random_content_image():
     random_image = choice(images)
     url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return url.replace("/code/app", '')
-    
+    return url.replace("/code/app", "")
+
+
 @router.post("/create")
 def create_result_image():
     return "create"
