@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
-from app.endpoints import check, gallery, register, style, transfer, users
+from app.endpoints import artist, check, gallery, register, style, transfer, users
 
 tags_metadata = [
     {
@@ -18,8 +18,8 @@ tags_metadata = [
         "description": "갤러리 페이지 API ",
     },
     {
-        "name": "painter info",
-        "description": "페인터 인포 페이지 API(개발 예정)",
+        "name": "artist",
+        "description": "artist 인포 페이지 API(개발 예정)",
     },
     {
         "name": "users",
@@ -68,3 +68,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/check")
+def api_check():
+    return "check"
+
+
+app.include_router(users.router, prefix="/api/users", tags=["users"])
+app.include_router(style.router, prefix="/api/style", tags=["style"])
+app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
+app.include_router(register.router, prefix="/api/register", tags=["register"])
+app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
+app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
