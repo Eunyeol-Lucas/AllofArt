@@ -143,7 +143,7 @@ def create_result_image(painting_id: int):
             .filter(painting.Painting.id == painting_id)
             .one_or_none()
         )
-        image_want_to_save.saved = 1
+        image_want_to_save.saved = True
         db.commit()
 
     return "create success"
