@@ -1,9 +1,9 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 from app.endpoints import artist, check, gallery, register, style, transfer, users
-from fastapi.staticfiles import StaticFiles
 
 tags_metadata = [
     {
@@ -40,7 +40,7 @@ origins = [
     "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
     "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
     "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
-    "http://localhost:3000"
+    "http://localhost:3000",
 ]
 
 middleware = [
@@ -69,4 +69,4 @@ app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
 app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
 app.include_router(check.router, prefix="/api/check")
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="/code/app/static"), name="static")
