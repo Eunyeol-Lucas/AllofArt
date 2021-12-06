@@ -1,19 +1,15 @@
-from pydantic import AnyUrl, BaseModel
+from pydantic import BaseModel
 
 
 class TransferBase(BaseModel):
-    painting_id: int = 3
+    id: int = 3
 
 
-class TransferCreate(TransferBase):
-    id: int
+class Transfer(TransferBase):
 
-
-class Transfer(TransferCreate):
-
-    style: int = 3
-    content: int = 5
-    result: int = 7
+    style_id: int = 3
+    content_id: int = 5
+    result_id: int = 7
 
     class Config:
         orm_mode = True
@@ -22,10 +18,12 @@ class Transfer(TransferCreate):
 class TransferPostRequest(BaseModel):
     style_file: bytes
     content_file: bytes
+    is_style_upload: bool
+    is_content_upload: bool
 
 
-class TransferPostResponse(BaseModel):
+class TransferPostResponse(TransferBase):
     painting_id: int = 3
-    transfer_image_path: AnyUrl = "/static/images/1.jpg"
-    content_image_path: AnyUrl = "/static/images/2.jpg"
-    style_image_path: AnyUrl = "/static/images/3.jpg"
+    transfer_image_path: str = "/static/images/1.jpg"
+    content_image_path: str = "/static/images/2.jpg"
+    style_image_path: str = "/static/images/3.jpg"

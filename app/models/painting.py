@@ -1,9 +1,5 @@
-from enum import auto
-
-from sqlalchemy.sql.sqltypes import DATETIME
-
 from ..database import Base
-from . import Boolean, Column, ForeignKey, Integer, String, relationship
+from . import Boolean, Column, Integer, String
 
 
 class Painting(Base):
@@ -20,4 +16,4 @@ def __init__(self, img_url, painting_type, download, saved):
     self.img_url = img_url
     self.painting_type = painting_type
     self.download = download
-    self.saved = False
+    self.saved = saved

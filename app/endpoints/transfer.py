@@ -5,13 +5,13 @@ from fastapi import APIRouter, File, Form, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
 from app.database import SessionLocal
-from app.models import painting, transfer
-from app.schemas import transfer
+from app.models import artist, painting, transfer
+from app.schemas import transfer as transfer_schema
 
 router = APIRouter()
 
 
-@router.post("/", response_model=transfer.TransferPostResponse)
+@router.post("/", response_model=transfer_schema.TransferPostResponse)
 async def transfer_style(
     content_file: UploadFile = File(...),
     style_file: UploadFile = File(...),
@@ -92,6 +92,7 @@ async def transfer_style(
             .one_or_none()
         )
 
+    with SessionLocal() as db:
         trs = transfer.Transfer(
             style_id=style_img.id,
             content_id=content_img.id,
@@ -107,9 +108,10 @@ async def transfer_style(
 
     result = result["image_path"]
 
-    # 컨테이너와 VM 상의 경로가 달라서 전처리
-    result = {k: v.replace("/code/app", "") for k, v in result.items()}
-    return {**result, "painting_id": result_img.id}
+    result = {k: v for k, v in result.items()}
+    result = {**result, "painting_id": result_img.id}
+
+    return result
 
 
 @router.get("/style")
@@ -119,7 +121,7 @@ async def get_random_style_image():
     random_image = choice(images)
     url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    return url.replace("/code/app", "")
+    return url
 
 
 @router.get("/content")
@@ -130,10 +132,42 @@ async def get_random_content_image():
     random_image = choice(images)
     url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return url.replace("/code/app", "")
+    return url
 
 
 @router.put("/create")
 def create_result_image(painting_id: int):
+    with SessionLocal() as db:
+        image_want_to_save = (
+            db.query(painting.Painting)
+            .filter(painting.Painting.id == painting_id)
+            .one_or_none()
+        )
+        image_want_to_save.saved = 1
+        db.commit()
 
     return "create success"
+
+
+@router.get("/asd")
+def add_paintings():
+    BASE_DIR = "/code/app/static/images/artist"
+    files = os.listdir(BASE_DIR)
+    with SessionLocal() as db:
+        ids = [1, 26, 42, 50]
+        for id_ in ids:
+            artists = db.query(artist.Artist.id == id_).first()
+            for a in artists:
+                id_ = a.id
+                name_ = a.name.replace(" ", "_")
+                files = [i for i in os.listdir(BASE_DIR) if name_ in i]
+                if len(files) < 1:
+                    print(name_)
+            for file in files:
+                img_url = os.path.join(BASE_DIR.replace("/code/app", ""), file)
+                print(img_url)
+                p = painting.Painting(
+                    img_url=img_url, painting_type=id_, download=0, saved=False
+                )
+                db.add(p)
+            # db.commit()
