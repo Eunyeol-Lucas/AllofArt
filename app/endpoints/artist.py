@@ -38,9 +38,6 @@ def get_artist_detail(artist_id: int = 1):
             .count()
         )
 
-    some_artist.bio1 = "화가 소개 한줄짜리"  # 임의로 null 값 수정
-    some_artist.bio2 = "상세정보에서 보이는 디테일한 화가 소개"  # 임의로 null 값 수정
-
     images = [
         f"/static/images/artist/{some_artist.name.replace(' ','_')}_{i}.jpg"
         for i in range(1, number_of_paintings + 1)
