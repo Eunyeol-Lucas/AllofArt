@@ -1,9 +1,10 @@
 from re import S
+from typing import Text
 
 from sqlalchemy.sql.sqltypes import DATETIME
 
 from ..database import Base
-from . import Boolean, Column, ForeignKey, Integer, String, relationship
+from . import Boolean, Column, ForeignKey, Integer, String, relationship, Text
 
 
 class Artist(Base):
@@ -15,7 +16,7 @@ class Artist(Base):
     year = Column(String(256), nullable=False, unique=True)
     nation = Column(String(256), nullable=False, unique=True)
     desc_simple = Column(String(256), nullable=False, unique=True)
-    desc_detail = Column(String(512), nullable=False, unique=True)
+    desc_detail = Column(Text, nullable=False, unique=True)
 
     def __init__(self, name, genre, year, nation, desc_simple, desc_detail):
         self.name = name
