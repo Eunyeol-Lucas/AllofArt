@@ -13,9 +13,11 @@ class Painting(Base):
     img_url = Column(String(512), nullable=False)
     painting_type = Column(Integer, nullable=False)
     download = Column(Integer, nullable=False)
+    saved = Column(Boolean, default=False)
 
 
 def __init__(self, img_url, painting_type, download):
     self.img_url = img_url
     self.painting_type = painting_type
     self.download = download
+    self.saved = False

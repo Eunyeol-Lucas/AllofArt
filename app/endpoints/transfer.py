@@ -4,41 +4,20 @@ from random import choice
 from fastapi import APIRouter, File, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
+from app.database import SessionLocal
+from app.models import painting
 from app.schemas import transfer
-
-# import os
-# import shutil
 
 router = APIRouter()
 
 
-@router.get("/")
-async def trs_test():
-    return """
-<html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-    <body>
-        <form action="http://localhost:8000/api/style" method="post" enctype="multipart/form-data">
-            <input type="file" name="content_file">
-            <input type="file" name="style_file">
-            <input type="submit">
-        </form>
-    </body>
-</html>
-
-"""
-
-
-@router.post("/", response_model=transfer.TransferPostResponse)
+@router.post("/")#, response_model=transfer.TransferPostResponse)
 async def transfer_style(
     content_file: UploadFile = File(...),
     style_file: UploadFile = File(...),
+    is_style_upload: bool = True,
+    is_content_upload: bool = True
 ):
-
-    USER_IMAGE_DIR = "/code/app/static/images/user"
-    PAINTING_ID = "test"
 
     # 확장자 check
     extensions = [
@@ -48,16 +27,32 @@ async def transfer_style(
         if extension not in ("jpg", "jpeg", "png"):
             return "Image must be jpg or png format!"
 
+
+    with SessionLocal() as db:
+        if is_style_upload:
+            p = 
+
+
+        paintin_id = db.query(painting.Painting).count() + 1
+    
+    return dir(content_file.)
+
+    USER_IMAGE_DIR = "/code/app/static/images/user"
+    
+
+    
+
     content_file_path = f"{USER_IMAGE_DIR}/{PAINTING_ID}_0.jpg"
     style_file_path = f"{USER_IMAGE_DIR}/{PAINTING_ID}_1.jpg"
     save_file_path = f"{USER_IMAGE_DIR}/{PAINTING_ID}_2.jpg"
 
-    # 업로드된 파일 저장
-    with open(content_file_path, "wb+") as file_object:
-        file_object.write(content_file.file.read())
-
-    with open(style_file_path, "wb+") as file_object:
-        file_object.write(style_file.file.read())
+    # 업로드면 저장, 아니면 VM에서 읽기
+    if is_style_upload:
+        with open(content_file_path, "wb+") as file_object:
+            file_object.write(content_file.file.read())
+    if is_content_upload:
+        with open(style_file_path, "wb+") as file_object:
+            file_object.write(style_file.file.read())
 
     result = save_transfer_image(content_file_path, style_file_path, save_file_path)
 
