@@ -48,32 +48,6 @@ app = FastAPI(
     middleware=middleware,
 )
 
-# origins = [
-#     "http://localhost",
-#     "https://localhost",
-# ]
-
-
-app.include_router(users.router, prefix="/api/users", tags=["users"])
-app.include_router(style.router, prefix="/api/style", tags=["style"])
-app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
-app.include_router(register.router, prefix="/api/register", tags=["register"])
-app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
-app.include_router(check.router, prefix="/api/check")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-
-@app.get("/check")
-def api_check():
-    return "check"
-
 
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(style.router, prefix="/api/style", tags=["style"])
@@ -81,3 +55,4 @@ app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
 app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
 app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
+app.include_router(check.router, prefix="/api/check")
