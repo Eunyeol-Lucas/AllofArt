@@ -98,7 +98,7 @@ async def get_random_content_image():
 
     return url.replace("/code/app", "")
 
-@router.post("/create")
+@router.post("/create/{paint_id}")
 def create_result_image():
     return "create"
 
