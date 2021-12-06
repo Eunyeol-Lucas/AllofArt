@@ -1,7 +1,8 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+from starlette.middleware import Middleware
+from starlette.middleware.cors import CORSMiddleware
 
-from app.endpoints import gallery, register, style, transfer, users
+from app.endpoints import artist, check, gallery, register, style, transfer, users
 
 tags_metadata = [
     {
@@ -17,8 +18,8 @@ tags_metadata = [
         "description": "갤러리 페이지 API ",
     },
     {
-        "name": "painter info",
-        "description": "페인터 인포 페이지 API(개발 예정)",
+        "name": "artist",
+        "description": "artist 인포 페이지 API(개발 예정)",
     },
     {
         "name": "users",
@@ -30,24 +31,32 @@ tags_metadata = [
     },
 ]
 
+origins = ["*"]
+origins = [
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "http://localhost:3000"
+]
+
+middleware = [
+    Middleware(
+        CORSMiddleware,
+        allow_origins=["*"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+]
+
 app = FastAPI(
     title="All of Art",
     description="All of Art팀의 API docs입니다.",
     openapi_tags=tags_metadata,
-)
-
-# origins = [
-#     "http://localhost",
-#     "https://localhost",
-# ]
-
-app.add_middleware(
-    CORSMiddleware,
-    # allow_origins=origins,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    middleware=middleware,
 )
 
 
@@ -56,3 +65,5 @@ app.include_router(style.router, prefix="/api/style", tags=["style"])
 app.include_router(transfer.router, prefix="/api/transfer", tags=["transfer"])
 app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
+app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
+app.include_router(check.router, prefix="/api/check")

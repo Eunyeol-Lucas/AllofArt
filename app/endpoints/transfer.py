@@ -1,3 +1,6 @@
+import os
+from random import choice
+
 from fastapi import APIRouter, File, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
@@ -76,19 +79,24 @@ async def transfer_style(
 
 
 @router.get("/style")
-async def get_style_image(limit: int = 8, page: int = 1):
+async def get_random_style_image():
+    CONTENT_IMAGE_DIR = "/code/app/static/images/artist"
+    images = os.listdir(CONTENT_IMAGE_DIR)
+    random_image = choice(images)
+    url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    url = r"https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Cat_paw_%28cloudzilla%29.jpg/200px-Cat_paw_%28cloudzilla%29.jpg"
-
-    return [url for i in range(limit)]
+    return url.replace("/code/app", "")
 
 
 @router.get("/content")
-async def get_content_image(limit: int = 8, page: int = 1):
+async def get_random_content_image():
 
-    url = r"http://thumbnail.egloos.net/600x0/http://pds20.egloos.com/pds/201008/17/02/a0007402_4c6a1097c7b37.jpg"
+    STYLE_IMAGE_DIR = "/code/app/static/images/conpic"
+    images = os.listdir(STYLE_IMAGE_DIR)
+    random_image = choice(images)
+    url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return [url for i in range(limit)]
+    return url.replace("/code/app", "")
 
 @router.post("/create")
 def create_result_image():
