@@ -7,10 +7,10 @@ from app.schemas import gallery
 router = APIRouter()
 
 # 정렬 함수
-def gallery_sort(total, duration: str = "all", sort_by: str = "download"):
+def gallery_sort(total, duration, sort_by):
     from datetime import datetime, timedelta
 
-    today = datetime.now().date()
+    today = datetime.now()
     if duration == "month":
         axis = today - timedelta(days=30)
         total = [r for r in total if r["created_at"] > axis]
