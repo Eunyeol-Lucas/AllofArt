@@ -3,6 +3,7 @@ from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 from app.endpoints import artist, check, gallery, register, style, transfer, users
+from fastapi.staticfiles import StaticFiles
 
 tags_metadata = [
     {
@@ -67,3 +68,5 @@ app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
 app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
 app.include_router(check.router, prefix="/api/check")
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
