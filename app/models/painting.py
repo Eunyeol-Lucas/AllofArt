@@ -16,7 +16,7 @@ class Painting(Base):
     saved = Column(Boolean, default=False)
 
 
-def __init__(self, img_url, painting_type, download):
+def __init__(self, img_url, painting_type, download, saved):
     self.img_url = img_url
     self.painting_type = painting_type
     self.download = download

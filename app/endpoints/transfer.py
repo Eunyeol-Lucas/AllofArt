@@ -1,22 +1,22 @@
 import os
 from random import choice
 
-from fastapi import APIRouter, File, UploadFile
+from fastapi import APIRouter, File, Form, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
 from app.database import SessionLocal
-from app.models import painting
+from app.models import painting, transfer
 from app.schemas import transfer
 
 router = APIRouter()
 
 
-@router.post("/")#, response_model=transfer.TransferPostResponse)
+@router.post("/", response_model=transfer.TransferPostResponse)
 async def transfer_style(
     content_file: UploadFile = File(...),
     style_file: UploadFile = File(...),
-    is_style_upload: bool = True,
-    is_content_upload: bool = True
+    is_style_upload: bool = Form(...),
+    is_content_upload: bool = Form(...),
 ):
 
     # 확장자 check
@@ -27,32 +27,78 @@ async def transfer_style(
         if extension not in ("jpg", "jpeg", "png"):
             return "Image must be jpg or png format!"
 
+    BASE_URL = "/code/app/static/images/"
 
+    USER_IMAGE_DIR = BASE_URL + "user"
+    CONTENT_IMAGE_DIR = BASE_URL + "conpic"
+    STYLE_IMAGE_DIR = BASE_URL + "artist"
+
+    # 이미지가 유저 업로드인 경우
     with SessionLocal() as db:
+
+        if is_content_upload:
+            num_of_paintings = db.query(painting.Painting).count()
+            num_of_paintings += 1
+            content_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+            p = painting.Painting(
+                img_url=content_file_path, painting_type=300, download=0, saved=False
+            )
+            db.add(p)
+            db.commit()
+            with open(content_file_path, "wb+") as file_object:
+                file_object.write(content_file.file.read())
         if is_style_upload:
-            p = 
+            num_of_paintings = db.query(painting.Painting).count()
+            num_of_paintings += 1
+            style_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+            p = painting.Painting(
+                img_url=style_file_path, painting_type=300, download=0, saved=False
+            )
+            db.add(p)
+            db.commit()
+            with open(style_file_path, "wb+") as file_object:
+                file_object.write(style_file.file.read())
 
+    # 이미지가 upload가 아닌 경우~
+    if is_content_upload is False:
+        content_file_path = os.path.join(CONTENT_IMAGE_DIR, content_file.filename)
 
-        paintin_id = db.query(painting.Painting).count() + 1
-    
-    return dir(content_file.)
+    if is_style_upload is False:
+        style_file_path = os.path.join(STYLE_IMAGE_DIR, style_file.filename)
 
-    USER_IMAGE_DIR = "/code/app/static/images/user"
-    
+    # save file 경로 생성
+    with SessionLocal() as db:
+        num_of_paintings = db.query(painting.Painting).count()
+        num_of_paintings += 1
+        save_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+        p = painting.Painting(
+            img_url=save_file_path, painting_type=100, download=0, saved=False
+        )
+        db.add(p)
+        db.commit()
+        result_img = (
+            db.query(painting.Painting)
+            .filter(painting.Painting.img_url == save_file_path)
+            .one_or_none()
+        )
+        style_img = (
+            db.query(painting.Painting)
+            .filter(painting.Painting.img_url == style_file_path)
+            .one_or_none()
+        )
+        content_img = (
+            db.query(painting.Painting)
+            .filter(painting.Painting.img_url == content_file_path)
+            .one_or_none()
+        )
 
-    
-
-    content_file_path = f"{USER_IMAGE_DIR}/{PAINTING_ID}_0.jpg"
-    style_file_path = f"{USER_IMAGE_DIR}/{PAINTING_ID}_1.jpg"
-    save_file_path = f"{USER_IMAGE_DIR}/{PAINTING_ID}_2.jpg"
-
-    # 업로드면 저장, 아니면 VM에서 읽기
-    if is_style_upload:
-        with open(content_file_path, "wb+") as file_object:
-            file_object.write(content_file.file.read())
-    if is_content_upload:
-        with open(style_file_path, "wb+") as file_object:
-            file_object.write(style_file.file.read())
+        trs = transfer.Transfer(
+            style_id=style_img.id,
+            content_id=content_img.id,
+            result_id=result_img.id,
+        )
+        db.add(trs)
+        db.commit()
 
     result = save_transfer_image(content_file_path, style_file_path, save_file_path)
 
@@ -61,16 +107,9 @@ async def transfer_style(
 
     result = result["image_path"]
 
-    # 임시 더미 데이터
-    return {
-        "transfer_image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png",
-        "content_image_path": "https://e7.pngegg.com/pngimages/1012/998/png-clipart-white-number-2-social-media-logo-computer-icons-number-2-infographic-blue.png",
-        "style_image_path": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Eo_circle_blue_white_number-3.svg/1200px-Eo_circle_blue_white_number-3.svg.png",
-    }
-
     # 컨테이너와 VM 상의 경로가 달라서 전처리
-    # result = {k:v.replace('/code/app','') for k, v in result.items()}
-    # return result
+    result = {k: v.replace("/code/app", "") for k, v in result.items()}
+    return {**result, "painting_id": result_img.id}
 
 
 @router.get("/style")
@@ -93,9 +132,8 @@ async def get_random_content_image():
 
     return url.replace("/code/app", "")
 
-@router.put("/create")
-def create_result_image(painting_id:int):
-    
-    
-    return "create success"
 
+@router.put("/create")
+def create_result_image(painting_id: int):
+
+    return "create success"

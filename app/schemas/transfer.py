@@ -25,6 +25,7 @@ class TransferPostRequest(BaseModel):
 
 
 class TransferPostResponse(BaseModel):
+    painting_id: int = 3
     transfer_image_path: AnyUrl = "/static/images/1.jpg"
     content_image_path: AnyUrl = "/static/images/2.jpg"
     style_image_path: AnyUrl = "/static/images/3.jpg"
