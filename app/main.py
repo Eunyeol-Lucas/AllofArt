@@ -31,6 +31,17 @@ tags_metadata = [
     },
 ]
 
+origins = ["*"]
+origins = [
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "http://localhost:3000"
+]
+
 middleware = [
     Middleware(
         CORSMiddleware,
