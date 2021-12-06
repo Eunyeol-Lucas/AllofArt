@@ -16,7 +16,7 @@ def get_all_artist():
         result.append(
             {
                 "id": each_artist.id,
-                "profile": f"/static/images/artist/{each_artist.name}.jpg",
+                "profile": f"/static/images/artist/{each_artist.name.replace(' ','_')}.jpg",
                 "name": each_artist.name.replace("_", " "),
             }
         )
