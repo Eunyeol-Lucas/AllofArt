@@ -31,6 +31,17 @@ tags_metadata = [
     },
 ]
 
+origins = ["*"]
+origins = [
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "http://localhost:3000"
+]
+
 middleware = [
     Middleware(
         CORSMiddleware,
@@ -61,10 +72,10 @@ app.include_router(register.router, prefix="/api/register", tags=["register"])
 app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
 app.include_router(check.router, prefix="/api/check")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["*"],
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
