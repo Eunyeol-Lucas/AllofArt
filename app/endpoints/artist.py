@@ -37,12 +37,13 @@ def get_artist_detail(artist_id: int = 1):
             .filter(painting.Painting.painting_type == artist_id)
             .count()
         )
-
+        if number_of_paintings > 6:
+            number_of_paintings = 6
     images = [
         f"/static/images/artist/{some_artist.name.replace(' ','_')}_{i}.jpg"
         for i in range(1, number_of_paintings + 1)
     ]
     images.insert(0, f"/static/images/profile/{some_artist.name.replace(' ','_')}.jpeg")
     some_artist.images = images
-
+    some_artist.name = some_artist.name.replace("_", " ")
     return some_artist
