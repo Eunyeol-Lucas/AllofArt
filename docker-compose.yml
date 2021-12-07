@@ -6,5 +6,7 @@ services:
     ports:
       - 5000:8000
     volumes:
-      - /static:/code/app/static
-      - /home/gon2gon2/git/server/app/endpoints:/code/app/endpoints
+      - ./static:/code/app/static
+      - ./app/endpoints:/code/app/endpoints
+      - ./app/models:/code/app/models
+      - ./app/schemas:/code/app/schemas
