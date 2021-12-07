@@ -22,7 +22,7 @@ class TransferPostRequest(BaseModel):
     is_content_upload: bool
 
 
-class TransferPostResponse(TransferBase):
+class TransferPostResponse(BaseModel):
     painting_id: int = 3
     transfer_image_path: str = "/static/images/1.jpg"
     content_image_path: str = "/static/images/2.jpg"

@@ -1,5 +1,6 @@
 import os
 from random import choice
+from typing import Optional
 
 from fastapi import APIRouter, File, Form, UploadFile
 
@@ -13,46 +14,61 @@ router = APIRouter()
 
 @router.post("/", response_model=transfer_schema.TransferPostResponse)
 async def transfer_style(
-    content_file: UploadFile = File(...),
-    style_file: UploadFile = File(...),
-    is_style_upload: bool = Form(...),
-    is_content_upload: bool = Form(...),
+    content_file: Optional[UploadFile] = File(...),
+    style_file: Optional[UploadFile] = File(...),
+    is_random_style: bool = Form(...),
+    is_random_content: bool = Form(...),
+    random_content_name: str = Form(...),
+    random_style_name: str = Form(...),
 ):
 
+    random_content_name = random_content_name.split("/")[-1]
+    random_style_name = random_style_name.split("/")[-1]
+
     # 확장자 check
-    extensions = [
-        file.filename.split(".")[-1].lower() for file in [content_file, style_file]
-    ]
+    extensions = []
+    if not is_random_style:
+        extensions.append(style_file.filename.split(".")[-1].lower())
+    if not is_random_content:
+        extensions.append(content_file.filename.split(".")[-1].lower())
+
     for extension in extensions:
         if extension not in ("jpg", "jpeg", "png"):
             return "Image must be jpg or png format!"
 
-    BASE_URL = "/code/app/static/images/"
+    BASE_URL = os.path.join(os.getcwd(), "app", "static", "images")
 
-    USER_IMAGE_DIR = BASE_URL + "user"
-    CONTENT_IMAGE_DIR = BASE_URL + "conpic"
-    STYLE_IMAGE_DIR = BASE_URL + "artist"
+    USER_IMAGE_DIR = os.path.join(BASE_URL, "user")
+    CONTENT_IMAGE_DIR = os.path.join(BASE_URL, "conpic")
+    STYLE_IMAGE_DIR = os.path.join(BASE_URL, "artist")
 
     # 이미지가 유저 업로드인 경우
     with SessionLocal() as db:
 
-        if is_content_upload:
+        if not is_random_content:
             num_of_paintings = db.query(painting.Painting).count()
             num_of_paintings += 1
             content_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
-                img_url=content_file_path, painting_type=300, download=0, saved=False
+                img_url=content_file_path.replace("/code/app", ""),
+                painting_type=300,
+                download=0,
+                saved=False,
             )
             db.add(p)
             db.commit()
             with open(content_file_path, "wb+") as file_object:
                 file_object.write(content_file.file.read())
-        if is_style_upload:
+
+        if not is_random_style:
             num_of_paintings = db.query(painting.Painting).count()
             num_of_paintings += 1
             style_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
-                img_url=style_file_path, painting_type=300, download=0, saved=False
+                img_url=style_file_path.replace("/code/app", ""),
+                painting_type=300,
+                download=0,
+                saved=False,
             )
             db.add(p)
             db.commit()
@@ -60,11 +76,11 @@ async def transfer_style(
                 file_object.write(style_file.file.read())
 
     # 이미지가 upload가 아닌 경우~
-    if is_content_upload is False:
-        content_file_path = os.path.join(CONTENT_IMAGE_DIR, content_file.filename)
+    if is_random_content:
+        content_file_path = os.path.join(CONTENT_IMAGE_DIR, random_content_name)
 
-    if is_style_upload is False:
-        style_file_path = os.path.join(STYLE_IMAGE_DIR, style_file.filename)
+    if is_random_style:
+        style_file_path = os.path.join(STYLE_IMAGE_DIR, random_style_name)
 
     # save file 경로 생성
     with SessionLocal() as db:
@@ -72,25 +88,40 @@ async def transfer_style(
         num_of_paintings += 1
         save_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
         p = painting.Painting(
-            img_url=save_file_path, painting_type=100, download=0, saved=False
+            img_url=save_file_path.replace("/code/app", ""),
+            painting_type=100,
+            download=0,
+            saved=False,
         )
         db.add(p)
         db.commit()
         result_img = (
             db.query(painting.Painting)
-            .filter(painting.Painting.img_url == save_file_path)
+            .filter(
+                painting.Painting.img_url == save_file_path.replace("/code/app", "")
+            )
             .one_or_none()
         )
         style_img = (
             db.query(painting.Painting)
-            .filter(painting.Painting.img_url == style_file_path)
+            .filter(
+                painting.Painting.img_url == style_file_path.replace("/code/app", "")
+            )
             .one_or_none()
         )
         content_img = (
             db.query(painting.Painting)
-            .filter(painting.Painting.img_url == content_file_path)
+            .filter(
+                painting.Painting.img_url == content_file_path.replace("/code/app", "")
+            )
             .one_or_none()
         )
+    if result_img is None:
+        print("save_file_path", save_file_path.replace("/code/app", ""))
+    if style_img is None:
+        print("style_file_path", style_file_path.replace("/code/app", ""))
+    if content_img is None:
+        print("content_file_path", content_file_path.replace("/code/app", ""))
 
     with SessionLocal() as db:
         trs = transfer.Transfer(
@@ -171,3 +202,14 @@ def add_paintings():
                 )
                 db.add(p)
             # db.commit()
+
+
+@router.get("/reset")
+def reset_url():
+
+    with SessionLocal() as db:
+
+        paintings = db.query(painting.Painting).all()
+        for p in paintings:
+            p.img_url = p.img_url.replace("/code/app", "")
+        db.commit()
