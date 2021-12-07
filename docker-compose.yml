@@ -7,3 +7,4 @@ services:
       - 5000:8000
     volumes:
       - /static:/code/app/static
+      - /home/gon2gon2/git/server/app/endpoints:/code/app/endpoints
