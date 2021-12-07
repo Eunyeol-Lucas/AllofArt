@@ -1,11 +1,4 @@
-fastapi
-sqlalchemy
-alembic
-bcrypt
-pymysql
 uvicorn[standard]
-pillow
-python-multipart
 absl-py==1.0.0
 alembic==1.7.5
 anyio==3.4.0
@@ -67,6 +60,4 @@ zipp==3.6.0
 tensorflow_hub
 matplotlib
 opencv-python
-python-multipart
-alembic
 mysqlclient
