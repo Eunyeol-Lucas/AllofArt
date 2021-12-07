@@ -108,7 +108,7 @@ async def transfer_style(
 
     result = result["image_path"]
 
-    result = {k: v for k, v in result.items()}
+    result = {k: v.replace("/code/app", "") for k, v in result.items()}
     result = {**result, "painting_id": result_img.id}
 
     return result
