@@ -2,9 +2,10 @@ from fastapi import APIRouter, HTTPException
 
 from ..database import SessionLocal
 from ..models import artist, painting
+from ..constant import LAST_ARTIST_ID
+
 
 router = APIRouter()
-
 
 @router.get("/", summary="Get artists information")
 def get_all_artist():
@@ -30,7 +31,7 @@ def get_artist_detail(artist_id: int = 1):
         some_artist = (
             db.query(artist.Artist).filter(artist.Artist.id == artist_id).one_or_none()
         )
-        if (some_artist is None) or (artist_id > 50):
+        if (some_artist is None) or (artist_id > LAST_ARTIST_ID):
             raise HTTPException(status_code=404, detail="요청하신 화가가 없습니다!")
         number_of_paintings = (
             db.query(painting.Painting)
