@@ -113,16 +113,16 @@ async def classify_uploaded_painting(
         top_5_list = list(top_5.items())
         new_style = style_model.Style(
             painting_id = image_id,
-            artist_id0 = get_artist_id(db, top_5_list[0][0]),
-            score0 = top_5_list[0][1],
-            artist_id1 = get_artist_id(db, top_5_list[1][0]),
-            score1 = top_5_list[1][1],
-            artist_id2 = get_artist_id(db, top_5_list[2][0]),
-            score2 = top_5_list[2][1],
-            artist_id3 = get_artist_id(db, top_5_list[3][0]),
-            score3 = top_5_list[3][1],
-            artist_id4 = get_artist_id(db, top_5_list[4][0]),
-            score4 = top_5_list[4][1]
+            artist_id0 = get_artist_id(db, top_5[0][0]),
+            score0 = top_5[0][1],
+            artist_id1 = get_artist_id(db, top_5[1][0]),
+            score1 = top_5[1][1],
+            artist_id2 = get_artist_id(db, top_5[2][0]),
+            score2 = top_5[2][1],
+            artist_id3 = get_artist_id(db, top_5[3][0]),
+            score3 = top_5[3][1],
+            artist_id4 = get_artist_id(db, top_5[4][0]),
+            score4 = top_5[4][1]
         )
         db.add(new_style)
         db.commit()
