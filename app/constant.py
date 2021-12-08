@@ -1,7 +1,8 @@
 from typing import Final
 
-# DB id 상수
+# DB 관련 상수
 LAST_ARTIST_ID:Final = 50
+
 
 # host static 경로 상수
 CONTENT_IMAGE_DIR:Final = "/static/images/artist"

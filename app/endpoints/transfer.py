@@ -168,16 +168,18 @@ async def get_random_content_image():
 
 @router.put("/create")
 def create_result_image(painting_id: int):
-    with SessionLocal() as db:
-        image_want_to_save = (
-            db.query(painting.Painting)
-            .filter(painting.Painting.id == painting_id)
-            .one_or_none()
-        )
-        image_want_to_save.saved = True
-        db.commit()
-
-    return "create success"
+    try:
+        with SessionLocal() as db:
+            image_want_to_save = (
+                db.query(painting.Painting)
+                .filter(painting.Painting.id == painting_id)
+                .one_or_none()
+            )
+            image_want_to_save.saved = True
+            db.commit()
+        return "create success"
+    except:
+        return "create fail"
 
 
 @router.get("/asd")
@@ -206,7 +208,7 @@ def add_paintings():
 
 @router.get("/reset")
 def reset_url():
-
+    
     with SessionLocal() as db:
 
         paintings = db.query(painting.Painting).all()
