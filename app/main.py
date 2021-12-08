@@ -30,6 +30,13 @@ tags_metadata = [
         "name": "register",
         "description": "CRUD test 중(삭제 예정)",
     },
+    {
+        "name":"check",
+        "description":"front test(삭제예정)",
+
+    }
+
+ 
 ]
 
 origins = ["*"]
