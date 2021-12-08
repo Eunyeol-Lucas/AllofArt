@@ -27,7 +27,6 @@ class Style(Base):
         artist_id4,score4):
 
         self.painting_id = painting_id
-        self.artist_id = artist_id
         self.artist_id0 = artist_id0
         self.score0 = score0
         self.artist_id1 = artist_id1
