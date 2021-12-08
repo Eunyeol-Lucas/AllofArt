@@ -84,19 +84,19 @@ async def trs_test(painting_id: int = None):
             "painting_id": painting_id,
             "style_result": {
                 get_artist_name(db, query_result_style.artist_id0).replace(
-                    "_", ""
+                    "_", " "
                 ): query_result_style.score0,
                 get_artist_name(db, query_result_style.artist_id1).replace(
-                    "_", ""
+                    "_", " "
                 ): query_result_style.score1,
                 get_artist_name(db, query_result_style.artist_id2).replace(
-                    "_", ""
+                    "_", " "
                 ): query_result_style.score2,
                 get_artist_name(db, query_result_style.artist_id3).replace(
-                    "_", ""
+                    "_", " "
                 ): query_result_style.score3,
                 get_artist_name(db, query_result_style.artist_id4).replace(
-                    "_", ""
+                    "_", " "
                 ): query_result_style.score4,
             },
             # name으로 다 바꾸고
