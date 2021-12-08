@@ -8,7 +8,7 @@ from app.ai.style_trs.main import save_transfer_image
 from app.database import SessionLocal
 from app.models import artist, painting, transfer
 from app.schemas import transfer as transfer_schema
-from ..constant import CONTENT_IMAGE_DIR, STYLE_IMAGE_DIR, USER_IMAGE_DIR, DOCKER_WORK_DIR
+from ..constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR
 
 router = APIRouter()
 
@@ -50,7 +50,7 @@ async def transfer_style(
         if not is_random_content:
             num_of_paintings = db.query(painting.Painting).count()
             num_of_paintings += 1
-            content_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+            content_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
                 img_url=content_file_path.replace(DOCKER_WORK_DIR, ""),
                 painting_type=300,
@@ -65,7 +65,7 @@ async def transfer_style(
         if not is_random_style:
             num_of_paintings = db.query(painting.Painting).count()
             num_of_paintings += 1
-            style_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+            style_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
                 img_url=style_file_path.replace(DOCKER_WORK_DIR, ""),
                 painting_type=300,
@@ -79,16 +79,16 @@ async def transfer_style(
 
     # 이미지가 upload가 아닌 경우~
     if is_random_content:
-        content_file_path = os.path.join(CONTENT_IMAGE_DIR, random_content_name)
+        content_file_path = os.path.join(DOCKER_CONTENT_IMAGE_DIR, random_content_name)
 
     if is_random_style:
-        style_file_path = os.path.join(STYLE_IMAGE_DIR, random_style_name)
+        style_file_path = os.path.join(DOCKER_STYLE_IMAGE_DIR, random_style_name)
 
     # save file 경로 생성
     with SessionLocal() as db:
         num_of_paintings = db.query(painting.Painting).count()
         num_of_paintings += 1
-        save_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+        save_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
         p = painting.Painting(
             img_url=save_file_path.replace(DOCKER_WORK_DIR, ""),
             painting_type=100,
@@ -149,9 +149,9 @@ async def transfer_style(
 
 @router.get("/style")
 async def get_random_style_image():
-    images = os.listdir(CONTENT_IMAGE_DIR)
+    images = os.listdir(DOCKER_CONTENT_IMAGE_DIR)
     random_image = choice(images)
-    url = os.path.join(CONTENT_IMAGE_DIR, random_image)
+    url = os.path.join(DOCKER_CONTENT_IMAGE_DIR, random_image)
 
     return url.replace(DOCKER_WORK_DIR, "")
 
@@ -159,9 +159,9 @@ async def get_random_style_image():
 @router.get("/content")
 async def get_random_content_image():
 
-    images = os.listdir(STYLE_IMAGE_DIR)
+    images = os.listdir(DOCKER_STYLE_IMAGE_DIR)
     random_image = choice(images)
-    url = os.path.join(STYLE_IMAGE_DIR, random_image)
+    url = os.path.join(DOCKER_STYLE_IMAGE_DIR, random_image)
 
     return url.replace(DOCKER_WORK_DIR, "")
 
@@ -182,7 +182,7 @@ def create_result_image(painting_id: int):
 
 @router.get("/asd")
 def add_paintings():
-    BASE_DIR = CONTENT_IMAGE_DIR
+    BASE_DIR = DOCKER_CONTENT_IMAGE_DIR
     files = os.listdir(BASE_DIR)
     with SessionLocal() as db:
         ids = [1, 26, 42, 50]

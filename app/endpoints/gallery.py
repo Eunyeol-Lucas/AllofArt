@@ -1,9 +1,9 @@
 from fastapi import APIRouter
-
 from app.schemas import gallery
-
 # from ..database import SessionLocal
 # from ..models import artist
+
+
 router = APIRouter()
 
 # 정렬 함수

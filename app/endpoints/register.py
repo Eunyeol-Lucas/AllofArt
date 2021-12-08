@@ -4,6 +4,7 @@ from fastapi.responses import HTMLResponse
 from ..database import SessionLocal
 from ..models import artist
 
+
 router = APIRouter()
 
 

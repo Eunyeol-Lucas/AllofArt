@@ -11,7 +11,9 @@ from app.models import artist as artist_model
 from app.models import painting as painting_model
 from app.models import style as style_model
 from app.schemas import style as style_schema
-from ..constant import USER_IMAGE_DIR, DOCKER_WORK_DIR
+from ..constant import DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR
+
+
 router = APIRouter()
 
 
@@ -136,7 +138,7 @@ async def classify_uploaded_painting(
         # painting 에 저장
         num_of_paintings = db.query(painting_model.Painting).count()
         num_of_paintings += 1
-        image_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+        image_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
 
         image_want_to_save = painting_model.Painting(
             img_url=image_file_path.replace(DOCKER_WORK_DIR, ""),

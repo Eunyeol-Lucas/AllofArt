@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException
 
 from ..database import SessionLocal
 from ..models import artist, painting
-from ..constant import LAST_ARTIST_ID
+from ..constant import LAST_ARTIST_ID, PROFILE_IMAGE_DIR, CONTENT_IMAGE_DIR
 
 
 router = APIRouter()
@@ -17,7 +17,7 @@ def get_all_artist():
         result.append(
             {
                 "id": each_artist.id,
-                "profile": f"/static/images/profile/{each_artist.name.replace(' ','_')}.jpeg",
+                "profile": f"{PROFILE_IMAGE_DIR}/{each_artist.name.replace(' ','_')}.jpeg",
                 "name": each_artist.name.replace("_", " "),
             }
         )
@@ -41,10 +41,10 @@ def get_artist_detail(artist_id: int = 1):
         if number_of_paintings > 6:
             number_of_paintings = 6
     images = [
-        f"/static/images/artist/{some_artist.name.replace(' ','_')}_{i}.jpg"
+        f"{CONTENT_IMAGE_DIR}/{some_artist.name.replace(' ','_')}_{i}.jpg"
         for i in range(1, number_of_paintings + 1)
     ]
-    images.insert(0, f"/static/images/profile/{some_artist.name.replace(' ','_')}.jpeg")
+    images.insert(0, f"{PROFILE_IMAGE_DIR}/{some_artist.name.replace(' ','_')}.jpeg")
     some_artist.images = images
     some_artist.name = some_artist.name.replace("_", " ")
     return some_artist
