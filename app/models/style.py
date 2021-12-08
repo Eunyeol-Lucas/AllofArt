@@ -5,7 +5,7 @@ from sqlalchemy.sql.sqltypes import Float
 
 class Style(Base):
     __tablename__ = "style"
-    id = Column(Integer, primary_key=True,nullable=False)
+    id = Column(Integer, primary_key=True,nullable=False,autoincrement=True)
     painting_id = Column(Integer, nullable=False)
     artist_id0 = Column(Integer, nullable=False)
     score0 = Column(Float,nullable=False)
