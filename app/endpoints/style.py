@@ -15,14 +15,14 @@ def get_artist_id(db, artist_name):
     artist = db.query(artist_model.Artist).filter(
             artist_model.Artist.name == artist_name.replace(' ','_')
         ).first()
-    if not query_result:
+    if not artist:
         raise HTTPException(status_code=404, detail="'화풍 분석에서 db에 화가 이름이 잘못 들어가고 있습니다' 라고 말씀해주세요")
     return artist.id
 
 def get_artist_name(db, artist_id):
     artist = db.query(artist_model.Artist).filter(
             artist_model.Artist.id == artist_id).one_or_none()
-    if not query_result:
+    if not artist:
         raise HTTPException(status_code=404, detail="'화풍 분석에서 db에 화가 id가 잘못 들어가고 있습니다' 라고 말씀해주세요")
     return artist.id
 
