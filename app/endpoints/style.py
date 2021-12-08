@@ -35,7 +35,7 @@ async def trs_test(painting_id: int = None):
         if (not query_result_image) or (not query_result_style):
             raise HTTPException(status_code=404, detail="요청하신 그림이 존재하지 않습니다!")
 
-        result = 
+        result = {
             "image_url" : query_result_image.img_url,
             "artist_id_0" : query_result_style.artist_id0 ,
             "score_0" : query_result_style.score0 ,
@@ -47,7 +47,7 @@ async def trs_test(painting_id: int = None):
             "score_3" : query_result_style.score3 ,
             "artist_id_4" : query_result_style.artist_id4 ,
             "score_4" : query_result_style.score4 ,
-        )
+        }
 
     return result
 
