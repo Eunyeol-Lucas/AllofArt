@@ -47,4 +47,5 @@ def get_artist_detail(artist_id: int = 1):
     images.insert(0, f"{PROFILE_IMAGE_DIR}/{some_artist.name.replace(' ','_')}.jpeg")
     some_artist.images = images
     some_artist.name = some_artist.name.replace("_", " ")
+    
     return some_artist
