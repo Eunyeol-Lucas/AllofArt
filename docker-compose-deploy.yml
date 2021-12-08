@@ -9,5 +9,11 @@ services:
       - "5000:8000"
     volumes:
       - /static:/code/app/static
-    environment:
-      - NVIDIA_VISIBLE_DEVICES=all
+    deploy: 
+      resources: 
+        reservations: 
+          devices: 
+            - driver: nvidia 
+              count: 1 
+              capabilities: [gpu, utility]
+
