@@ -3,8 +3,9 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
+from app.constant import DOCKER_WORK_DIR
 from app.endpoints import artist, check, gallery, register, style, transfer, users
-from constant import DOCKER_WORK_DIR
+
 tags_metadata = [
     {
         "name": "style",
@@ -31,12 +32,9 @@ tags_metadata = [
         "description": "CRUD test 중(삭제 예정)",
     },
     {
-        "name":"check",
-        "description":"front test(삭제예정)",
-
-    }
-
- 
+        "name": "check",
+        "description": "front test(삭제예정)",
+    },
 ]
 
 origins = ["*"]
