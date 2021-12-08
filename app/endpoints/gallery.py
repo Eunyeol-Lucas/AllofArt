@@ -12,7 +12,6 @@ router = APIRouter()
 
 # 정렬 함수
 def gallery_sort_by(total, sort_by):
-
     if sort_by == "download":
         total = sorted(total, key=lambda x: -x["download"])
     elif sort_by == "date":
@@ -34,21 +33,6 @@ def cal_axis(duration):
         axis = today - timedelta(days=365)
 
     return datetime(year=axis.year, month=axis.month, day=axis.day)
-
-
-# dummydata 생성을 위한 함수
-def get_dummy(n: int, days: int) -> dict:
-    from random import randint
-
-    dummy = {
-        "painting_id": n,
-        "download": randint(1, 100),
-        "created_at": (datetime.now() - timedelta(days=days)),
-        "result": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Eo_circle_blue_number-1.svg/2048px-Eo_circle_blue_number-1.svg.png",
-        "style": "https://e7.pngegg.com/pngimages/1012/998/png-clipart-white-number-2-social-media-logo-computer-icons-number-2-infographic-blue.png",
-        "content": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Eo_circle_blue_white_number-3.svg/1200px-Eo_circle_blue_white_number-3.svg.png",
-    }
-    return dummy
 
 
 @router.get("", summary="Get transfer, style, content images")
@@ -174,3 +158,48 @@ def download_image(painting_id: int):
             "image_url": image_want_to_dowload.img_url,
             "download": image_want_to_dowload.download,
         }
+
+
+# 더미데이터용 endpoint입니다 나중에 통째로 삭제하면 됩니다.
+
+# dummydata 생성을 위한 함수
+def get_dummy(n: int) -> dict:
+    from random import randint
+
+    dummy = {
+        "transfer_id": 55 + n,
+        "result_img_url": "/static/images/user/8189.jpg",
+        "result_img_id": 8240 + n,
+        "download": randint(1, 500),
+        "style_img_url": "/static/images/artist/Salvador_Dali_126.jpg",
+        "content_img_url": "/static/images/user/8188.jpg",
+    }
+    return dummy
+
+
+# 정렬
+def dummy_sort(sort_by, data):
+    if sort_by == "date":
+        return sorted(data, key=lambda x: -x["transfer_id"])
+    else:
+        return sorted(data, key=lambda x: -x["download"])
+
+
+@router.get("/dummy")
+def get_100_dummies(
+    duration: str = "day",
+    sort_by: str = "date",
+    page: int = 1,
+):
+
+    LIMIT = 9
+
+    result = [get_dummy(i) for i in range(100)]
+
+    sorted_result = dummy_sort(sort_by, result)
+
+    start = (page - 1) * LIMIT
+    end = (page) * LIMIT
+    final_result = sorted_result[start:end]
+
+    return final_result
