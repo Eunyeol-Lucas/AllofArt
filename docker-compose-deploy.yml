@@ -9,11 +9,5 @@ services:
       - "5000:8000"
     volumes:
       - /static:/code/app/static
-    deploy: 
-      resources: 
-        reservations: 
-          devices: 
-            - driver: nvidia 
-            - count: 1 
-            - capabilities: [gpu, utility]
+    runtime: nvidia
 
