@@ -110,7 +110,6 @@ async def classify_uploaded_painting(
 
 
     with SessionLocal() as db:
-        top_5_list = list(top_5.items())
         new_style = style_model.Style(
             painting_id = image_id,
             artist_id0 = get_artist_id(db, top_5[0][0]),
