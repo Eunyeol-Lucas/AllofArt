@@ -152,7 +152,7 @@ async def get_random_style_image():
     random_image = choice(images)
     url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    return url.replace('/code/app')
+    return url.replace('/code/app','')
 
 
 @router.get("/content")
@@ -163,7 +163,7 @@ async def get_random_content_image():
     random_image = choice(images)
     url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return url.replace('/code/app')
+    return url.replace('/code/app','')
 
 
 @router.put("/create")
