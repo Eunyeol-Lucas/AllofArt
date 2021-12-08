@@ -147,23 +147,23 @@ async def transfer_style(
 
 @router.get("/style")
 async def get_random_style_image():
-    CONTENT_IMAGE_DIR = "/static/images/artist"
+    CONTENT_IMAGE_DIR = "/code/app/static/images/artist"
     images = os.listdir(CONTENT_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    return url
+    return url.replace('/code/app')
 
 
 @router.get("/content")
 async def get_random_content_image():
 
-    STYLE_IMAGE_DIR = "/static/images/conpic"
+    STYLE_IMAGE_DIR = "/code/app/static/images/conpic"
     images = os.listdir(STYLE_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return url
+    return url.replace('/code/app')
 
 
 @router.put("/create")
