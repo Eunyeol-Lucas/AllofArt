@@ -2,21 +2,24 @@ from fastapi import APIRouter, File, HTTPException, UploadFile
 
 from app.ai.style_cls.main import classify_style
 from app.ai.utils import read_imagefile
-from app import schemas, models
+from app.schemas import style as style_schema
+from app.models import artist as artist_model
+from app.models import style as style_model
+from app.models import painting as painting_model
 
 router = APIRouter()
 
 def get_artist_id(db, artist_name):
-    artist = db.query(models.artist.Artist).filter(
-            models.artist.Artist.name == artist_name.replace(' ','_')
+    artist = db.query(artist_model.Artist).filter(
+            artist_model.Artist.name == artist_name.replace(' ','_')
         ).first()
     if not query_result:
         raise HTTPException(status_code=404, detail="'화풍 분석에서 db에 화가 이름이 잘못 들어가고 있습니다' 라고 말씀해주세요")
     return artist.id
 
 def get_artist_name(db, artist_id):
-    artist = db.query(models.artist.Artist).filter(
-            models.artist.Artist.id == artist_id).one_or_none()
+    artist = db.query(artist_model.Artist).filter(
+            artist_model.Artist.id == artist_id).one_or_none()
     if not query_result:
         raise HTTPException(status_code=404, detail="'화풍 분석에서 db에 화가 id가 잘못 들어가고 있습니다' 라고 말씀해주세요")
     return artist.id
@@ -29,8 +32,8 @@ async def trs_test(painting_id: int = None):
     '''
 
     with SessionLocal() as db:
-        query_result_image = db.query(models.painting.Painting).filter(models.painting.Painting.id == painting_id).one_or_none()
-        query_result_style = db.query(models.style.Style).filter(models.style.Style.painting_id == painting_id).one_or_none()
+        query_result_image = db.query(painting_model.Painting).filter(painting_model.Painting.id == painting_id).one_or_none()
+        query_result_style = db.query(style_model.Style).filter(style_model.Style.painting_id == painting_id).one_or_none()
 
         if (not query_result_image) or (not query_result_style):
             raise HTTPException(status_code=404, detail="요청하신 그림이 존재하지 않습니다!")
@@ -53,7 +56,7 @@ async def trs_test(painting_id: int = None):
 
 
 @router.post(
-    "/", response_model=schemas.style.StylePostResponse, summary="Post image and get result"
+    "/", response_model=style_schema.style.StylePostResponse, summary="Post image and get result"
 )
 async def classify_uploaded_painting(
     file: UploadFile = File(...),
@@ -77,11 +80,11 @@ async def classify_uploaded_painting(
 
     with SessionLocal() as db:
         # painting 에 저장
-        num_of_paintings = db.query(painting.Painting).count()
+        num_of_paintings = db.query(painting_model.Painting).count()
         num_of_paintings += 1
         image_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
 
-        image_want_to_save = models.painting.Painting(
+        image_want_to_save = painting_model.Painting(
             img_url = image_file_path,
             painting_type = 200,
             download = 0,
@@ -106,7 +109,7 @@ async def classify_uploaded_painting(
 
     with SessionLocal() as db:
         top_5_list = list(top_5.items())
-        new_style = models.style.Style(
+        new_style = style_model.Style(
             painting_id = image_id,
             artist_id0 = get_artist_id(db, top_5_list[0][0]),
             score0 = top_5_list[0][1],
