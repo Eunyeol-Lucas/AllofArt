@@ -1,11 +1,10 @@
-# FROM nvidia/cuda:11.4.2-devel-ubuntu20.04
-FROM python:3.8
+FROM nvidia/cuda:11.4.2-devel-ubuntu20.04
 WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
-# RUN apt-get update
-# RUN apt-get install python3-dev default-libmysqlclient-dev build-essential -y
-# RUN apt-get install python3-pip -y
-# RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
-RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+RUN apt-get update
+RUN apt-get install python3-dev default-libmysqlclient-dev build-essential -y
+RUN apt-get install python3-pip -y
+RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
+# RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY . /code/app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
