@@ -143,7 +143,7 @@ async def classify_uploaded_painting(
         image_want_to_save = painting_model.Painting(
             img_url=image_file_path.replace(DOCKER_WORK_DIR, ""),
             painting_type=200,
-            download=0,
+            download_cnt=0,
             saved=False,
         )
         db.add(image_want_to_save)

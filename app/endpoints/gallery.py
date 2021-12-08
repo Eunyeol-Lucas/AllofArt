@@ -149,14 +149,14 @@ def download_image(painting_id: int):
         )
         if not image_want_to_dowload:
             raise HTTPException(status_code=404, detail="요청하신 그림이 없습니다!")
-        image_want_to_dowload.download += 1
+        image_want_to_dowload.download_cnt += 1
         log = download.Download(painting_id=painting_id, downloaded_at=datetime.now())
         db.add(log)
         db.commit()
 
         return {
             "image_url": image_want_to_dowload.img_url,
-            "download": image_want_to_dowload.download,
+            "download": image_want_to_dowload.download_cnt,
         }
 
 

@@ -8,7 +8,7 @@ class PaintingBase(BaseModel):
 class PaintingCreate(PaintingBase):
     id: int = 3
     img_url: AnyUrl = "/static/images/1.jpg"
-    download: int = 0
+    download_cnt: int = 0
 
 
 class Painting(PaintingCreate):

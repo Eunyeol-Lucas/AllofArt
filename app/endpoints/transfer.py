@@ -54,7 +54,7 @@ async def transfer_style(
             p = painting.Painting(
                 img_url=content_file_path.replace(DOCKER_WORK_DIR, ""),
                 painting_type=300,
-                download=0,
+                download_cnt=0,
                 saved=False,
             )
             db.add(p)
@@ -69,7 +69,7 @@ async def transfer_style(
             p = painting.Painting(
                 img_url=style_file_path.replace(DOCKER_WORK_DIR, ""),
                 painting_type=300,
-                download=0,
+                download_cnt=0,
                 saved=False,
             )
             db.add(p)
@@ -92,7 +92,7 @@ async def transfer_style(
         p = painting.Painting(
             img_url=save_file_path.replace(DOCKER_WORK_DIR, ""),
             painting_type=100,
-            download=0,
+            download_cnt=0,
             saved=False,
         )
         db.add(p)
@@ -204,7 +204,7 @@ def add_paintings():
                 img_url = os.path.join(BASE_DIR.replace(DOCKER_WORK_DIR, ""), file)
                 print(img_url)
                 p = painting.Painting(
-                    img_url=img_url, painting_type=id_, download=0, saved=False
+                    img_url=img_url, painting_type=id_, download_cnt=0, saved=False
                 )
                 db.add(p)
             # db.commit()
