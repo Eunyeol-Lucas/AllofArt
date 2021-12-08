@@ -4,10 +4,10 @@ from typing import Final
 LAST_ARTIST_ID:Final = 50
 
 ## Painting테이블 painting_type 컬럼 숫자 의미
-TRASFER_TYPE:Final = 100
-ANALYZE_TYPE:Final = 200
-UPLOAD_TYPE:Final = 300
-SOURCE_TYPE:Final = 400
+TRASFER_IMG:Final = 100
+ANALYZE_IMG:Final = 200
+UPLOAD_IMG:Final = 300
+SOURCE_IMG:Final = 400
 
 
 

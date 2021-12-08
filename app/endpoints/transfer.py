@@ -8,7 +8,7 @@ from app.ai.style_trs.main import save_transfer_image
 from app.database import SessionLocal
 from app.models import artist, painting, transfer
 from app.schemas import transfer as transfer_schema
-from ..constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR
+from ..constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, UPLOAD_IMG,TRASFER_IMG
 
 router = APIRouter()
 
@@ -53,7 +53,7 @@ async def transfer_style(
             content_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
                 img_url=content_file_path.replace(DOCKER_WORK_DIR, ""),
-                painting_type=300,
+                painting_type=UPLOAD_IMG,
                 download_cnt=0,
                 saved=False,
             )
@@ -68,7 +68,7 @@ async def transfer_style(
             style_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
                 img_url=style_file_path.replace(DOCKER_WORK_DIR, ""),
-                painting_type=300,
+                painting_type=UPLOAD_IMG,
                 download_cnt=0,
                 saved=False,
             )
@@ -91,7 +91,7 @@ async def transfer_style(
         save_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
         p = painting.Painting(
             img_url=save_file_path.replace(DOCKER_WORK_DIR, ""),
-            painting_type=100,
+            painting_type=TRASFER_IMG,
             download_cnt=0,
             saved=False,
         )
