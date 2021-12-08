@@ -4,7 +4,7 @@ from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 from app.endpoints import artist, check, gallery, register, style, transfer, users
-
+from constant import DOCKER_WORK_DIR
 tags_metadata = [
     {
         "name": "style",
@@ -30,6 +30,13 @@ tags_metadata = [
         "name": "register",
         "description": "CRUD test 중(삭제 예정)",
     },
+    {
+        "name":"check",
+        "description":"front test(삭제예정)",
+
+    }
+
+ 
 ]
 
 origins = ["*"]
@@ -69,4 +76,4 @@ app.include_router(gallery.router, prefix="/api/gallery", tags=["gallery"])
 app.include_router(artist.router, prefix="/api/artist", tags=["artist"])
 app.include_router(check.router, prefix="/api/check")
 
-app.mount("/static", StaticFiles(directory="/code/app/static"), name="static")
+app.mount("/static", StaticFiles(directory=f"{DOCKER_WORK_DIR}/static"), name="static")

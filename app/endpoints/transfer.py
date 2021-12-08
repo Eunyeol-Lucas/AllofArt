@@ -8,6 +8,7 @@ from app.ai.style_trs.main import save_transfer_image
 from app.database import SessionLocal
 from app.models import artist, painting, transfer
 from app.schemas import transfer as transfer_schema
+from ..constant import CONTENT_IMAGE_DIR, STYLE_IMAGE_DIR, USER_IMAGE_DIR, DOCKER_WORK_DIR
 
 router = APIRouter()
 
@@ -43,12 +44,6 @@ async def transfer_style(
         if extension not in ("jpg", "jpeg", "png"):
             return "Image must be jpg or png format!"
 
-    BASE_URL = os.path.join(os.getcwd(), "app", "static", "images")
-
-    USER_IMAGE_DIR = os.path.join(BASE_URL, "user")
-    CONTENT_IMAGE_DIR = os.path.join(BASE_URL, "conpic")
-    STYLE_IMAGE_DIR = os.path.join(BASE_URL, "artist")
-
     # 이미지가 유저 업로드인 경우
     with SessionLocal() as db:
 
@@ -57,7 +52,7 @@ async def transfer_style(
             num_of_paintings += 1
             content_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
-                img_url=content_file_path.replace("/code/app", ""),
+                img_url=content_file_path.replace(DOCKER_WORK_DIR, ""),
                 painting_type=300,
                 download=0,
                 saved=False,
@@ -72,7 +67,7 @@ async def transfer_style(
             num_of_paintings += 1
             style_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
             p = painting.Painting(
-                img_url=style_file_path.replace("/code/app", ""),
+                img_url=style_file_path.replace(DOCKER_WORK_DIR, ""),
                 painting_type=300,
                 download=0,
                 saved=False,
@@ -95,7 +90,7 @@ async def transfer_style(
         num_of_paintings += 1
         save_file_path = os.path.join(USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
         p = painting.Painting(
-            img_url=save_file_path.replace("/code/app", ""),
+            img_url=save_file_path.replace(DOCKER_WORK_DIR, ""),
             painting_type=100,
             download=0,
             saved=False,
@@ -105,30 +100,30 @@ async def transfer_style(
         result_img = (
             db.query(painting.Painting)
             .filter(
-                painting.Painting.img_url == save_file_path.replace("/code/app", "")
+                painting.Painting.img_url == save_file_path.replace(DOCKER_WORK_DIR, "")
             )
             .one_or_none()
         )
         style_img = (
             db.query(painting.Painting)
             .filter(
-                painting.Painting.img_url == style_file_path.replace("/code/app", "")
+                painting.Painting.img_url == style_file_path.replace(DOCKER_WORK_DIR, "")
             )
             .one_or_none()
         )
         content_img = (
             db.query(painting.Painting)
             .filter(
-                painting.Painting.img_url == content_file_path.replace("/code/app", "")
+                painting.Painting.img_url == content_file_path.replace(DOCKER_WORK_DIR, "")
             )
             .one_or_none()
         )
     if result_img is None:
-        print("save_file_path", save_file_path.replace("/code/app", ""))
+        print("save_file_path", save_file_path.replace(DOCKER_WORK_DIR, ""))
     if style_img is None:
-        print("style_file_path", style_file_path.replace("/code/app", ""))
+        print("style_file_path", style_file_path.replace(DOCKER_WORK_DIR, ""))
     if content_img is None:
-        print("content_file_path", content_file_path.replace("/code/app", ""))
+        print("content_file_path", content_file_path.replace(DOCKER_WORK_DIR, ""))
 
     with SessionLocal() as db:
         trs = transfer.Transfer(
@@ -146,7 +141,7 @@ async def transfer_style(
 
     result = result["image_path"]
 
-    result = {k: v.replace("/code/app", "") for k, v in result.items()}
+    result = {k: v.replace(DOCKER_WORK_DIR, "") for k, v in result.items()}
     result = {**result, "painting_id": result_img.id}
 
     return result
@@ -154,23 +149,21 @@ async def transfer_style(
 
 @router.get("/style")
 async def get_random_style_image():
-    CONTENT_IMAGE_DIR = "/code/app/static/images/artist"
     images = os.listdir(CONTENT_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    return url.replace("/code/app", "")
+    return url.replace(DOCKER_WORK_DIR, "")
 
 
 @router.get("/content")
 async def get_random_content_image():
 
-    STYLE_IMAGE_DIR = "/code/app/static/images/conpic"
     images = os.listdir(STYLE_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return url.replace("/code/app", "")
+    return url.replace(DOCKER_WORK_DIR, "")
 
 
 @router.put("/create")
@@ -189,7 +182,7 @@ def create_result_image(painting_id: int):
 
 @router.get("/asd")
 def add_paintings():
-    BASE_DIR = "/code/app/static/images/artist"
+    BASE_DIR = CONTENT_IMAGE_DIR
     files = os.listdir(BASE_DIR)
     with SessionLocal() as db:
         ids = [1, 26, 42, 50]
@@ -202,7 +195,7 @@ def add_paintings():
                 if len(files) < 1:
                     print(name_)
             for file in files:
-                img_url = os.path.join(BASE_DIR.replace("/code/app", ""), file)
+                img_url = os.path.join(BASE_DIR.replace(DOCKER_WORK_DIR, ""), file)
                 print(img_url)
                 p = painting.Painting(
                     img_url=img_url, painting_type=id_, download=0, saved=False
@@ -218,5 +211,5 @@ def reset_url():
 
         paintings = db.query(painting.Painting).all()
         for p in paintings:
-            p.img_url = p.img_url.replace("/code/app", "")
+            p.img_url = p.img_url.replace(DOCKER_WORK_DIR, "")
         db.commit()
