@@ -11,4 +11,4 @@ services:
       - ./app/endpoints:/code/app/endpoints
       - ./app/models:/code/app/models
       - ./app/schemas:/code/app/schemas
-      - /static/images:/code/app/static/images
+      - /static:/code/app/static
