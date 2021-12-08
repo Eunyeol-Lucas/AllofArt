@@ -88,7 +88,7 @@ async def classify_uploaded_painting(
 ):  # key == file
     """
     form-data에서 file를 key로 이미지파일을 POST하면,
-    저장된 이미지의 id, 분석결과, 저장된 이미지 url을 return합니다.
+    저장된 이미지의 id, url, 분석결과를 return합니다.
 
     - **file**: 이미지 파일
     """
@@ -97,8 +97,8 @@ async def classify_uploaded_painting(
     if extension not in ("jpg", "jpeg", "png"):
         return "Image must be jpg or png format!"
 
-    image = read_imagefile(await file.read())
-    style_result = classify_style(image, extension=extension)
+    uploaded_Image = read_imagefile(await file.read())
+    style_result = classify_style(uploaded_Image, extension=extension)
 
     BASE_URL = os.path.join(os.getcwd(), "app", "static", "images")
     USER_IMAGE_DIR = os.path.join(BASE_URL, "user")
@@ -119,8 +119,7 @@ async def classify_uploaded_painting(
         db.commit()
         image_id = image_want_to_save.id
 
-    with open(image_file_path, "wb+") as file_object:
-        file_object.write(file.file.read())
+    uploaded_Image.save(image_file_path)
 
     # 소수점 제거
     style_result = {k: round(v, 2) for k, v in style_result.items()}
