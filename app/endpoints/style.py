@@ -119,7 +119,7 @@ async def classify_uploaded_painting(
         db.commit()
         image_id = image_want_to_save.id
 
-    uploaded_Image.convert("RGB")
+    uploaded_Image = uploaded_Image.convert("RGB")
     uploaded_Image.save(image_file_path)
 
     # 소수점 제거
