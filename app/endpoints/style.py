@@ -6,17 +6,50 @@ from app import schemas, models
 
 router = APIRouter()
 
-
-@router.get("/{painting_id}", summary="공유하기 기능(개발예정)")
-async def trs_test(painting_id: int = None):
-    query_result = None
+def get_artist_id(db, artist_name):
+    artist = db.query(models.artist.Artist).filter(
+            models.artist.Artist.name == artist_name.replace(' ','_')
+        ).first()
     if not query_result:
-        raise HTTPException(status_code=404, detail="요청하신 리소스가 없습니다!")
+        raise HTTPException(status_code=404, detail="'화풍 분석에서 db에 화가 이름이 잘못 들어가고 있습니다' 라고 말씀해주세요")
+    return artist.id
 
+def get_artist_name(db, artist_id):
+    artist = db.query(models.artist.Artist).filter(
+            models.artist.Artist.id == artist_id).one_or_none()
+    if not query_result:
+        raise HTTPException(status_code=404, detail="'화풍 분석에서 db에 화가 id가 잘못 들어가고 있습니다' 라고 말씀해주세요")
+    return artist.id
 
+@router.get("/{painting_id}", summary="공유하기 기능")
+async def trs_test(painting_id: int = None):
+    '''
+    id 받으면 id에 해당하는 그림 url,
+    그림 id로 style에서 꺼내서 합쳐서 리턴
+    '''
 
+    with SessionLocal() as db:
+        query_result_image = db.query(models.painting.Painting).filter(models.painting.Painting.id == painting_id).one_or_none()
+        query_result_style = db.query(models.style.Style).filter(models.style.Style.painting_id == painting_id).one_or_none()
 
-    return painting_id
+        if (not query_result_image) or (not query_result_style):
+            raise HTTPException(status_code=404, detail="요청하신 그림이 존재하지 않습니다!")
+
+        result = 
+            "image_url" : query_result_image.img_url,
+            "artist_id_0" : query_result_style.artist_id0 ,
+            "score_0" : query_result_style.score0 ,
+            "artist_id_1" : query_result_style.artist_id1 ,
+            "score_1" : query_result_style.score1 ,
+            "artist_id_2" : query_result_style.artist_id2 ,
+            "score_2" : query_result_style.score2 ,
+            "artist_id_3" : query_result_style.artist_id3 ,
+            "score_3" : query_result_style.score3 ,
+            "artist_id_4" : query_result_style.artist_id4 ,
+            "score_4" : query_result_style.score4 ,
+        )
+
+    return result
 
 
 @router.post(
@@ -69,39 +102,32 @@ async def classify_uploaded_painting(
 
     # top_5 변수를 style db에 저장
 
-    def get_id(name):
-        artist = db.query(models.artist.Artist).filter(
-                models.artist.Artist.name == name.replace(' ','_')
-            ).first()
-        return artist.id
 
 
     with SessionLocal() as db:
         top_5_list = list(top_5.items())
-        models.style.Style(
+        new_style = models.style.Style(
             painting_id = image_id,
-            artist_id0 = get_id(top_5_list[0][0]),
+            artist_id0 = get_artist_id(db, top_5_list[0][0]),
             score0 = top_5_list[0][1],
-            artist_id1 = get_id(top_5_list[1][0]),
+            artist_id1 = get_artist_id(db, top_5_list[1][0]),
             score1 = top_5_list[1][1],
-            artist_id2 = get_id(top_5_list[2][0]),
+            artist_id2 = get_artist_id(db, top_5_list[2][0]),
             score2 = top_5_list[2][1],
-            artist_id3 = get_id(top_5_list[3][0]),
+            artist_id3 = get_artist_id(db, top_5_list[3][0]),
             score3 = top_5_list[3][1],
-            artist_id4 = get_id(top_5_list[4][0]),
+            artist_id4 = get_artist_id(db, top_5_list[4][0]),
             score4 = top_5_list[4][1]
         )
-
+        db.add(new_style)
+        db.commit()
     # 언더바 제거
     style_result = {k.replace("_", " "): v for (k, v) in top_5}
 
     
 
     return {
-        "painting_id": 23,
+        "painting_id": image_id,
         "style_result": style_result,
-        "image_url": r"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg/800px-Vincent_van_Gogh_-_Sunflowers_-_VGM_F458.jpg",
+        "image_url": image_file_path,
     }
-
-
-# async def classify_uploaded_painting(files:List[UploadFile] = File(...)):
