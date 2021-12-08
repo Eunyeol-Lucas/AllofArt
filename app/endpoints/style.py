@@ -1,4 +1,5 @@
 from fastapi import APIRouter, File, HTTPException, UploadFile
+import os
 
 from app.ai.style_cls.main import classify_style
 from app.ai.utils import read_imagefile
