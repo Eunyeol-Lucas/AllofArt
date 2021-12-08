@@ -1,6 +1,8 @@
 import os
+from random import sample
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
+from fastapi.responses import RedirectResponse
 
 from app.ai.style_cls.main import classify_style
 from app.ai.utils import read_imagefile
@@ -36,10 +38,12 @@ def get_artist_name(db, artist_id):
         raise HTTPException(
             status_code=404, detail="'화풍 분석에서 db에 화가 id가 잘못 들어가고 있습니다' 라고 말씀해주세요"
         )
-    return artist.id
+    return artist.name
 
 
-@router.get("/{painting_id}", summary="공유하기 기능")
+@router.get(
+    "/{painting_id}", summary="공유하기 기능", response_model=style_schema.StylePostResponse
+)
 async def trs_test(painting_id: int = None):
     """
     id 받으면 id에 해당하는 그림 url,
@@ -61,18 +65,45 @@ async def trs_test(painting_id: int = None):
         if (not query_result_image) or (not query_result_style):
             raise HTTPException(status_code=404, detail="요청하신 그림이 존재하지 않습니다!")
 
+        query_result_artist = (
+            db.query(artist_model.Artist)
+            .filter(artist_model.Artist.id == query_result_style.artist_id0)
+            .one_or_none()
+        )
+
+        artist_images = (
+            db.query(painting_model.Painting).filter(
+                painting_model.Painting.painting_type == query_result_artist.id
+            )
+        ).all()
+
+        artist_images = [p.img_url for p in sample(artist_images, 3)]
+
         result = {
             "image_url": query_result_image.img_url,
-            "artist_id_0": query_result_style.artist_id0,
-            "score_0": query_result_style.score0,
-            "artist_id_1": query_result_style.artist_id1,
-            "score_1": query_result_style.score1,
-            "artist_id_2": query_result_style.artist_id2,
-            "score_2": query_result_style.score2,
-            "artist_id_3": query_result_style.artist_id3,
-            "score_3": query_result_style.score3,
-            "artist_id_4": query_result_style.artist_id4,
-            "score_4": query_result_style.score4,
+            "painting_id": painting_id,
+            "style_result": {
+                get_artist_name(db, query_result_style.artist_id0).replace(
+                    "_", ""
+                ): query_result_style.score0,
+                get_artist_name(db, query_result_style.artist_id1).replace(
+                    "_", ""
+                ): query_result_style.score1,
+                get_artist_name(db, query_result_style.artist_id2).replace(
+                    "_", ""
+                ): query_result_style.score2,
+                get_artist_name(db, query_result_style.artist_id3).replace(
+                    "_", ""
+                ): query_result_style.score3,
+                get_artist_name(db, query_result_style.artist_id4).replace(
+                    "_", ""
+                ): query_result_style.score4,
+            },
+            # name으로 다 바꾸고
+            "artist_bio": query_result_artist.desc_simple,
+            "artist_images": artist_images,
+            "artist_name": query_result_artist.name.replace("_", " "),
+            "artist_id": query_result_style.artist_id0,
         }
 
     return result
@@ -80,7 +111,7 @@ async def trs_test(painting_id: int = None):
 
 @router.post(
     "/",
-    response_model=style_schema.StylePostResponse,
+    response_class=RedirectResponse,
     summary="Post image and get result",
 )
 async def classify_uploaded_painting(
@@ -146,11 +177,4 @@ async def classify_uploaded_painting(
         )
         db.add(new_style)
         db.commit()
-    # 언더바 제거
-    style_result = {k.replace("_", " "): v for (k, v) in top_5}
-
-    return {
-        "painting_id": image_id,
-        "style_result": style_result,
-        "image_url": image_file_path.replace("/code/app", ""),
-    }
+        return RedirectResponse(f"/api/style/{image_id}", status_code=302)
