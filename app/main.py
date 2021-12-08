@@ -59,7 +59,7 @@ app = FastAPI(
     openapi_tags=tags_metadata,
     middleware=middleware,
 )
-
+# app.router.redirect_slashes = False
 
 app.include_router(users.router, prefix="/api/users", tags=["users"])
 app.include_router(style.router, prefix="/api/style", tags=["style"])

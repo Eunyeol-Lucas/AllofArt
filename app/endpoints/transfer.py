@@ -12,25 +12,32 @@ from app.schemas import transfer as transfer_schema
 router = APIRouter()
 
 
-@router.post("/", response_model=transfer_schema.TransferPostResponse)
+@router.post("/")  # , response_model=transfer_schema.TransferPostResponse)
 async def transfer_style(
-    content_file: Optional[UploadFile] = File(...),
-    style_file: Optional[UploadFile] = File(...),
+    content_file: Optional[UploadFile] = File(None),
+    style_file: Optional[UploadFile] = File(None),
     is_random_style: bool = Form(...),
     is_random_content: bool = Form(...),
-    random_content_name: str = Form(...),
-    random_style_name: str = Form(...),
+    random_content_name: Optional[str] = Form(None),
+    random_style_name: Optional[str] = Form(None),
 ):
+    # return [
+    #     is_random_style,
+    #     is_random_content,
+    #     random_content_name,
+    #     random_style_name,
+    # ]
 
-    random_content_name = random_content_name.split("/")[-1]
-    random_style_name = random_style_name.split("/")[-1]
-
-    # 확장자 check
+    # 업로드 파일이면 확장자 check
     extensions = []
     if not is_random_style:
         extensions.append(style_file.filename.split(".")[-1].lower())
+    else:
+        random_style_name = random_style_name.split("/")[-1]
     if not is_random_content:
         extensions.append(content_file.filename.split(".")[-1].lower())
+    else:
+        random_content_name = random_content_name.split("/")[-1]
 
     for extension in extensions:
         if extension not in ("jpg", "jpeg", "png"):
@@ -147,23 +154,23 @@ async def transfer_style(
 
 @router.get("/style")
 async def get_random_style_image():
-    CONTENT_IMAGE_DIR = "/static/images/artist"
+    CONTENT_IMAGE_DIR = "/code/app/static/images/artist"
     images = os.listdir(CONTENT_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(CONTENT_IMAGE_DIR, random_image)
 
-    return url
+    return url.replace("/code/app", "")
 
 
 @router.get("/content")
 async def get_random_content_image():
 
-    STYLE_IMAGE_DIR = "/static/images/conpic"
+    STYLE_IMAGE_DIR = "/code/app/static/images/conpic"
     images = os.listdir(STYLE_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(STYLE_IMAGE_DIR, random_image)
 
-    return url
+    return url.replace("/code/app", "")
 
 
 @router.put("/create")
