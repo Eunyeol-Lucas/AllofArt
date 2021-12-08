@@ -1,3 +1,7 @@
+tensorflow==2.6.0
+keras==2.6.0
+tensorflow_hub==0.11.0
+tensorflow-estimator==2.6.0
 uvicorn[standard]
 cachetools==4.2.4
 certifi==2021.10.8
@@ -27,9 +31,7 @@ rsa==4.8
 sniffio==1.2.0
 SQLAlchemy==1.4.27
 starlette==0.16.0
-tensorflow==2.7.0
 termcolor==1.1.0
-tensorflow_hub
 matplotlib
 opencv-python
 mysqlclient
