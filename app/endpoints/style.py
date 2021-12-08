@@ -56,7 +56,7 @@ async def trs_test(painting_id: int = None):
 
 
 @router.post(
-    "/", response_model=style_schema.style.StylePostResponse, summary="Post image and get result"
+    "/", response_model=style_schema.StylePostResponse, summary="Post image and get result"
 )
 async def classify_uploaded_painting(
     file: UploadFile = File(...),
