@@ -168,6 +168,10 @@ async def get_random_content_image():
 
 @router.put("/create")
 def create_result_image(painting_id: int):
+    """
+    painting_id 받으면 painting_id에 해당하는 그림 저장 여부 DB 컬럼 True 변경
+    DB transaction 예외 없으면 성공 표시 문자열 리턴
+    """
     try:
         with SessionLocal() as db:
             image_want_to_save = (
