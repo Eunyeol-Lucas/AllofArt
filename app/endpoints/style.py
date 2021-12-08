@@ -11,7 +11,7 @@ from app.models import artist as artist_model
 from app.models import painting as painting_model
 from app.models import style as style_model
 from app.schemas import style as style_schema
-from ..constant import DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR
+from ..constant import DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, ANALYZE_IMG
 
 
 router = APIRouter()
@@ -142,7 +142,7 @@ async def classify_uploaded_painting(
 
         image_want_to_save = painting_model.Painting(
             img_url=image_file_path.replace(DOCKER_WORK_DIR, ""),
-            painting_type=200,
+            painting_type=ANALYZE_IMG,
             download_cnt=0,
             saved=False,
         )
