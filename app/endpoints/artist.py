@@ -1,11 +1,11 @@
 from fastapi import APIRouter, HTTPException
-
 from ..database import SessionLocal
 from ..models import artist, painting
 from ..constant import LAST_ARTIST_ID, PROFILE_IMAGE_DIR, CONTENT_IMAGE_DIR
 
 
 router = APIRouter()
+
 
 @router.get("/", summary="Get artists information")
 def get_all_artist():
