@@ -3,6 +3,7 @@ import os
 
 from app.ai.style_cls.main import classify_style
 from app.ai.utils import read_imagefile
+from app.database import SessionLocal
 from app.schemas import style as style_schema
 from app.models import artist as artist_model
 from app.models import style as style_model
