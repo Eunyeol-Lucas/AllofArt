@@ -1,4 +1,4 @@
-from pydantic import AnyUrl, BaseModel
+from pydantic import BaseModel
 
 
 class StyleBase(BaseModel):
@@ -43,4 +43,4 @@ class StylePostResponse(BaseModel):
 
     painting_id: int = 3
     style_result: dict = classify_result_example
-    image_url: AnyUrl = "/static/images/1.jpg"
+    image_url: str = "/static/images/1.jpg"
