@@ -152,5 +152,5 @@ async def classify_uploaded_painting(
     return {
         "painting_id": image_id,
         "style_result": style_result,
-        "image_url": image_file_path,
+        "image_url": image_file_path.replace("/code/app", ""),
     }
