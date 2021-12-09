@@ -8,7 +8,7 @@ from app.ai.style_trs.main import save_transfer_image
 from app.database import SessionLocal
 from app.models import artist, painting, transfer
 from app.schemas import transfer as transfer_schema
-from ..constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, UPLOAD_IMG,TRASFER_IMG
+from app.constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, UPLOAD_IMG,TRASFER_IMG
 
 router = APIRouter()
 

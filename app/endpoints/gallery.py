@@ -50,7 +50,7 @@ def get_all_transfer_image(
     - **page**: N(>=1)
     """
 
-    LIMIT = 6
+    LIMIT = 2
 
     AXIS = cal_axis(duration)
 
