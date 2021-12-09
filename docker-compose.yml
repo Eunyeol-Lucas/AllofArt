@@ -12,3 +12,4 @@ services:
       - ./app/models:/code/app/models
       - ./app/schemas:/code/app/schemas
       - /static:/code/app/static
+      - ./app:/code/app
