@@ -3,11 +3,11 @@ from datetime import datetime, timedelta
 from fastapi import APIRouter, HTTPException
 from sqlalchemy import func
 
-from app.schemas import gallery as gallery_schema
-
+from app.constant import TRASFER_IMG
 from app.database import SessionLocal
 from app.models import download, painting, transfer
-from app.constant import TRASFER_IMG
+from app.schemas import gallery as gallery_schema
+
 router = APIRouter()
 
 # 정렬 함수
@@ -121,7 +121,7 @@ def get_all_transfer_image(
         final_result = sorted_result[start:end]
 
         if not final_result:
-            raise HTTPException(status_code=404, detail="해당 페이지의 이미지가 없습니다!")
+            return "no content"
 
         return final_result
 
