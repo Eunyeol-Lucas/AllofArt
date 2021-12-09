@@ -11,7 +11,7 @@ from app.models import artist as artist_model
 from app.models import painting as painting_model
 from app.models import style as style_model
 from app.schemas import style as style_schema
-from ..constant import DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, ANALYZE_IMG
+from app.constant import DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, ANALYZE_IMG
 
 
 router = APIRouter()

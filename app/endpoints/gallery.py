@@ -7,7 +7,7 @@ from app.schemas import gallery as gallery_schema
 
 from ..database import SessionLocal
 from ..models import download, painting, transfer
-from ..constant import TRASFER_IMG
+from app.constant import TRASFER_IMG
 router = APIRouter()
 
 # 정렬 함수
