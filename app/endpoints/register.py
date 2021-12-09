@@ -45,7 +45,7 @@ def dbtest():
     return "success!!"
 
 
-@router.get("/asd")
+@router.get("/artistdbtest")
 def add_paintings():
     BASE_DIR = DOCKER_CONTENT_IMAGE_DIR
     files = os.listdir(BASE_DIR)

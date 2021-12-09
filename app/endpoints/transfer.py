@@ -169,7 +169,7 @@ async def get_random_content_image():
 @router.put("/create")
 def create_result_image(painting_id: int):
     """
-    painting_id 받으면 painting_id에 해당하는 그림 저장 여부 DB 컬럼 True 변경
+    painting_id 받으면 painting_id에 해당하는 그림 저장 여부 DB 컬럼 True로 변경
     DB transaction 예외 없으면 성공 표시 문자열 리턴
     """
     try:
@@ -186,28 +186,7 @@ def create_result_image(painting_id: int):
         return "create fail"
 
 
-@router.get("/asd")
-def add_paintings():
-    BASE_DIR = DOCKER_CONTENT_IMAGE_DIR
-    files = os.listdir(BASE_DIR)
-    with SessionLocal() as db:
-        ids = [1, 26, 42, 50]
-        for id_ in ids:
-            artists = db.query(artist.Artist.id == id_).first()
-            for a in artists:
-                id_ = a.id
-                name_ = a.name.replace(" ", "_")
-                files = [i for i in os.listdir(BASE_DIR) if name_ in i]
-                if len(files) < 1:
-                    print(name_)
-            for file in files:
-                img_url = os.path.join(BASE_DIR.replace(DOCKER_WORK_DIR, ""), file)
-                print(img_url)
-                p = painting.Painting(
-                    img_url=img_url, painting_type=id_, download_cnt=0, saved=False
-                )
-                db.add(p)
-            # db.commit()
+
 
 
 @router.get("/reset")
