@@ -11,7 +11,6 @@ SOURCE_IMG:Final = 400
 
 
 
-
 # host static 경로 상수
 CONTENT_IMAGE_DIR:Final = "/static/images/artist"
 
@@ -20,6 +19,7 @@ STYLE_IMAGE_DIR:Final = "/static/images/conpic"
 PROFILE_IMAGE_DIR:Final = "/static/images/profile"
 
 USER_IMAGE_DIR:Final = "/static/images/user"
+
 
 
 # docker container static 경로 상수
