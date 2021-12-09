@@ -50,7 +50,7 @@ def get_all_transfer_image(
     - **page**: N(>=1)
     """
 
-    LIMIT = 9
+    LIMIT = 6
 
     AXIS = cal_axis(duration)
 
@@ -162,44 +162,16 @@ def download_image(painting_id: int):
 
 # 더미데이터용 endpoint입니다 나중에 통째로 삭제하면 됩니다.
 
-# dummydata 생성을 위한 함수
-def get_dummy(n: int) -> dict:
-    from random import randint
 
-    dummy = {
-        "transfer_id": 55 + n,
-        "result_img_url": "/static/images/user/8189.jpg",
-        "result_img_id": 8240 + n,
-        "download": randint(1, 500),
-        "style_img_url": "/static/images/artist/Salvador_Dali_126.jpg",
-        "content_img_url": "/static/images/user/8188.jpg",
-    }
-    return dummy
-
-
-# 정렬
-def dummy_sort(sort_by, data):
-    if sort_by == "date":
-        return sorted(data, key=lambda x: -x["transfer_id"])
-    else:
-        return sorted(data, key=lambda x: -x["download"])
-
-
-@router.get("/dummy")
-def get_100_dummies(
-    duration: str = "day",
-    sort_by: str = "date",
+@router.get("/para", summary="파라미터 확인용")
+def return_parameters(
+    duration: str = "all",
+    sort_by: str = "download",
     page: int = 1,
 ):
 
-    LIMIT = 9
-
-    result = [get_dummy(i) for i in range(100)]
-
-    sorted_result = dummy_sort(sort_by, result)
-
-    start = (page - 1) * LIMIT
-    end = (page) * LIMIT
-    final_result = sorted_result[start:end]
-
-    return final_result
+    return {
+        duration: str(type(duration)),
+        sort_by: str(type(sort_by)),
+        page: str(type(page)),
+    }
