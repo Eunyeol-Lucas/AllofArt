@@ -7,7 +7,7 @@ from app.schemas import gallery as gallery_schema
 
 from ..database import SessionLocal
 from ..models import download, painting, transfer
-
+from ..constant import TRASFER_IMG
 router = APIRouter()
 
 # 정렬 함수
@@ -62,8 +62,8 @@ def get_all_transfer_image(
                 transfer.Transfer,
             )
             .filter(
-                (painting.Painting.saved == 1)
-                & (painting.Painting.painting_type == 100)
+                (painting.Painting.saved == True)
+                & (painting.Painting.painting_type == TRASFER_IMG)
             )
             .filter(transfer.Transfer.result_id == painting.Painting.id)
             .all()
