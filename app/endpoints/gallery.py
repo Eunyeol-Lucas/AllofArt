@@ -270,4 +270,8 @@ def return_parameters(
     page: int = 1,
 ):
 
-    return [duration, sort_by, page]
+    return {
+        duration : str(type(duration)),
+        sort_by : str(type(sort_by)),
+        page : str(type(page))
+        }
