@@ -149,19 +149,19 @@ async def transfer_style(
 
 @router.get("/style")
 async def get_random_style_image():
-    images = os.listdir(DOCKER_CONTENT_IMAGE_DIR)
-    random_image = choice(images)
-    url = os.path.join(DOCKER_CONTENT_IMAGE_DIR, random_image)
-
-    return url.replace(DOCKER_WORK_DIR, "")
-
-
-@router.get("/content")
-async def get_random_content_image():
-
     images = os.listdir(DOCKER_STYLE_IMAGE_DIR)
     random_image = choice(images)
     url = os.path.join(DOCKER_STYLE_IMAGE_DIR, random_image)
+
+    return url.replace(DOCKER_WORK_DIR, "")
+
+DOCKER_CONTENT_IMAGE_DIR
+@router.get("/content")
+async def get_random_content_image():
+
+    images = os.listdir(DOCKER_CONTENT_IMAGE_DIR)
+    random_image = choice(images)
+    url = os.path.join(DOCKER_CONTENT_IMAGE_DIR, random_image)
 
     return url.replace(DOCKER_WORK_DIR, "")
 
