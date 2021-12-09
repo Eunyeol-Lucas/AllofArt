@@ -25,12 +25,12 @@ USER_IMAGE_DIR:Final = "/static/images/user"
 # docker container static 경로 상수
 DOCKER_WORK_DIR:Final = "/code/app"
 
-DOCKER_CONTENT_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}/static/images/conpic"
+DOCKER_CONTENT_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}{CONTENT_IMAGE_DIR}"
 
-DOCKER_STYLE_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}/static/images/artist"
+DOCKER_STYLE_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}{STYLE_IMAGE_DIR}"
 
-DOCKER_PROFILE_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}/static/images/profile"
+DOCKER_PROFILE_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}{PROFILE_IMAGE_DIR}"
 
-DOCKER_USER_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}/static/images/user"
+DOCKER_USER_IMAGE_DIR:Final = f"{DOCKER_WORK_DIR}{USER_IMAGE_DIR}"
 
 
