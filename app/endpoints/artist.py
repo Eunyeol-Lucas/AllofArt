@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException
-from ..database import SessionLocal
-from ..models import artist, painting
+from app.database import SessionLocal
+from app.models import artist, painting
 from app.constant import LAST_ARTIST_ID, PROFILE_IMAGE_DIR, STYLE_IMAGE_DIR
 
 

@@ -1,8 +1,8 @@
 from fastapi import APIRouter
 from fastapi.responses import HTMLResponse
 import os
-from ..database import SessionLocal
-from ..models import artist
+from app.database import SessionLocal
+from app.models import artist
 from app.constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, UPLOAD_IMG,TRASFER_IMG
 from app.models import artist, painting, transfer
 

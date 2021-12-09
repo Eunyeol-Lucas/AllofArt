@@ -5,8 +5,8 @@ from sqlalchemy import func
 
 from app.schemas import gallery as gallery_schema
 
-from ..database import SessionLocal
-from ..models import download, painting, transfer
+from app.database import SessionLocal
+from app.models import download, painting, transfer
 from app.constant import TRASFER_IMG
 router = APIRouter()
 
