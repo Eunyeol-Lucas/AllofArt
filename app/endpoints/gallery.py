@@ -12,6 +12,7 @@ router = APIRouter()
 
 # 정렬 함수
 def gallery_sort_by(total, sort_by):
+
     if sort_by == "download":
         total = sorted(total, key=lambda x: -x["download"])
     elif sort_by == "date":
@@ -50,22 +51,23 @@ def get_all_transfer_image(
     - **page**: N(>=1)
     """
 
-    LIMIT = 2
+    LIMIT = 9
 
     AXIS = cal_axis(duration)
 
-    visibible_paintings = (
-        db.query(
-            painting.Painting,
-            transfer.Transfer,
-        )
-        .filter(
-            (painting.Painting.saved == True)
-            & (painting.Painting.painting_type == TRASFER_IMG)
-        )
-        .filter(transfer.Transfer.result_id == painting.Painting.id)
-        .all()
-    )
+    with SessionLocal() as db:
+
+        visibible_paintings = (
+            db.query(
+                painting.Painting,
+                transfer.Transfer,
+            )
+            .filter(
+                (painting.Painting.saved)
+                & (painting.Painting.painting_type == TRASFER_IMG)
+            )
+            .filter(transfer.Transfer.result_id == painting.Painting.id)
+            .all()
 
     results_with_result_url = []
 
@@ -135,15 +137,15 @@ def download_image(painting_id: int):
     ### query parameters
     - **painting_id** : 1, 2, ...
     """
-    # 다운로드 + 1 처리
-    image_want_to_dowload = (
-        db.query(painting.Painting)
-        .filter(
-            (painting.Painting.id == painting_id)
-            & (painting.Painting.painting_type == TRASFER_IMG)
-        )
-        .one_or_none()
-    )
+    with SessionLocal() as db:
+        # 다운로드 + 1 처리
+        image_want_to_dowload = (
+            db.query(painting.Painting)
+            .filter(
+                (painting.Painting.id == painting_id)
+                & (painting.Painting.painting_type == 100)
+            )
+            .one_or_none()
     if not image_want_to_dowload:
         raise HTTPException(status_code=404, detail="요청하신 그림이 없습니다!")
     image_want_to_dowload.download_cnt += 1
