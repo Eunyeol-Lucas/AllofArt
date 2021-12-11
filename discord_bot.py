@@ -11,7 +11,7 @@ CHECK_URL = "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com/api/chec
 def get_status():
     try:
         req = requests.get(CHECK_URL)
-        if (req.status_code == 200) & ("test" in req.content):
+        if (req.status_code == 200) & ("test" in str(req.content)):
             return "굿"
         else:
             return "응답은 와요"
