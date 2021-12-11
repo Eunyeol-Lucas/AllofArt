@@ -31,11 +31,17 @@ async def on_ready():
 @app.command()
 async def 명령어(ctx):
     status = get_status()
-    await ctx.send("""
-    !명령어: 명령어 설명
-    !check: 현재 서버 check api로 상태 체크
-    !reboot: 서버 껐다 켜기
-    """)
+    await ctx.send(
+        """
+        
+        .
+        - !명령어: 명령어 설명
+        - !check: 현재 서버 check api로 상태 체크
+        - !reboot: 서버 껐다 켜기
+.
+        
+        """
+        )
 
 
 @app.command()
