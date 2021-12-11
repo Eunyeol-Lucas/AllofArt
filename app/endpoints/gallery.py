@@ -159,20 +159,3 @@ def download_image(painting_id: int):
             "image_url": image_want_to_dowload.img_url,
             "download": image_want_to_dowload.download_cnt,
         }
-
-
-# 더미데이터용 endpoint입니다 나중에 통째로 삭제하면 됩니다.
-
-
-@router.get("/para", summary="파라미터 확인용")
-def return_parameters(
-    duration: str = "all",
-    sort_by: str = "download",
-    page: int = 1,
-):
-
-    return {
-        duration: str(type(duration)),
-        sort_by: str(type(sort_by)),
-        page: str(type(page)),
-    }

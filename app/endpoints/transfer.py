@@ -5,10 +5,16 @@ from typing import Optional
 from fastapi import APIRouter, File, Form, UploadFile
 
 from app.ai.style_trs.main import save_transfer_image
-from app.database import SessionLocal, db
-from app.models import artist, painting, transfer
-from app.schemas import transfer as transfer_schema
-from app.constant import DOCKER_CONTENT_IMAGE_DIR, DOCKER_STYLE_IMAGE_DIR, DOCKER_USER_IMAGE_DIR, DOCKER_WORK_DIR, UPLOAD_IMG,TRASFER_IMG
+from app.constant import (
+    DOCKER_CONTENT_IMAGE_DIR,
+    DOCKER_STYLE_IMAGE_DIR,
+    DOCKER_USER_IMAGE_DIR,
+    DOCKER_WORK_DIR,
+    TRASFER_IMG,
+    UPLOAD_IMG,
+)
+from app.database import SessionLocal
+from app.models import painting, transfer
 
 router = APIRouter()
 
@@ -45,36 +51,41 @@ async def transfer_style(
             return "Image must be jpg or png format!"
 
     # 이미지가 유저 업로드인 경우
+    with SessionLocal() as db:
 
-    if not is_random_content:
-        num_of_paintings = db.query(painting.Painting).count()
-        num_of_paintings += 1
-        content_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
-        p = painting.Painting(
-            img_url=content_file_path.replace(DOCKER_WORK_DIR, ""),
-            painting_type=UPLOAD_IMG,
-            download_cnt=0,
-            saved=False,
-        )
-        db.add(p)
-        db.commit()
-        with open(content_file_path, "wb+") as file_object:
-            file_object.write(content_file.file.read())
+        if not is_random_content:
+            num_of_paintings = db.query(painting.Painting).count()
+            num_of_paintings += 1
+            content_file_path = os.path.join(
+                DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg"
+            )
+            p = painting.Painting(
+                img_url=content_file_path.replace(DOCKER_WORK_DIR, ""),
+                painting_type=UPLOAD_IMG,
+                download_cnt=0,
+                saved=False,
+            )
+            db.add(p)
+            db.commit()
+            with open(content_file_path, "wb+") as file_object:
+                file_object.write(content_file.file.read())
 
-    if not is_random_style:
-        num_of_paintings = db.query(painting.Painting).count()
-        num_of_paintings += 1
-        style_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
-        p = painting.Painting(
-            img_url=style_file_path.replace(DOCKER_WORK_DIR, ""),
-            painting_type=UPLOAD_IMG,
-            download_cnt=0,
-            saved=False,
-        )
-        db.add(p)
-        db.commit()
-        with open(style_file_path, "wb+") as file_object:
-            file_object.write(style_file.file.read())
+        if not is_random_style:
+            num_of_paintings = db.query(painting.Painting).count()
+            num_of_paintings += 1
+            style_file_path = os.path.join(
+                DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg"
+            )
+            p = painting.Painting(
+                img_url=style_file_path.replace(DOCKER_WORK_DIR, ""),
+                painting_type=UPLOAD_IMG,
+                download_cnt=0,
+                saved=False,
+            )
+            db.add(p)
+            db.commit()
+            with open(style_file_path, "wb+") as file_object:
+                file_object.write(style_file.file.read())
 
     # 이미지가 upload가 아닌 경우~
     if is_random_content:
@@ -84,38 +95,41 @@ async def transfer_style(
         style_file_path = os.path.join(DOCKER_STYLE_IMAGE_DIR, random_style_name)
 
     # save file 경로 생성
-    num_of_paintings = db.query(painting.Painting).count()
-    num_of_paintings += 1
-    save_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
-    p = painting.Painting(
-        img_url=save_file_path.replace(DOCKER_WORK_DIR, ""),
-        painting_type=TRASFER_IMG,
-        download_cnt=0,
-        saved=False,
-    )
-    db.add(p)
-    db.commit()
-    result_img = (
-        db.query(painting.Painting)
-        .filter(
-            painting.Painting.img_url == save_file_path.replace(DOCKER_WORK_DIR, "")
+    with SessionLocal() as db:
+        num_of_paintings = db.query(painting.Painting).count()
+        num_of_paintings += 1
+        save_file_path = os.path.join(DOCKER_USER_IMAGE_DIR, f"{num_of_paintings}.jpg")
+        p = painting.Painting(
+            img_url=save_file_path.replace(DOCKER_WORK_DIR, ""),
+            painting_type=TRASFER_IMG,
+            download_cnt=0,
+            saved=False,
         )
-        .one_or_none()
-    )
-    style_img = (
-        db.query(painting.Painting)
-        .filter(
-            painting.Painting.img_url == style_file_path.replace(DOCKER_WORK_DIR, "")
+        db.add(p)
+        db.commit()
+        result_img = (
+            db.query(painting.Painting)
+            .filter(
+                painting.Painting.img_url == save_file_path.replace(DOCKER_WORK_DIR, "")
+            )
+            .one_or_none()
         )
-        .one_or_none()
-    )
-    content_img = (
-        db.query(painting.Painting)
-        .filter(
-            painting.Painting.img_url == content_file_path.replace(DOCKER_WORK_DIR, "")
+        style_img = (
+            db.query(painting.Painting)
+            .filter(
+                painting.Painting.img_url
+                == style_file_path.replace(DOCKER_WORK_DIR, "")
+            )
+            .one_or_none()
         )
-        .one_or_none()
-    )
+        content_img = (
+            db.query(painting.Painting)
+            .filter(
+                painting.Painting.img_url
+                == content_file_path.replace(DOCKER_WORK_DIR, "")
+            )
+            .one_or_none()
+        )
     if result_img is None:
         print("save_file_path", save_file_path.replace(DOCKER_WORK_DIR, ""))
     if style_img is None:
@@ -123,13 +137,14 @@ async def transfer_style(
     if content_img is None:
         print("content_file_path", content_file_path.replace(DOCKER_WORK_DIR, ""))
 
-    trs = transfer.Transfer(
-        style_id=style_img.id,
-        content_id=content_img.id,
-        result_id=result_img.id,
-    )
-    db.add(trs)
-    db.commit()
+    with SessionLocal() as db:
+        trs = transfer.Transfer(
+            style_id=style_img.id,
+            content_id=content_img.id,
+            result_id=result_img.id,
+        )
+        db.add(trs)
+        db.commit()
 
     result = save_transfer_image(content_file_path, style_file_path, save_file_path)
 
@@ -152,6 +167,7 @@ async def get_random_style_image():
 
     return url.replace(DOCKER_WORK_DIR, "")
 
+
 @router.get("/content")
 async def get_random_content_image():
 
@@ -169,26 +185,25 @@ def create_result_image(painting_id: int):
     DB transaction 예외 없으면 성공 표시 문자열 리턴
     """
     try:
-        image_want_to_save = (
-            db.query(painting.Painting)
-            .filter(painting.Painting.id == painting_id)
-            .one_or_none()
-        )
-        image_want_to_save.saved = True
-        db.commit()
+        with SessionLocal() as db:
+            image_want_to_save = (
+                db.query(painting.Painting)
+                .filter(painting.Painting.id == painting_id)
+                .one_or_none()
+            )
+            image_want_to_save.saved = True
+            db.commit()
         return "create success"
     except:
         return "create fail"
 
 
-
-
-
 @router.get("/reset")
 def reset_url():
-    
 
-    paintings = db.query(painting.Painting).all()
-    for p in paintings:
-        p.img_url = p.img_url.replace(DOCKER_WORK_DIR, "")
-    db.commit()
+    with SessionLocal() as db:
+
+        paintings = db.query(painting.Painting).all()
+        for p in paintings:
+            p.img_url = p.img_url.replace(DOCKER_WORK_DIR, "")
+        db.commit()
