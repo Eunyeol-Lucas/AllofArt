@@ -5,7 +5,7 @@ import discord
 import requests
 from discord.ext import commands
 
-CHECK_URL = "http://localhost:5000/api/check/"
+CHECK_URL = "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com/api/check/"
 
 
 def get_status():
