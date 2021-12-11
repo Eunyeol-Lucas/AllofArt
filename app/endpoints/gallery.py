@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException
 from sqlalchemy import func
 
 from app.constant import TRASFER_IMG
-from app.database import SessionLocal
+from app.database import SessionLocal, db
 from app.models import download, painting, transfer
 from app.schemas import gallery as gallery_schema
 
@@ -54,76 +54,74 @@ def get_all_transfer_image(
 
     AXIS = cal_axis(duration)
 
-    with SessionLocal() as db:
+    visibible_paintings = (
+        db.query(
+            painting.Painting,
+            transfer.Transfer,
+        )
+        .filter(
+            (painting.Painting.saved == True)
+            & (painting.Painting.painting_type == TRASFER_IMG)
+        )
+        .filter(transfer.Transfer.result_id == painting.Painting.id)
+        .all()
+    )
 
-        visibible_paintings = (
-            db.query(
-                painting.Painting,
-                transfer.Transfer,
-            )
-            .filter(
-                (painting.Painting.saved == True)
-                & (painting.Painting.painting_type == TRASFER_IMG)
-            )
-            .filter(transfer.Transfer.result_id == painting.Painting.id)
-            .all()
+    results_with_result_url = []
+
+    for visibible_painting in visibible_paintings:
+        results_with_result_url.append(
+            {
+                "transfer_id": visibible_painting.Transfer.id,
+                "result_img_url": visibible_painting.Painting.img_url,
+                "result_img_id": visibible_painting.Painting.id,
+                "style_img_id": visibible_painting.Transfer.style_id,
+                "content_img_id": visibible_painting.Transfer.content_id,
+            }
         )
 
-        results_with_result_url = []
+    all_download_history = (
+        db.query(download.Download.painting_id, func.count(download.Download.id))
+        .filter(AXIS < download.Download.downloaded_at)
+        .group_by(download.Download.painting_id)
+        .all()
+    )
 
-        for visibible_painting in visibible_paintings:
-            results_with_result_url.append(
-                {
-                    "transfer_id": visibible_painting.Transfer.id,
-                    "result_img_url": visibible_painting.Painting.img_url,
-                    "result_img_id": visibible_painting.Painting.id,
-                    "style_img_id": visibible_painting.Transfer.style_id,
-                    "content_img_id": visibible_painting.Transfer.content_id,
-                }
-            )
+    # transfer_id에 대해 download 수를 넣어줌
+    for result in results_with_result_url:
+        result["download"] = 0
+        for history in all_download_history:
+            if history[0] == result["result_img_id"]:
+                result["download"] = history[1]
 
-        all_download_history = (
-            db.query(download.Download.painting_id, func.count(download.Download.id))
-            .filter(AXIS < download.Download.downloaded_at)
-            .group_by(download.Download.painting_id)
-            .all()
+    # 이제 history를 정렬하고
+    sorted_result = gallery_sort_by(results_with_result_url, sort_by)
+
+    for result in sorted_result:
+        result["style_img_url"] = (
+            db.query(painting.Painting)
+            .filter(painting.Painting.id == result["style_img_id"])
+            .one()
+            .img_url
+        )
+        result["content_img_url"] = (
+            db.query(painting.Painting)
+            .filter(painting.Painting.id == result["content_img_id"])
+            .one()
+            .img_url
         )
 
-        # transfer_id에 대해 download 수를 넣어줌
-        for result in results_with_result_url:
-            result["download"] = 0
-            for history in all_download_history:
-                if history[0] == result["result_img_id"]:
-                    result["download"] = history[1]
+        del result["style_img_id"]
+        del result["content_img_id"]
 
-        # 이제 history를 정렬하고
-        sorted_result = gallery_sort_by(results_with_result_url, sort_by)
+    start = (page - 1) * LIMIT
+    end = (page) * LIMIT
+    final_result = sorted_result[start:end]
 
-        for result in sorted_result:
-            result["style_img_url"] = (
-                db.query(painting.Painting)
-                .filter(painting.Painting.id == result["style_img_id"])
-                .one()
-                .img_url
-            )
-            result["content_img_url"] = (
-                db.query(painting.Painting)
-                .filter(painting.Painting.id == result["content_img_id"])
-                .one()
-                .img_url
-            )
+    if not final_result:
+        return "no content"
 
-            del result["style_img_id"]
-            del result["content_img_id"]
-
-        start = (page - 1) * LIMIT
-        end = (page) * LIMIT
-        final_result = sorted_result[start:end]
-
-        if not final_result:
-            return "no content"
-
-        return final_result
+    return final_result
 
 
 @router.get(
@@ -137,27 +135,26 @@ def download_image(painting_id: int):
     ### query parameters
     - **painting_id** : 1, 2, ...
     """
-    with SessionLocal() as db:
-        # 다운로드 + 1 처리
-        image_want_to_dowload = (
-            db.query(painting.Painting)
-            .filter(
-                (painting.Painting.id == painting_id)
-                & (painting.Painting.painting_type == TRASFER_IMG)
-            )
-            .one_or_none()
+    # 다운로드 + 1 처리
+    image_want_to_dowload = (
+        db.query(painting.Painting)
+        .filter(
+            (painting.Painting.id == painting_id)
+            & (painting.Painting.painting_type == TRASFER_IMG)
         )
-        if not image_want_to_dowload:
-            raise HTTPException(status_code=404, detail="요청하신 그림이 없습니다!")
-        image_want_to_dowload.download_cnt += 1
-        log = download.Download(painting_id=painting_id, downloaded_at=datetime.now())
-        db.add(log)
-        db.commit()
+        .one_or_none()
+    )
+    if not image_want_to_dowload:
+        raise HTTPException(status_code=404, detail="요청하신 그림이 없습니다!")
+    image_want_to_dowload.download_cnt += 1
+    log = download.Download(painting_id=painting_id, downloaded_at=datetime.now())
+    db.add(log)
+    db.commit()
 
-        return {
-            "image_url": image_want_to_dowload.img_url,
-            "download": image_want_to_dowload.download_cnt,
-        }
+    return {
+        "image_url": image_want_to_dowload.img_url,
+        "download": image_want_to_dowload.download_cnt,
+    }
 
 
 # 더미데이터용 endpoint입니다 나중에 통째로 삭제하면 됩니다.
