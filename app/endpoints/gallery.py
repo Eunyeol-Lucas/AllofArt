@@ -12,6 +12,7 @@ router = APIRouter()
 
 # 정렬 함수
 def gallery_sort_by(total, sort_by):
+
     if sort_by == "download":
         total = sorted(total, key=lambda x: -x["download"])
     elif sort_by == "date":
@@ -50,7 +51,7 @@ def get_all_transfer_image(
     - **page**: N(>=1)
     """
 
-    LIMIT = 2
+    LIMIT = 9
 
     AXIS = cal_axis(duration)
 
@@ -62,7 +63,7 @@ def get_all_transfer_image(
                 transfer.Transfer,
             )
             .filter(
-                (painting.Painting.saved == True)
+                (painting.Painting.saved)
                 & (painting.Painting.painting_type == TRASFER_IMG)
             )
             .filter(transfer.Transfer.result_id == painting.Painting.id)
@@ -143,7 +144,7 @@ def download_image(painting_id: int):
             db.query(painting.Painting)
             .filter(
                 (painting.Painting.id == painting_id)
-                & (painting.Painting.painting_type == TRASFER_IMG)
+                & (painting.Painting.painting_type == 100)
             )
             .one_or_none()
         )
