@@ -45,6 +45,8 @@ origins = [
     "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:5000",
     "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
     "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:8000",
+    "https://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:80",
+    "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com:80",
     "http://localhost:3000",
 ]
 
