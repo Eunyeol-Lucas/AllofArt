@@ -1,7 +1,7 @@
 import pymysql
 import csv
 
-conn = pymysql.connect(host='localhost',user='root',password='1234',db='image',charset='utf8')
+conn = pymysql.connect(host='localhost',user='root',password='1234',db='imagetest',charset='utf8')
 cursor = conn.cursor() 
 print("success")
 with open("artists_bio.csv",'r',encoding="utf-8") as file:
