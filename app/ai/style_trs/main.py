@@ -4,6 +4,18 @@ import gc
 import tensorflow as tf
 import tensorflow_hub as hub
 
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+
+hub_handle = (
+            "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
+        )
+hub_module = hub.load(hub_handle)
+
 
 def tf_read(image_path: str):
     img = tf.io.decode_image(tf.io.read_file(image_path), channels=3, dtype=tf.float32)[
@@ -20,17 +32,15 @@ def save_transfer_image(
         style_image = tf_read(style_image_path)
 
         # hub_module = hub.load('style_transfer')
-        hub_handle = (
-            "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
-        )
-        hub_module = hub.load(hub_handle)
-
+        # hub_handle = (
+        #     "https://tfhub.dev/google/magenta/arbitrary-image-stylization-v1-256/2"
+        # )
+        # hub_module = hub.load(hub_handle)
         outputs = hub_module(tf.constant(content_image), tf.constant(style_image))
         outputs = outputs[0][0].numpy()
 
         tf.keras.utils.save_img(save_path, outputs)
 
-        del hub_module
         del content_image
         del style_image
 
