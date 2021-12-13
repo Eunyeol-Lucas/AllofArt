@@ -7,6 +7,6 @@ services:
       - ./db/conf.d:/etc/mysql/conf.d
       - ./scripts:/home/scripts
     ports:
-      - 443:3306
+      - 3306:3306
     restart: always
     env_file: .env

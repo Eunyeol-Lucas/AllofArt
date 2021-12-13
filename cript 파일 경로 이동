@@ -1,0 +1,1833 @@
+[33mcommit 8959792f2b2903d28f9fb79262a1b4cb6ca13822[m[33m ([m[1;36mHEAD -> [m[1;32mdev[m[33m, [m[1;31morigin/dev[m[33m)[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 13 02:35:37 2021 +0900
+
+    #56 chore: python_sql script mv
+
+[33mcommit dfc2e4ae7f5e0f21f824dc04c17a1493be26a3f2[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 13 02:33:40 2021 +0900
+
+    #56 chore: python_sql script mv
+
+[33mcommit 115740d3d041618d984ad49591b865c74c70a20b[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 13 02:27:47 2021 +0900
+
+    #55 chore: fastapi_실행 sh_script
+
+[33mcommit 94337af4c8c0f411571378d3e893026ee7ee72f6[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 02:52:44 2021 +0900
+
+    #58 feat: 서버 확인 및 재시작 bot 추가
+
+[33mcommit 619c6564ccb72c2fd50b5327c3766ef41b37fe3b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 02:48:51 2021 +0900
+
+    #58 feat: 서버 확인 및 재시작 bot 추가
+
+[33mcommit f9676d7c73fedec09d468391e373b8081cd5e92b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 02:43:57 2021 +0900
+
+    #58 feat: 서버 확인 및 재시작 bot 추가
+
+[33mcommit dc4fa93061c4b2692fa867ccc5b25136e5fd8c3f[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 02:34:48 2021 +0900
+
+    #58 feat: 서버 확인 및 재시작 bot 추가
+
+[33mcommit 1120cd699d334d5193f4bd24effc0caa024eb89f[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 02:31:20 2021 +0900
+
+    #58 feat: 서버 확인 및 재시작 bot 추가
+
+[33mcommit 8cb9f9f508e08bc191f206c7d4f09885b3661fed[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 01:15:32 2021 +0900
+
+    fix: API 버그 해결
+
+[33mcommit bdfe42533999bb27ff68220ecbcb974f65e846af[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 00:40:18 2021 +0900
+
+    fix: gallery api conflict 수정:
+
+[33mcommit 68e281d00591cf408030007cc7d5e23bfc58095d[m
+Merge: 68d0c73 20bf502
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Sat Dec 11 15:32:53 2021 +0000
+
+    merge conflict
+
+[33mcommit 20bf502eff8cc4005fe6f0e9f0d50a592beaedb3[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sun Dec 12 00:30:01 2021 +0900
+
+    #39 fix: runtime환경으로 변경
+
+[33mcommit 4a8f2dd94653d446eb0a52d39bc7a52f01ca642e[m
+Merge: 28eb65a 611abc2
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sat Dec 11 23:53:51 2021 +0900
+
+    #18 fix: LIMIT 개수 수정
+
+[33mcommit 611abc2c425a84df926e5cdc708e393ff813f0cd[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sat Dec 11 23:53:26 2021 +0900
+
+    #18 fix: LIMIT 개수 수정
+
+[33mcommit 28eb65a0fd7d34c8e559d9e6c33d95bf5dc992db[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Sat Dec 11 19:29:07 2021 +0900
+
+    #53 db sesstion error 원상복귀
+
+[33mcommit 68d0c733e3c60d75e6ccd283d2b4da49e07757a2[m
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Sat Dec 11 09:50:42 2021 +0000
+
+    main register,user 삭제
+
+[33mcommit 5992257154976f8dc6780a519d6a97f36659f3c3[m
+Merge: 65cd018 01bdf37
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Sat Dec 11 09:44:05 2021 +0000
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 65cd01812f068c4f64054a4c4fba42f559d04476[m
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Sat Dec 11 09:43:48 2021 +0000
+
+    #53 feat database dbsession:
+
+[33mcommit 01bdf379da326c1e2a528ef6c93fa3cca6c34382[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Sat Dec 11 18:17:13 2021 +0900
+
+    #53 fix: transfer endpoint db session 해결
+
+[33mcommit 472cd429743008ec0e0069cf4a6266bd2428e306[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Sat Dec 11 18:16:01 2021 +0900
+
+    #53 fix: style endpoint db session 해결
+
+[33mcommit d8ec8d2800774260478bd453ab5e13843ade4112[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Sat Dec 11 18:13:42 2021 +0900
+
+    register endpoint 삭제
+
+[33mcommit 74b7ba90c0948145dbf108632f42380e8debf2dd[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Sat Dec 11 18:12:51 2021 +0900
+
+    #53 fix: gallery endpoint db session 해결
+
+[33mcommit c1e16941f0d3942568dc08b8fbe4756228a92f10[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Sat Dec 11 18:11:36 2021 +0900
+
+    #53 fix: artist endpoint db session 해결
+
+[33mcommit fa4bdd7ece68b03c619374f14adf4ea04317f111[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 10 12:57:39 2021 +0900
+
+    schemas/user.py 삭제
+
+[33mcommit ed49641bd6b47e10fb05119177dace7801348bb4[m
+Merge: 7c715c8 ce4acbb
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 18:10:31 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 7c715c8c628bc219f0aa0b3159fb0ba87e0922f3[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 18:10:21 2021 +0900
+
+    #47 refactor: gallery img type  100번 상수처리
+
+[33mcommit ce4acbb774bf6148bb688ceb043f519e8b158012[m
+Merge: ca94846 b72f758
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 16:24:37 2021 +0900
+
+    #52 fix: 404 에러 대신 no content 리턴
+
+[33mcommit b72f758d495b40bdc29b114255126d09ff114b17[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 16:24:24 2021 +0900
+
+    #52 fix: 404 에러 대신 no content 리턴
+
+[33mcommit ca948467cfd6e4813b162bfba987662c39340a03[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 15:59:08 2021 +0900
+
+    #51 feat: gallery paginationn limit 값 2로 변경
+
+[33mcommit a5b0099cb3a048d8a6e671f37a0242686fcf8a45[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 13:50:25 2021 +0900
+
+    #50: refactor: artist,register,gallery models,database package import 방식 통일
+
+[33mcommit 5c2185195f692aa68369dca6307a58c1c3cba217[m[33m ([m[1;32mdockertest[m[33m)[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 11:35:55 2021 +0900
+
+    docker-compose 수정
+
+[33mcommit 8c4b0318183161d19679e82b2179f12fa9bb5702[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 11:31:09 2021 +0900
+
+    fix: module error 수정
+
+[33mcommit a86eedbb2dedd8af30a37751aca1b6b5ca271e9c[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 11:10:40 2021 +0900
+
+    #47 refactor: constant 경호  상수화
+
+[33mcommit 8b2e0c767af8d2b3f4138ac765246aa6806da908[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 11:01:48 2021 +0900
+
+    #47 fix: artist.py  style 경로 오류 수정
+
+[33mcommit cd27fdd688aa7c8661ca2f4dcc64334cc0d421de[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 10:56:02 2021 +0900
+
+    #47 fix: transfer style,content 경로 오류 수정
+
+[33mcommit 66afe3abac0ea9bfecb3857611dd75f0d54fc401[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 10:40:49 2021 +0900
+
+    #47 fix: transfer style,content 경로 오류 수정
+
+[33mcommit 292842a89f605470a663f06cd9be9c5342aa44f1[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 10:38:23 2021 +0900
+
+    #47 fix: transfer style,content 경로 오류 수정
+
+[33mcommit b570a995431051b381d44817fe8b0112d1b3704f[m
+Merge: ac958e1 1ae9b3f
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 10:31:46 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit ac958e128b93a2f8b9ddedfb411beb583c2fb43f[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 10:31:42 2021 +0900
+
+    #47 gallery.py transfer img type 매직넘버 상수화
+
+[33mcommit 1ae9b3fe4328a1deb5af256ae4ba4dfc8b5c634b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 10:27:39 2021 +0900
+
+    #48 fix: 기능 최신화
+
+[33mcommit fc83b334f0938c5c28aa08426040b36fd0fcd98d[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 09:44:05 2021 +0900
+
+    #31 docs: swagger create api api desc 수정
+
+[33mcommit ff0e3e36b9bf36fa4613612c2ef400afa0eabccc[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 09:40:56 2021 +0900
+
+    #42 fix: runtime:nvidia 추가
+
+[33mcommit 1c15c4b9d996817512bf4ba9d5fa6ec929eb8124[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 09:39:57 2021 +0900
+
+    #49 refactor: dbtest code 이동
+
+[33mcommit ed12dfaf515552d9d925705d82431a4b848ec32f[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 09:24:36 2021 +0900
+
+    #48 fix: 갤러리 API 롤백, 파라미터 체크용 api 추가
+
+[33mcommit a55e9b2cc71955febd1f217661dd0e0ceb71f2eb[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 08:52:44 2021 +0900
+
+    #39 fix: 잦은 서버 다운으로  이미지 변경
+
+[33mcommit 595f708408925f7150d5171ede71fdeefb80f8e1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 08:51:34 2021 +0900
+
+    #48 fix: 갤러리 API 롤백, 파라미터 체크용 api 추가
+
+[33mcommit f5e45536524fc72c4f4aee829754ea6438189b44[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 03:50:15 2021 +0900
+
+    #47 refactor: Painting테이블 painting_type 매직넘버 기호 상수화 리팩토링
+
+[33mcommit 54f52124420ae81f735fcd766bff5619ccef58d7[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 03:47:21 2021 +0900
+
+    #47 refactor: Painting테이블 painting_type 매직넘버 기호 상수화 리팩토링
+
+[33mcommit d518b1526e17866312faa0cd09e3d247f62f7863[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 03:14:52 2021 +0900
+
+    #20 constant.py ainting테이블 painting_type 컬럼 숫자 의미 상수 정의
+
+[33mcommit 2c4a4e69d1b0cdd84f8da2232ef927e903f05868[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 03:00:26 2021 +0900
+
+    #20 painting download 컬럼 download_cnt로 변경, orm model 변수도 변경
+
+[33mcommit b20136397eb37414ac560c9e0af4ee7b697169ec[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 02:40:14 2021 +0900
+
+    #33 style: api docs 수정
+
+[33mcommit bc7d089cb3f7fc20bd5b440fa5f43c44a85c8259[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 02:33:01 2021 +0900
+
+    #33 style: api docs 수정
+
+[33mcommit 28bb1f79e391005160896f9f0039d7a933b97637[m
+Merge: 946c719 e1127e1
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 02:24:19 2021 +0900
+
+    fix: merge confilct artist.py, gallery.py
+
+[33mcommit 946c719b827741bc135b8bb7734da00665504791[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 9 02:20:43 2021 +0900
+
+    #31 refactor: 사진 등록 예외처리
+
+[33mcommit e1127e1afa670ac3d26aa5e3cdcad77b671b8be9[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 9 00:27:34 2021 +0900
+
+    #18 feat: 더미데이터용 api 추가
+
+[33mcommit 504edbb70f0d3484411771905e5d304153e62f12[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 23:47:20 2021 +0900
+
+    fix: constant import error
+
+[33mcommit 4714266b0f3f6cbfbd62616b79272a8d4e25668a[m
+Merge: 5f6cd50 ffa06d0
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 23:40:19 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 5f6cd5019601a9374d5730efd22a49298d15cbed[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 23:39:49 2021 +0900
+
+    #18 feat: gallery API db와 연동
+
+[33mcommit b58e7c0aa3611845626445c6399b5374d1bf032a[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 23:37:34 2021 +0900
+
+    #18 feat: gallery API db와 연동
+
+[33mcommit 2958fb39f042a764942d8b0ecf02996e576c757c[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 8 23:25:42 2021 +0900
+
+    #34 refactor: artist.py host static path constant
+
+[33mcommit ffa06d003ff2c9c256669f36e2cc4ca9145a5aa1[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 8 22:53:29 2021 +0900
+
+    #38 refactor: style.py  static file 경로 상수 처리
+
+[33mcommit 9e8aeaa6ce4e460cf7ec2b057eb6cddc000ac72e[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 8 22:50:57 2021 +0900
+
+    #38 refactor: app.mount -> static file 경로 상수 처리
+
+[33mcommit e25110a9833a9ac8a77954542bf0cd6e5cc6563d[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 8 22:49:45 2021 +0900
+
+    #38 refactor: static file 경로 상수 처리
+
+[33mcommit 7139b89eef607c39d4f1094309624bc8e949c4b3[m[33m ([m[1;32mdocstest[m[33m)[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 20:12:57 2021 +0900
+
+    #42 fix: docker-compose 수정
+
+[33mcommit d229dc941f819a06cecfbd6e9ff1c8c2653e0e9c[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 19:59:09 2021 +0900
+
+    #42 fix: docker-compose 수정
+
+[33mcommit 66a636ecfce68e016b918845e5920aaac125145e[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 19:56:27 2021 +0900
+
+    #42 fix: docker-compose 수정
+
+[33mcommit 7cfd94d93e38a49f9c4372588d4f052a493db8ab[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 19:55:22 2021 +0900
+
+    #42 fix: docker-compose 수정
+
+[33mcommit 0d2c000f275e991bd568f656b1741a1836b95174[m
+Merge: d179676 15fb137
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 18:37:48 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit d17967654e6d6813ebc66b3e6bab78020152ecf6[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 18:37:35 2021 +0900
+
+    #45 fix: 응답을 redirect로 바꾸고, 내용 추가
+
+[33mcommit 15fb1374fa6d966d19eff615398f5a7c9990743c[m
+Merge: 5ed6ce5 1ab5992
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 8 18:36:51 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 5ed6ce5c77e9525afd7c39709054e4b3c2b5b1bf[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 8 18:36:44 2021 +0900
+
+    #46 fix 1,42 airtist url insert
+
+[33mcommit 1ab59921aabad6ef65bdca6652a4d68c78cab0a8[m
+Merge: 0b3d8c3 69002f5
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 18:35:48 2021 +0900
+
+    #45 fix: 응답을 redirect로 바꾸고, 내용 추가
+
+[33mcommit 69002f55ad9da688efff172026f16885dd6564d2[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 18:35:19 2021 +0900
+
+    #45 fix: 응답을 redirect로 바꾸고, 내용 추가
+
+[33mcommit 0b3d8c398428a271a469912f698407b08b3089e9[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 17:01:31 2021 +0900
+
+    #44 fix: unprocessible entity 에러
+
+[33mcommit f58b0e5a24bfc45f82515974ce4749f85b835894[m
+Merge: 3962309 959189c
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 16:44:37 2021 +0900
+
+    Merge branch 'feat/#18' into dev
+
+[33mcommit 959189c4a89ebd66b7928798955b68e93b42f5ba[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 16:44:00 2021 +0900
+
+    fix: redirect 주석 처리
+
+[33mcommit 396230936bf42653ad93ecb893d9c0ba47649174[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 16:06:30 2021 +0900
+
+    fix: RGB convert 추가
+
+[33mcommit 7cb18c77327419183b43678cf1fd766a320f4248[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 16:04:38 2021 +0900
+
+    fix: RGB convert 추가
+
+[33mcommit 5bcd7f4549166a97b8a9ee76f61af84255ff3efe[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 16:01:08 2021 +0900
+
+    fix: temporary redirect 해제
+
+[33mcommit 2294e04dfa0b8b328ce92b6357bd23ef55d91922[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 15:59:32 2021 +0900
+
+    #18 feat: 다운로드 기록을 위한 downalod table 추가
+
+[33mcommit 9cd90d18498054a62379f4002a09a1834db5c944[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 15:54:05 2021 +0900
+
+    fix: temporary redirect
+
+[33mcommit 8140af94d97aa8f22b4ee60fbde016ee0bbe0fc1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 15:51:25 2021 +0900
+
+    #43 feat: 이미지 저장 문제 해결
+
+[33mcommit 47ad14faa79069744f01e693a56c22f460808e6b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 14:39:35 2021 +0900
+
+    43 feat: 화풍분석 return image_url 수정
+
+[33mcommit 00eaf091ae18fe7090783c71e8eb549ef94fc421[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 14:35:22 2021 +0900
+
+    fix: docker-compose mount
+
+[33mcommit 550c8f011acd79a085242c51535e1d1fac130e87[m
+Merge: cffbb9e 9aa7d28
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 14:29:19 2021 +0900
+
+    #43 feat: 공유하기 기능 DB 연동 완료
+
+[33mcommit 9aa7d28b1dac0e9423fb0f5572f7fddb3496227b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 14:28:50 2021 +0900
+
+    #43 feat: 공유하기 기능 DB연동 완료
+
+[33mcommit cffbb9e11119464b146859acd97095da7e48c7fc[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 14:02:55 2021 +0900
+
+    #43 feat: style 모델 autoincrement추가
+
+[33mcommit c4f5fab9fa7a553a0f3078bb94fd06c5b2e9ad74[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:59:27 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit 65308c94cd59d9c8300fd53e57962f0b74775e75[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:58:12 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit d4eb576f04201c7505743b4e9a2c6285bd9ccd8d[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:56:24 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit 996f5da3fc80a66aadab6a1b4c5575eae3e38699[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:53:51 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit cefc51b678ab64137a908be610100c1fadbc6616[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:52:41 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit 731b482e6d009be35fd3458fb621b9238f77a08b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:49:55 2021 +0900
+
+    fix: url 수정
+
+[33mcommit 431fdb3ef6459cedfb91ae85f8a2f6596dda8e35[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:46:52 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit 7f1e458982b23dae8f02054f85aeb113ae032e42[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:46:10 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit cfdda53db320aed4f9f9402468cd21379dd5cfe1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:39:54 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit 42c49ba6acd9139b4e8ac4f7910e1068c966936f[m
+Merge: f7a8757 4770632
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:37:49 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit f7a875757ff82bc70d16709a6eeeb87e371baf8d[m
+Merge: 6f16c6f ac29eab
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:37:33 2021 +0900
+
+    #43 feat: db 연동,  공유하기 기능 추가
+
+[33mcommit ac29eab25bae3ebea759b8a7e03f7f812b29419b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:36:54 2021 +0900
+
+    #9 feat: random 이미지 url 수정
+
+[33mcommit 421b11be0f1cb4de37160a9255155f69d037bda5[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 13:29:49 2021 +0900
+
+    #43 feat: 공유하기 기능 추가
+
+[33mcommit 28dfb9417d04a56a553e3849078c7b69aed7f309[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 12:52:02 2021 +0900
+
+    #43 feat: post 기능 추가
+
+[33mcommit 920ce293a28ab6612e488d09cb3396f8a55078e0[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 12:49:57 2021 +0900
+
+    #43 feat: post 기능 추가
+
+[33mcommit 477063236da1d53a98403c4ea9b18217a1a4d9b6[m
+Merge: 6f16c6f 8f6a0d2
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 12:48:11 2021 +0900
+
+    #42 fix: tensorflow, keras, tensorflow hub 버전 변경
+
+[33mcommit 8f6a0d2edf12d19da1835ff43f42be19c55257ce[m[33m ([m[1;31morigin/fix/#42[m[33m)[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 12:47:12 2021 +0900
+
+    #42 fix: tensorflow, keras, tensorflow hub 버전 변경
+
+[33mcommit 3dcd89edede386755e59dc8c9156da148b63060c[m
+Author: root <root@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Wed Dec 8 02:27:52 2021 +0000
+
+    asddafsddfs
+
+[33mcommit 62ee73cad2e79bedf6e1037e9ec9e5a37215adff[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 8 10:37:55 2021 +0900
+
+    #42 fix: 배포 환경 cuda로 변경
+
+[33mcommit eb8f43290b96ec5b6eda784bb37233449e6fe6d2[m
+Merge: fba3ee0 6f16c6f
+Author: 김기원 <kkw-11@naver.com>
+Date:   Tue Dec 7 20:17:35 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 6f16c6fa84a193aaeb88150ff95a818976a9ff71[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 16:57:03 2021 +0900
+
+    fix: 배포 환경 수정
+
+[33mcommit 077f913f02854ea923746eb643170a6287bbd5eb[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 16:56:08 2021 +0900
+
+    fix: 배포 환경 수정
+
+[33mcommit 76a11e8f579ded5774eeb2389468f71887cf109c[m
+Merge: 22cfbc6 1c4cbeb
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 16:11:04 2021 +0900
+
+    #40 fix: 이름 언더바 제거, 이미지 수 최대 6개
+
+[33mcommit 1c4cbebd1141e2179a85963543a4d9de509e97bd[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 16:10:35 2021 +0900
+
+    #40 fix: 이름 언더바 제거, 이미지 수 6개 고정
+
+[33mcommit 22cfbc6aa833718ee87a28d94b17f8c45a6c05b1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 15:49:36 2021 +0900
+
+    #9 feat: style transfer 랜덤 이미지 url 수정
+
+[33mcommit b40a5fa131ed1e071a44c4d693622c11227b701a[m
+Merge: 36cf7c7 7519f73
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 15:08:42 2021 +0900
+
+    #9 feat: transfer API 완성(리팩토링 필요)
+
+[33mcommit 7519f73d1541b48a13313ddf67adc6ab2956bf6c[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 15:08:14 2021 +0900
+
+    #9 feat: transfer API 완성(리팩토링 필요)
+
+[33mcommit 36cf7c762296aeaeb6c2e23790848536bf36e6be[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 13:45:07 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit fba3ee07fd8fc9b08ec432dcda25bff9e79e78b3[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Tue Dec 7 13:38:52 2021 +0900
+
+    #37 refactor: artist id constant refactoring
+
+[33mcommit f806d08d0066c746df489b684bb1ee1c7c7a5340[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 13:18:19 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 7d66a427d67dac76df3a7f13d62d5c8405cda452[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 12:52:40 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 5ecf9ddab28501460697dab6220c41d3a1851f1c[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 12:50:47 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 4e4b0b2bbe600230e0c47dfd209f1233a7b11d14[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 12:46:15 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit f36b8b9b08fc723bdf9adb6951b1259f59605c63[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 12:39:43 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 1a5a397988403e26dedf0df4465f80c510926916[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 12:14:32 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 0300c63777c1ea6e766fede53f1d1db750014fe4[m
+Merge: 715d139 317ca35
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 11:15:39 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 317ca35f60ab4bb98b318d60292a663d803712ff[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 11:15:02 2021 +0900
+
+    #39 chore:배포환경, 개발환경 dockerfile, docker-compose  분리
+
+[33mcommit 715d1393f878b35b4ef6d2f7dbeadda9fc35da73[m
+Merge: 024c024 e416875
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 11:10:04 2021 +0900
+
+    #9 feat: 이미지 경로 수정, 테스트 완료
+
+[33mcommit e4168754959361cbc897aaeec6b9f3b56b1c61e6[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 11:09:40 2021 +0900
+
+    #9 feat: 이미지 경로 수정, 테스트 완료
+
+[33mcommit 024c0243fd617ef32af05e888aaa7e63fd091852[m
+Merge: 30138ff 5daa852
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 10:41:11 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 30138ffe0b542867413457c15eee7394aa211862[m
+Merge: 45bced3 b082cd3
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 10:40:48 2021 +0900
+
+    #37 fix: 화가 프로필 이미지 url 수정
+
+[33mcommit b082cd3a4d3faaa378e884ad9cb19b63cd5c5564[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 10:40:21 2021 +0900
+
+    #37 fix: 화가 프로필 이미지 url 수정
+
+[33mcommit 5daa85267b3ec7b0f948388a2a58aba845e0cfb7[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Tue Dec 7 01:03:28 2021 +0900
+
+    #30 refactor: artist model desc_detail type 변경
+
+[33mcommit 7a0c020c0e7408ca04bd4777add2d48f64d19d88[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Tue Dec 7 00:59:51 2021 +0900
+
+    #9 refactor: enroll saved value 변경
+
+[33mcommit 45bced3030ef7d646278aec4729d9dcbd996d6ba[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 00:32:39 2021 +0900
+
+    #38 fix: directory 문제 해결
+
+[33mcommit 9c1d6f3c99fabb1415c41e5b976483edaaba7f1c[m
+Merge: c849678 117c448
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 00:25:02 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit c8496783ab69252459498a4abdc9887df2d9cc4e[m
+Merge: 24976a8 3c686d8
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 00:24:46 2021 +0900
+
+    #9 feat: db연동 이미지 CRUD, enroll기능 추가
+
+[33mcommit 3c686d83016ec2abf132cfadbf61b80c22a60378[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Dec 7 00:23:46 2021 +0900
+
+    #9 feat: db연동 추가, enroll기능 추가
+
+[33mcommit 117c44854c0a18c7067d03172c10d776bbd83aa3[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 19:50:02 2021 +0900
+
+    #38 fix: main.py static directory  mount
+
+[33mcommit 65e6d5a01d825bd7a899b9a81c9ff8c81b542845[m
+Merge: efede20 24976a8
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 17:33:31 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit efede2092f71267252f23a5127e6f5a517dac104[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 17:33:21 2021 +0900
+
+    delete dbtest folder
+
+[33mcommit 24976a81b6aa75bf84d8b8da956dbe8893ab554e[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 17:00:36 2021 +0900
+
+    #9 feat: date to datetime
+
+[33mcommit e6ea597e96612b13fee5b87ec307003c5e92d8e1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 15:57:57 2021 +0900
+
+    #9 feat: 이미지 CRUD 로직 추가
+
+[33mcommit 45b99de50d7c6aaa84bae44a846b6f393da44a7e[m
+Merge: b32467b 51bb6a2
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 14:37:39 2021 +0900
+
+    #37 fix: 프로필 이미지 띄어쓰기 버그 수정
+
+[33mcommit 51bb6a2f27460470b6efe613ad071a18eb12c3dd[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 14:37:09 2021 +0900
+
+    #37 fix: 프로필 이미지 띄어쓰기 버그 수정
+
+[33mcommit 9efdf49f0d86dabf709186efee994983d1c5de88[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 14:34:09 2021 +0900
+
+    #9 feat: transfer 업로드 사진 구분 로직 추가
+
+[33mcommit b32467b7d2466b6a35001308039b1ed2594ef6d5[m
+Merge: ecacf93 27f3736
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 14:10:23 2021 +0900
+
+    Merge branch 'feat/#30' into dev
+
+[33mcommit 27f37364d10f1696c90dd23a389836bb03880798[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 14:10:07 2021 +0900
+
+    #30 feat: artist info db 연동 완료
+
+[33mcommit ecacf93c1b5b2a9787f275fed7c5ecc0b08d113e[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 14:01:56 2021 +0900
+
+    #36 feat: migration SQL
+
+[33mcommit fb434c340b6f1f2e36b76d20afae28180afa0ce0[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 13:59:11 2021 +0900
+
+    #36 feat: migration SQL
+
+[33mcommit 77c7b2355b1cc36016242b0fe3046ad76613841c[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 13:49:09 2021 +0900
+
+    #36 migration SQL
+
+[33mcommit 84ad8999af1df05c999f27a12d93649d9828f3c5[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 12:43:38 2021 +0900
+
+    #31 create api interface
+
+[33mcommit 3e63eb9e8aa6abacc64ef1e64168e653fe3a7d26[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 12:36:26 2021 +0900
+
+    #31 artist desc_detail column 추가
+
+[33mcommit 44a8f19e282b2cd1a5896953d3c2e140931bd6a7[m
+Merge: ab000c8 9919f84
+Author: 김기원 <kkw-11@naver.com>
+Date:   Mon Dec 6 12:34:25 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 9919f84428378935762970370ba13c641c680865[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:40:19 2021 +0900
+
+    add origins
+
+[33mcommit f0c102f671e5e8de8b2492074a12c11e51da1fc2[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:38:11 2021 +0900
+
+    add origins
+
+[33mcommit 79daa2e088909900ad2617474a6badbc8e1c1014[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:35:36 2021 +0900
+
+    add origins
+
+[33mcommit eff74a69c9726438ae50e29049052489f7490ef1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:33:31 2021 +0900
+
+    add origins
+
+[33mcommit ba0e3d0e7784950335c3a8319db333d60944637f[m
+Merge: d16bab7 75f1724
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:33:00 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit d16bab71b5febfda2ee70bc6de741a5ce814bfc1[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:32:51 2021 +0900
+
+    add origis
+
+[33mcommit 75f17244ce4fa69686f80498a6dd34d13d045d5d[m
+Merge: 53c15fd 36e2ef3
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Mon Dec 6 02:28:02 2021 +0000
+
+     add origis
+
+[33mcommit 53c15fd82a964158eeec97e10442b605fe0140ed[m
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Mon Dec 6 02:27:03 2021 +0000
+
+     add origis
+
+[33mcommit 36e2ef33bf9f6ceb76f806afebe2c693a4c77fcd[m
+Merge: e3f28d5 fea5a97
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:24:06 2021 +0900
+
+    Merge branch 'feat/#21' into dev
+
+[33mcommit fea5a97578e5c1b749f6187380a4572f04957150[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:23:14 2021 +0900
+
+    #21 feat: style content 주사위 기능 추가
+
+[33mcommit 5f7057927eebf2483e9469d6818b2ac8344aef8d[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:22:42 2021 +0900
+
+    #21 feat: style content 주사위 기능 추가
+
+[33mcommit e3f28d536430b1220696455ecc80bfdf2c9adf43[m
+Merge: e6f219f fededf0
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:10:57 2021 +0900
+
+    #30 feat: artist정보 API 추가
+
+[33mcommit e6f219f2615bedbe32e20ae2576131fb7a2a69f8[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:09:41 2021 +0900
+
+    #30 feat: artist정보 API 추가
+
+[33mcommit cd06244dd460cefb85302098f426aedac3ee0bf3[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:03:53 2021 +0900
+
+    #30 feat: artist정보 API 추가
+
+[33mcommit fededf065a4ddc98bd176fb96afd3e7c5d7fe93e[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 11:00:17 2021 +0900
+
+    #30 feat: artist정보 API 추가
+
+[33mcommit 26c1903018f1298553c0933f3354153de0c930a9[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Dec 6 10:32:14 2021 +0900
+
+    #35 feat: 실제 db연동되도록 수정
+
+[33mcommit 5dbdeb7cc4d6106be310291c166760b29e9039b4[m
+Merge: 6e19710 c535cc2
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sat Dec 4 00:02:11 2021 +0900
+
+    #35 fix: 순서 바꾸기
+
+[33mcommit 6e197106ea06f9f82e39a5872ab917105bb4c620[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Sat Dec 4 00:00:29 2021 +0900
+
+    #35 fix: 순서 바꾸기
+
+[33mcommit c535cc262b00f6622e2f4634766295c98bfb95b5[m
+Merge: 21645e9 65f4fcb
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Fri Dec 3 14:54:01 2021 +0000
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 21645e9468a775d86f3f7b14500a73cf5be0e13c[m
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Fri Dec 3 14:53:53 2021 +0000
+
+    fix
+
+[33mcommit 65f4fcb556c57101a9907e6396df4b4e730294e3[m
+Merge: 1bb3d02 14ad3f3
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 23:52:39 2021 +0900
+
+    #35 fix: starlette Middleware 추가
+
+[33mcommit 14ad3f3c92e67a7a6494e91eeda0b4db3e64ebea[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 23:52:03 2021 +0900
+
+    #35 fix: starllete Middleware 추가
+
+[33mcommit ffb5d999849f001e165aa07627e6408755c20b58[m
+Merge: 530cd0a 1bb3d02
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Fri Dec 3 14:32:28 2021 +0000
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 530cd0ab4d14a335e0f9a1fea80e04da93b98856[m
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Fri Dec 3 14:31:06 2021 +0000
+
+    check endpoint
+
+[33mcommit 1bb3d0211fa4cc1e2d3a1b660ee66144a7229eef[m
+Merge: fe9f1a1 dc7f783
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 23:23:54 2021 +0900
+
+    #35 fix: CORS middleware를 starlette의 CORS로 교체
+
+[33mcommit dc7f783e4afe7308b372b209ded06ae9e22ce584[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 23:20:33 2021 +0900
+
+    #35 fix: CORS middleware를 starlette의 CORS로 교체
+
+[33mcommit 49d3f776256bbd9cc081d77f4e2090100ef7724e[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 23:12:55 2021 +0900
+
+    #30 feat: all artist info
+
+[33mcommit fe9f1a1e2e41cabb5a3e8e4c6fad978315e20075[m
+Merge: 7526a4b c7941dc
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 19:58:12 2021 +0900
+
+    #30 feat: create table scripts
+
+[33mcommit c7941dc0e63fce5e4455a7ecf319f6206dc210ae[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 19:57:27 2021 +0900
+
+    #30 feat: create table scripts
+
+[33mcommit ab000c8f895b29716340e48de21ef5c884d5ed76[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 18:07:54 2021 +0900
+
+    [#31] create api
+
+[33mcommit 7526a4b607cc364ce89cf41ad16921ae4c862950[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 16:34:04 2021 +0900
+
+    #3 feat: add scripts
+
+[33mcommit 0ea0102b3e7d5b8a8df64e29811ed781420ca6c5[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 16:15:47 2021 +0900
+
+    #3 feat: change port
+
+[33mcommit b7ca7db54cb11649bfa899e9a42ba4a99077ef7f[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 16:10:43 2021 +0900
+
+    delete profile
+
+[33mcommit ccd03fa10627a224172e4306adb24ac86bdb2269[m
+Merge: 10cdee4 4d67e57
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 16:08:56 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 10cdee48d79051960a110a15f1fb60a035661ace[m
+Merge: 62ca8e0 bcf4d1e
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 16:07:11 2021 +0900
+
+    Merge branch 'feat/#3' into dev
+
+[33mcommit bcf4d1e0acbc09ecba17ea3f9f34bf278d1480c4[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 16:06:51 2021 +0900
+
+    #3 feat: mysql docker-compose 추가
+
+[33mcommit 4d67e57b293160d6356ae71f65da82e57b449cbb[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 15:54:38 2021 +0900
+
+    [#34] chore: static img 삭제
+
+[33mcommit ea1cf5d55b9083e6c263612e2946d5ae51cbb719[m
+Merge: 1c1e837 f3c9531
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 15:28:59 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 1c1e8370160372d9ccf92c259eed79e4de78d836[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 15:28:39 2021 +0900
+
+    [#27] db_load2.py Data insert 자동화, migration sql
+
+[33mcommit f3c9531be148624f8c1c6428a2d4e4556269f591[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 15:24:35 2021 +0900
+
+    [#27] db_load2.py Data insert 자동화, migration sql
+
+[33mcommit b97301c613a8c7fc880c04185737071c502c96ae[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 15:21:15 2021 +0900
+
+    [#27] fix: sql insert data add
+
+[33mcommit 62ca8e0d9d92bc66f398de9edf4c18824ff755d3[m
+Merge: dfe96a9 29a8807
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 14:54:55 2021 +0900
+
+    #33 style: api docs 문서 작업
+
+[33mcommit 29a88073b07f955c5064503165ebf35ac8cc46ca[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 14:54:23 2021 +0900
+
+    #33 style: api docs 문서 작업
+
+[33mcommit dfe96a948aa5fbfc2e49e039a892d21b7651423e[m
+Merge: 4622497 ac57e76
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 13:17:44 2021 +0900
+
+    resolve gallery endpoint conflict
+
+[33mcommit 46224979778d1d0653a79400c9509096c66bb44a[m
+Merge: 250a529 227df20
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 13:08:50 2021 +0900
+
+    Merge branch 'feat/#32' into dev
+
+[33mcommit 227df20bb2835c3274fbc36446dba20a90dfa8c7[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Dec 3 13:08:28 2021 +0900
+
+    #32 feat: 기간, 다운로드 정렬 기능 추가
+
+[33mcommit ac57e7611b36a4b1fc378ec30fe6fa71081f4c2c[m
+Merge: 6c88817 8d07850
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 11:45:01 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 6c88817d8aecce2d3659cf6a649156ed66382d65[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 11:40:58 2021 +0900
+
+    [#31] feat: create result image api
+
+[33mcommit 8d078508eedfe85fdbd0af5b8093abf351a2ec60[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Fri Dec 3 11:40:58 2021 +0900
+
+    #31 feat: create result image api
+
+[33mcommit 250a52970b4ab38907341a2f9e2da6f5476d98b5[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 2 11:23:40 2021 +0900
+
+    #29 fix: download기능 image url, download return하도록 수정
+
+[33mcommit 5bc2044c88b897da36491b5c5b060295acb96211[m
+Merge: 301501f c08f196
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 2 11:13:22 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 301501f7398844ea35418baadcc00235e25079b2[m
+Merge: 09cf67d e1b3aeb
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 2 11:12:49 2021 +0900
+
+    #29 fix: download기능 image url, download return하도록 수정
+
+[33mcommit e1b3aeb293b5f39b9fe814d677f0fe53003b5d07[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Dec 2 11:12:11 2021 +0900
+
+    #29 fix: download기능 image url, download return하도록 수정
+
+[33mcommit c08f196592200bcc054b2f2fbdcb0e3e5a64a4fa[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Thu Dec 2 00:27:24 2021 +0900
+
+    #27 painting model 오타수정
+
+[33mcommit 09cf67d48cf76eb77f95b4d6a20f91b0513da376[m
+Merge: 9667adf fb09834
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 17:25:20 2021 +0900
+
+    Merge branch 'fix/#28' into dev
+
+[33mcommit fb09834118241e78bb173e48067193e2f5c9ce67[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 17:24:46 2021 +0900
+
+    #28 fix: invalid response model schema error fix
+
+[33mcommit 9667adfaa40dbdd31dc57082185f485306ff3ca1[m
+Merge: 1466631 6a01075
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:57:24 2021 +0900
+
+    fix file upload error
+
+[33mcommit 6a010751d73632fa4ade41817854f4132bd250ec[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:57:04 2021 +0900
+
+    #28 fix: 422 Error Unprocessable Entity 수정
+
+[33mcommit 146663120c2737378fbb16a3e810002ebce12e64[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:28:41 2021 +0900
+
+    resolve conflict
+
+[33mcommit 1b81d46157924de9d882dd0f967c50c586d0185e[m
+Merge: 34ad502 d4e343a
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:25:58 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 34ad50287d9b11079c17e233d3b2f91ea249ffc6[m
+Merge: 0332a47 102e95b
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:25:20 2021 +0900
+
+    Merge branch 'fix/#28' into dev
+
+[33mcommit 102e95b02e4eb5df6b4a2a5b1b3dd7a4473d6fd0[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:23:54 2021 +0900
+
+    remove response model of gallery
+
+[33mcommit d4e343ac5b0238be7bcae10240b63a0b375f7d7e[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 16:16:57 2021 +0900
+
+    \#27 fix: sql add
+
+[33mcommit 9f13b2e002ebe51f02e9be3cd0abb39be5dba8d2[m
+Merge: afcbadc 8a67a43
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 16:12:11 2021 +0900
+
+    Merge branch 'fix/#27' into dev
+
+[33mcommit afcbadc2ce125440e4a26afeece276271dd85706[m
+Merge: 1d30a08 0332a47
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 16:11:30 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 8a67a439c96ceb42094b2df314c0cae790818892[m[33m ([m[1;32mfix/#27[m[33m)[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 16:10:46 2021 +0900
+
+    \#27 fix: transfer.py relation 변경
+
+[33mcommit 0332a47f02899ff72690f7dccc6f93577eedb6de[m
+Merge: ba7a9e3 d9b0135
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:05:09 2021 +0900
+
+    #26 feat: api docs를 위한 request, response model 추가
+
+[33mcommit d9b0135ede9127c97655d01ee69a0cae62533e93[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:03:30 2021 +0900
+
+    #26 feat: add request, response model
+
+[33mcommit 4ba4adc42bb2aa9b822c09d0480fd6f17459753b[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 16:02:14 2021 +0900
+
+    #26 feat: add gallery response model
+
+[33mcommit e9f2081571158f0589f1b7c00ad4ae1c08144c74[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:50:28 2021 +0900
+
+    \#27 fix: transfer_painting transfer.py 모듈명 변경
+
+[33mcommit 4bc07de66df62636f4e6b179bd0c25965e59d0f2[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:48:43 2021 +0900
+
+    #26 feat: add paintinge schema
+
+[33mcommit a06eeae1d982cef1e35785d351082dd369796b5c[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:47:18 2021 +0900
+
+    \#27 fix: artwork.py 삭제, patingtype으로 구분
+
+[33mcommit a20eea888a0d3e15416014cf5550beeb54555bbe[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:46:31 2021 +0900
+
+    \#27 fix: painting.py down_cnt 컬럼 추가
+
+[33mcommit 8a4854b5927e91699360b139d5ad0f6c53d1828a[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:45:19 2021 +0900
+
+    #26 feat: add style schema
+
+[33mcommit 77138e13152e5768939e1c5fa4f8fd08e0e993d0[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:44:29 2021 +0900
+
+    #26 feat: add transfer schema
+
+[33mcommit afa427b1f26c255e0f9c76a163b2faa1862b8430[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:44:21 2021 +0900
+
+    \#27 fix: painting.py painting_type으로 그림 구분 컬럼추가
+
+[33mcommit 4a5476f0a8c48180ef275f94ec8882abcc1c7f54[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:40:35 2021 +0900
+
+    \#27 fix: analyze.py style.py 모듈명 변경
+
+[33mcommit a9faba658029127474b8b1dac4d5cfbef2a0077a[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:38:47 2021 +0900
+
+    #26 feat: add style schema
+
+[33mcommit 1d30a08fb699014c269495ef80573fa417811291[m
+Merge: 0690b8e ba7a9e3
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:23:07 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 81849fe7367627ed78052434f66b8a2d407ea2b0[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:30:07 2021 +0900
+
+    #26 feat: add style schema
+
+[33mcommit 0690b8ec7d67c7a02a07177fd5c4f415eb3e50d0[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Wed Dec 1 15:20:04 2021 +0900
+
+    \#4 models mapping 변경
+
+[33mcommit 4c34b41bea60ed9a026bcd5d3aba6e65fbaed4c6[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:18:53 2021 +0900
+
+    #26 feat: add style schema
+
+[33mcommit 76aa08dcac70bc8365fceae39342a4c0776d0ca4[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 15:17:29 2021 +0900
+
+    #26 feat: add style schema
+
+[33mcommit ba7a9e3cc2629efc3b279a19bdd66796ac3ad8af[m
+Merge: 4701ae3 748265d
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 14:18:26 2021 +0900
+
+    #25 fix: api/docs 에러 해결
+
+[33mcommit 748265d8ad40f55cabe4dc684f7dd5706df0b786[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 14:16:34 2021 +0900
+
+    #25 fix: register 타입 힌팅 수정
+
+[33mcommit 4701ae3ccac166e0516312fa934416af01f31898[m
+Merge: c884003 9a02419
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 13:44:48 2021 +0900
+
+    #23 feat: stlye post 요청 시 응답에 painting_id 추가
+
+[33mcommit 9a02419b27b7b52b7c9bd88eba4ca26831003c5f[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 13:43:23 2021 +0900
+
+    #23 feat: stlye post요청 응답에 painting_id 추가
+
+[33mcommit c88400369418d80fbba33b993577d95b2cf5437a[m
+Merge: c097c4f 1dd0c51
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 13:29:09 2021 +0900
+
+    #22 feat: gallery api 페이지네이션 추가
+
+[33mcommit 1dd0c51309c6fdc707a0899aa61f5f3fbb73ba86[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 13:28:29 2021 +0900
+
+    #22 feat: gallery api 페이지네이션 추가
+
+[33mcommit c097c4f4e5921efe06c1525d49701985b8025b37[m
+Merge: a53face 58e268e
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 11:17:36 2021 +0900
+
+    Merge branch 'feat/#21' into dev
+
+[33mcommit 58e268eb7ede746252cab94ca40c835f794f6128[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 11:17:18 2021 +0900
+
+    content limit만 구현
+
+[33mcommit a53face43196f684e3c5a8aea4f4cc01599056f6[m
+Merge: 396d8ee 5f6f94c
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 11:12:53 2021 +0900
+
+    Merge branch 'feat/#21' into dev
+
+[33mcommit 5f6f94cb105193ad59172a8b45e8d69f1d574026[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Dec 1 11:11:33 2021 +0900
+
+    #21 feat: limit만 구현
+
+[33mcommit 396d8ee27d9d3d6ff4fd1de326b08bbd8b1bd156[m
+Merge: 9d8a3af 11bfcfe
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 16:14:53 2021 +0900
+
+    #18 feat: add gallery api interface
+
+[33mcommit 11bfcfe1c5489253c5f038f546a9a9c4c54267c9[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 16:14:40 2021 +0900
+
+    #18 feat: add gallery endpoint interface
+
+[33mcommit 9d8a3af0a7f31230bcf9c942871b516c2cdc7d0a[m
+Merge: da851ac 2f89648
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 16:09:28 2021 +0900
+
+    #18 feat: add gallery api interface
+
+[33mcommit 2f8964898936d1a040834cd99d441913100bcb84[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 16:08:27 2021 +0900
+
+    #18 feat: add gallery endpoint interface
+
+[33mcommit 75e148873cea871709413219efd73c5a74bb00ba[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 15:45:22 2021 +0900
+
+    #18 feat: gallery endpoint 추가
+
+[33mcommit da851acdbd6825381c0ba90767f3af16d71c85c4[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 13:34:12 2021 +0900
+
+    resolve conflict
+
+[33mcommit 8a1f631f29e33a00368a164b93f6964c4a0b9fba[m
+Author: 김기원 <kkw-11@naver.com>
+Date:   Tue Nov 30 13:03:20 2021 +0900
+
+    [#4] feat: SQL file 업로드
+
+[33mcommit 3b23d0b4606315b7863efc191fe858ff1307b2c8[m
+Merge: 03cd791 53e5e2e
+Author: 김기원 <kkw-11@naver.com>
+Date:   Tue Nov 30 13:00:48 2021 +0900
+
+    [#4] feat: regiter router dbtest, ORM mapping
+
+[33mcommit 53e5e2e96146f19cf25cd454a209e08c4d9a838d[m[33m ([m[1;31morigin/feat/#4[m[33m, [m[1;32mfeat/#4[m[33m)[m
+Author: asus <kkw-11@naver.com>
+Date:   Tue Nov 30 12:43:47 2021 +0900
+
+    [#4] feat: regiter router dbtest, ORM mapping
+
+[33mcommit c1599b36a93f9d371e825bd6e705b730e4412da8[m[33m ([m[1;32mdbtest[m[33m)[m
+Author: asus <kkw-11@naver.com>
+Date:   Tue Nov 30 12:40:47 2021 +0900
+
+    [#4] feat: register router db test, ORM mapping
+
+[33mcommit 03cd791b937dd1c4d06e30cd307efdebf0d1fca8[m
+Merge: eecf3c1 0c45ede
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 11:07:45 2021 +0900
+
+    #9 fix: 컨테이너 볼륨 bind mount, docker-compose 도입
+
+[33mcommit 0c45ede0899088194c11d81a41c17c27b5016263[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 30 11:07:06 2021 +0900
+
+    #9 fix: 컨테이너 볼륨 bind mount, docker-compose 도입
+
+[33mcommit 952c761a23ad9f2ed377a6bbbac43f42d58c68a0[m
+Merge: eecf3c1 7d95ef2
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 19:01:27 2021 +0900
+
+    #9 fix: resolve requirements conflict
+
+[33mcommit eecf3c1715b5825ccca4883163b3bdb55b801a82[m
+Merge: a7fc7c8 64b77bc
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 18:58:02 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 64b77bcbe03bef17de3afe6da1115f8bdde12149[m
+Author: [2기-1반]송성곤 <ark5354@gmail.com>
+Date:   Mon Nov 29 08:38:59 2021 +0000
+
+    #17 fix: requirements에 python-multipart 추가
+
+[33mcommit 46623dabe8424f225552975904a9b8fc6f2caa9b[m
+Author: [2기-1반]송성곤 <ark5354@gmail.com>
+Date:   Mon Nov 29 08:11:13 2021 +0000
+
+    #17 fix: return 오타 수정
+
+[33mcommit 7d95ef2850d048fb6f23ff1a01913ac1e24c3fae[m[33m ([m[1;31morigin/fix/#9[m[33m)[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 16:33:54 2021 +0900
+
+    #9 fix: python-multipart 패키지 추가설치
+
+[33mcommit 19b33efe3ede54ab6e0fd93bd08c2d2dca4783bf[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 16:10:03 2021 +0900
+
+    #9 feat: 요청 시 저장된 원본이미지와 전이된 이미지 경로 반환
+
+[33mcommit 29f0cc0986cc7c879f59730335f4edca47484f05[m
+Merge: 4fed927 76ddd3a
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 16:03:15 2021 +0900
+
+    #9 feat: 요청 시 저장된 원본이미지와 전이된 이미지 경로 반환
+
+[33mcommit 76ddd3a86f1d25380a3572215b6af724f20a3939[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 16:02:52 2021 +0900
+
+    #9 feat: 요청 시 저장된 원본이미지와 전이된 이미지 경로 반환
+
+[33mcommit 4fed9272bb5e138c6326e3fa8c77c29e6bbf0247[m
+Merge: 05ee48c f48f392
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 15:47:21 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit 05ee48cbaf7eec9e20e9407bf97c7dd67d7ec6f0[m
+Merge: a3bb539 f2b930f
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 15:46:23 2021 +0900
+
+    resolve conflict
+
+[33mcommit f2b930fd4e0729aa1b68870534a2cb81981b9325[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 15:41:28 2021 +0900
+
+    #9 feat: 요청 시 저장된 원본이미지와 전이된 이미지 경로 반환
+
+[33mcommit f48f3922dafd4b83716d2d92da2dd24f24666090[m
+Merge: db0179f a3bb539
+Author: asus <kkw-11@naver.com>
+Date:   Mon Nov 29 14:32:53 2021 +0900
+
+    Merge branch 'dev' of https://kdt-gitlab.elice.io/002-part3-cnn/team1/server into dev
+
+[33mcommit db0179fc38eb0a14ac520ffc7be2f1cab3586ca2[m
+Author: asus <kkw-11@naver.com>
+Date:   Mon Nov 29 14:32:08 2021 +0900
+
+    test
+
+[33mcommit 2a17dc5d46a5a6414905325f40a096bee6c44b7e[m
+Author: asus <kkw-11@naver.com>
+Date:   Mon Nov 29 14:31:24 2021 +0900
+
+    test
+
+[33mcommit a3bb539fb23532944c1c9d6502a2eb9df4640836[m
+Merge: 508d2bf c98aff8
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 11:15:07 2021 +0900
+
+    Merge branch 'fix/#15' into dev
+
+[33mcommit c98aff89993a333b7a390ec1817cdeefd0bbe769[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 11:14:21 2021 +0900
+
+    #17 fix: 리턴에 image_url 추가
+
+[33mcommit 69694e5749ff558fa9d5b7b1b605d7252b2c2fba[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 29 11:11:16 2021 +0900
+
+    add transfer endpoint to app
+
+[33mcommit 53eac67cad6ff07b2f4ba419483da156717f740a[m
+Author: asus <kkw-11@naver.com>
+Date:   Mon Nov 29 10:57:01 2021 +0900
+
+    git test
+
+[33mcommit 508d2bfe8467a7101d8bfe5b4e20f38288b123e7[m
+Merge: e2927a4 eb5f11c
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Nov 26 13:07:09 2021 +0900
+
+    Merge branch 'fix/#15' into dev
+
+[33mcommit eb5f11c48438050c4f73ae904e547378cd12f580[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Nov 26 13:05:59 2021 +0900
+
+    15 fix: top 5, 소수점 처리
+
+[33mcommit 862257541327d574c2b8f1e8d9062465950aba05[m[33m ([m[1;31morigin/feat/#9[m[33m)[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Thu Nov 25 10:10:45 2021 +0900
+
+    add transfer weights
+
+[33mcommit 2c990b59ea0c0abb41c03b2ed12a28fa73a32d53[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Nov 24 20:51:39 2021 +0900
+
+    add user model
+
+[33mcommit 84d076a18e044ddfd4e21457d74cbc4db18547ff[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Wed Nov 24 17:05:55 2021 +0900
+
+    create user table
+
+[33mcommit a7fc7c876da671d249f17cf64a68191eb266fc73[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: [2기-1반]송성곤 <ark5354@gmail.com>
+Date:   Tue Nov 23 07:22:12 2021 +0000
+
+    gitlab template
+
+[33mcommit e2927a40e3aad6284c73f5e21436359673a7aed2[m
+Author: [2기-1반]송성곤 <ark5354@gmail.com>
+Date:   Tue Nov 23 06:05:47 2021 +0000
+
+    #12 chore: Dockerfile 수정, CORS 추가
+
+[33mcommit 4871719f8bd516afbd863266aaa7f93890cfff46[m
+Merge: e700c35 fbde959
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 23 14:59:05 2021 +0900
+
+    Merge branch 'chore/#12' into dev
+
+[33mcommit fbde959ae93fdc2dccb3ccbce3165ea543baf60f[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 23 14:57:20 2021 +0900
+
+    #12 chore: Dockerfile 수정, CORS 추가
+
+[33mcommit e700c35b66e0cffd705e4ca6ba0180dadd58d5d3[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 23 09:46:11 2021 +0900
+
+    #11 docs:edit README
+
+[33mcommit 4bec99917d3a10e64da25861e0709cc2c22b7ede[m
+Merge: 70f74d7 e72bedf
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 23 00:59:17 2021 +0900
+
+    Merge branch 'feat#7' into dev
+
+[33mcommit e72bedf0bf5113be68f882e711ea0799044592aa[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Tue Nov 23 00:58:32 2021 +0900
+
+    #7 feat: style classify
+
+[33mcommit 70f74d7751eb5cc8ef78c4a86249e927b1bf1bb4[m
+Merge: 143696f ed6d4fc
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 22 23:09:41 2021 +0900
+
+    Merge branch 'feat#10' into dev
+
+[33mcommit ed6d4fc9352f5e72278517227aeffb09d5d6ed1c[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 22 23:07:08 2021 +0900
+
+    #10feat: add Dockerfile
+
+[33mcommit 143696f39e78b52c40397ae0f2951e4d9746ad96[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 22 18:44:44 2021 +0900
+
+    test precommit
+
+[33mcommit 297151e7433fa10a0af1953a01c5d394f433480c[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Mon Nov 22 18:35:43 2021 +0900
+
+    #8 style : isort,black,flake8
+
+[33mcommit 4a473fbcd8ff1b416fe00e6bf0015d50714ad43c[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Nov 19 18:59:17 2021 +0900
+
+    initial structure
+
+[33mcommit e427d664cefe2601daf8e9d307f40c3179ae6d78[m
+Author: gon2gon2 <ark5354@gmail.com>
+Date:   Fri Nov 19 13:04:46 2021 +0900
+
+    add gitignore
+
+[33mcommit 7f0d811929252e10afa1ef5ceb5dc6f87242f543[m
+Author: Ubuntu <team1@elice-kdt-2nd-team1.b5tbrikz1kze1f3rtyelhmvscc.syx.internal.cloudapp.net>
+Date:   Thu Nov 18 00:57:00 2021 +0000
+
+    Initial commit
