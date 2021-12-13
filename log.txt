@@ -1,0 +1,45 @@
+shutdown start
+Removing network server_default
+Network server_default not found.
+shutdown finish
+run server start
+Building api
+Step 1/9 : FROM nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
+11.2.2-cudnn8-runtime-ubuntu20.04: Pulling from nvidia/cuda
+Digest: sha256:905b96129a3d941a21f581e0364919d7eecdb7356eb1cd917c78d2bcef92caeb
+Status: Downloaded newer image for nvidia/cuda:11.2.2-cudnn8-runtime-ubuntu20.04
+ ---> e7572391fbf1
+Step 2/9 : WORKDIR /code
+ ---> Using cache
+ ---> 5bc1bc1f4f02
+Step 3/9 : COPY ./requirements.txt /code/requirements.txt
+ ---> Using cache
+ ---> 83839bd3f3bf
+Step 4/9 : RUN apt-get update
+ ---> Using cache
+ ---> 8088513f7ee0
+Step 5/9 : RUN apt-get install python3-dev default-libmysqlclient-dev build-essential -y
+ ---> Using cache
+ ---> 1d45f553d44f
+Step 6/9 : RUN apt-get install python3-pip -y
+ ---> Using cache
+ ---> 627062a77331
+Step 7/9 : RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
+ ---> Using cache
+ ---> c6b918ff1e32
+Step 8/9 : COPY . /code/app
+ ---> Using cache
+ ---> 10cf94e61c8a
+Step 9/9 : CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+ ---> Using cache
+ ---> 23b713beacec
+
+Successfully built 23b713beacec
+Successfully tagged server_api:latest
+Creating server_api_1_1ae687bd954f ... 
+[1A[2KCreating server_api_1_1ae687bd954f ... [31merror[0m[1B
+ERROR: for server_api_1_1ae687bd954f  Cannot start service api: driver failed programming external connectivity on endpoint server_api_1_26988196daac (3b3c8cabe5b3c08e529893aa83357964b410c2fbb5947c82e559572ad1ab54c0): Bind for 0.0.0.0:5000 failed: port is already allocated
+
+ERROR: for api  Cannot start service api: driver failed programming external connectivity on endpoint server_api_1_26988196daac (3b3c8cabe5b3c08e529893aa83357964b410c2fbb5947c82e559572ad1ab54c0): Bind for 0.0.0.0:5000 failed: port is already allocated
+Encountered errors while bringing up the project.
+run server finish
