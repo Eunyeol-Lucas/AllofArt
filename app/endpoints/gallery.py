@@ -143,7 +143,7 @@ def download_image(painting_id: int):
             db.query(painting.Painting)
             .filter(
                 (painting.Painting.id == painting_id)
-                & (painting.Painting.painting_type == 100)
+                & (painting.Painting.painting_type == TRASFER_IMG)
             )
             .one_or_none()
         )
