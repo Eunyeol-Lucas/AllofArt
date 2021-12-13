@@ -1,6 +1,6 @@
 # from cv2 import imread, imencode
 from io import BytesIO
-
+import gc
 import tensorflow as tf
 import tensorflow_hub as hub
 
@@ -29,6 +29,12 @@ def save_transfer_image(
         outputs = outputs[0][0].numpy()
 
         tf.keras.utils.save_img(save_path, outputs)
+
+        del hub_module
+        del content_image
+        del style_image
+
+        gc.collect()
         return {
             "status": "successed",
             "image_path": {
