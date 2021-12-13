@@ -24,14 +24,6 @@ tags_metadata = [
         "description": "artist 인포 페이지 API(개발 예정)",
     },
     {
-        "name": "users",
-        "description": "(삭제 예정)",
-    },
-    {
-        "name": "register",
-        "description": "CRUD test 중(삭제 예정)",
-    },
-    {
         "name": "check",
         "description": "front test(삭제예정)",
     },
