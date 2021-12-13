@@ -2,6 +2,7 @@
 import numpy as np
 from PIL import Image, ImageOps
 from tensorflow.keras.models import load_model
+import tensorflow as tf
 
 from app.ai.style_cls.labels import label_list
 
@@ -36,4 +37,6 @@ def classify_style(image: Image, extension: str) -> dict:
     probabilities = (model.predict(data)[0] * 100).tolist()
 
     result = {painter: prob for painter, prob in zip(label_list, probabilities)}
+    tf.keras.backend.clear_session()
+
     return result
