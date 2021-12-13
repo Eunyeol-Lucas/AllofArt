@@ -7,4 +7,10 @@ docker rm -f api5 &
 docker rm -f api6 &
 docker rm -f api7 & 
 docker rm -f api8 &
-docker rm -f api9
+docker rm -f api9 &
+docker rm -f api10 &
+docker rm -f api11 &
+docker rm -f api12 &
+docker rm -f api13 
+
+
