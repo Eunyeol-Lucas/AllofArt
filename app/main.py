@@ -21,7 +21,7 @@ tags_metadata = [
     },
     {
         "name": "artist",
-        "description": "artist 인포 페이지 API(개발 예정)",
+        "description": "artist 인포 페이지 API",
     },
     {
         "name": "check",
