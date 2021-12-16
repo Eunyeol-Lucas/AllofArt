@@ -4,4 +4,4 @@ router = APIRouter()
 
 @router.get("/")
 def check():
-    return "test"
+    return "server test success"
