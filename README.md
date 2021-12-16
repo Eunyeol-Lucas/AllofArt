@@ -9,12 +9,12 @@
 ├─endpoints : 실제 api가 구현된 곳, crud와 ai의 로직들을 조합한 엔드포인트
 ├─models : SQLalchemy ORM model
 ├─schemas : fastAPI에서 사용하는 타입체크 class들
-└─tests
+└─tests : test code 작성 디렉토리
 ```
 
 ## How to use
 ### Docker
 ```
 docker build -t api .
-docker run -d -p 8000:5000 --name backend api:latest
+docker run -d -p 5000:5000 --name backend api:latest
 ```
