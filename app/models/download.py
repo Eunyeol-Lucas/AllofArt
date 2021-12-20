@@ -1,5 +1,5 @@
-from ..database import Base
-from . import Boolean, Column, DateTime, Integer, String
+from app.database import Base
+from app.models import Boolean, Column, DateTime, Integer, String
 
 
 class Download(Base):

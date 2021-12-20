@@ -7,8 +7,7 @@ from app.models.artist import Artist
 from app.models.painting import Painting
 
 from app.database import Base
-from . import Boolean, Column, ForeignKey, Integer, String, relationship
-from .painting import Painting
+from app.models import Boolean, Column, ForeignKey, Integer, String, relationship
 
 
 class Transfer(Base):

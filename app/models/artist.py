@@ -4,7 +4,7 @@ from typing import Text
 from sqlalchemy.sql.sqltypes import DATETIME
 
 from app.database import Base
-from . import Boolean, Column, ForeignKey, Integer, String, relationship, Text
+from app.models import Boolean, Column, ForeignKey, Integer, String, relationship, Text
 
 
 class Artist(Base):

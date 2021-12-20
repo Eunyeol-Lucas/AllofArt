@@ -1,5 +1,5 @@
 from app.database import Base
-from . import Boolean, Column, Integer, String
+from app.models import Boolean, Column, Integer, String
 
 
 class Painting(Base):
