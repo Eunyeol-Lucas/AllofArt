@@ -6,7 +6,7 @@ from sqlalchemy.sql.sqltypes import DATETIME, Float
 from app.models.artist import Artist
 from app.models.painting import Painting
 
-from ..database import Base
+from app.database import Base
 from . import Boolean, Column, ForeignKey, Integer, String, relationship
 from .painting import Painting
 

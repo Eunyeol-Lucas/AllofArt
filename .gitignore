@@ -5,3 +5,4 @@ __pycache__
 alembic*
 *.env
 app/config.py
+config.py

@@ -1,4 +1,4 @@
-from ..database import Base
+from app.database import Base
 from . import Boolean, Column, Integer, String
 
 

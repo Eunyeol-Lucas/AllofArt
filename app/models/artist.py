@@ -3,7 +3,7 @@ from typing import Text
 
 from sqlalchemy.sql.sqltypes import DATETIME
 
-from ..database import Base
+from app.database import Base
 from . import Boolean, Column, ForeignKey, Integer, String, relationship, Text
 
 
