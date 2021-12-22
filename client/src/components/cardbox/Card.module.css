@@ -1,0 +1,38 @@
+.wrapper {
+  width: 50vh;
+  padding-left: 5vh;
+  padding-right: 5vh;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+.wrapper:hover {
+  cursor: pointer;
+}
+
+.front,
+.back {
+  border-radius: 5vh;
+  width: 40vh;
+  height: 60vh;
+
+  overflow: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  transition: transform 0.6s linear;
+  padding-top: 42vh;
+}
+
+.front {
+  transform: perspective(600px) rotateY(0deg);
+}
+
+.back {
+  transform: perspective(600px) rotateY(-180deg);
+}
+
+.card.rotated > .front {
+  transform: perspective(600px) rotateY(180deg);
+}
+.card.rotated > .back {
+  transform: perspective(600px) rotateY(0deg);
+}

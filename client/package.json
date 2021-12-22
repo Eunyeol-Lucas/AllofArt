@@ -1,0 +1,48 @@
+{
+  "name": "client",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest"
+  },
+  "proxy": "http://elice-kdt-2nd-team1.koreacentral.cloudapp.azure.com/",
+  "dependencies": {
+    "@artsy/fresnel": "^3.1.0",
+    "@lottiefiles/react-lottie-player": "^3.4.1",
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@moxy/next-router-scroll": "^2.2.0",
+    "animate.css": "^4.1.1",
+    "axios": "^0.24.0",
+    "babel-plugin-styled-components": "^2.0.1",
+    "file-saver": "^2.0.5",
+    "next": "12.0.4",
+    "npm": "^8.3.0",
+    "prop-types": "^15.7.2",
+    "react": "17.0.2",
+    "react-compare-image": "^3.1.0",
+    "react-countup": "^6.1.0",
+    "react-dom": "17.0.2",
+    "react-dropzone": "^11.4.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
+    "eslint": "^8.4.1",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-next": "12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^27.4.0",
+    "prettier": "^2.4.1"
+  }
+}

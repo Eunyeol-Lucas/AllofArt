@@ -1,8 +1,0 @@
-*.pyc
-venv
-venv*
-__pycache__
-alembic*
-*.env
-app/config.py
-config.py
